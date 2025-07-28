@@ -33,7 +33,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold">Email</h4>
-                  <p className="text-muted-foreground">snowden.yves@gmail.com</p>
+                  <p className="text-muted-foreground">snowdenyves@gmail.com</p>
                 </div>
               </div>
 
@@ -65,19 +65,19 @@ const Contact = () => {
               <CardTitle>Envoyez-moi un message</CardTitle>
             </CardHeader>
             <CardContent>
-              <form className="space-y-6">
+              <form action="https://formsubmit.co/snowdenyves@gmail.com" method="POST" className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="text-sm font-medium mb-2 block">
                       Nom
                     </label>
-                    <Input id="name" placeholder="Votre nom" />
+                    <Input id="name" name="name" placeholder="Votre nom" required />
                   </div>
                   <div>
                     <label htmlFor="email" className="text-sm font-medium mb-2 block">
                       Email
                     </label>
-                    <Input id="email" type="email" placeholder="votre@email.com" />
+                    <Input id="email" name="email" type="email" placeholder="votre@email.com" required />
                   </div>
                 </div>
                 
@@ -85,7 +85,7 @@ const Contact = () => {
                   <label htmlFor="subject" className="text-sm font-medium mb-2 block">
                     Sujet
                   </label>
-                  <Input id="subject" placeholder="Sujet de votre message" />
+                  <Input id="subject" name="subject" placeholder="Sujet de votre message" required />
                 </div>
 
                 <div>
@@ -94,12 +94,16 @@ const Contact = () => {
                   </label>
                   <Textarea 
                     id="message" 
+                    name="message"
                     placeholder="Décrivez votre projet ou votre demande..."
                     rows={6}
+                    required
                   />
+                  <input type="hidden" name="_next" value={window.location.href} />
+                  <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio" />
                 </div>
 
-                <Button className="w-full" size="lg">
+                <Button type="submit" className="w-full" size="lg">
                   <Send className="mr-2" size={20} />
                   Envoyer le message
                 </Button>

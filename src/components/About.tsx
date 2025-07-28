@@ -9,7 +9,13 @@ const About = () => {
     "HTML, CSS, JavaScript, Python",
     "Organisation et planification",
     "Leadership",
-    "Coaching"
+    "Coaching",
+    "Design graphique",
+    "Montage vidéo",
+    "Canva",
+    "Adobe Illustrator",
+    "Adobe Photoshop",
+    "Adobe Premiere Pro"
   ];
 
   const certifications = [

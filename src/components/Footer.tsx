@@ -12,13 +12,13 @@ const Footer = () => {
               la digitalisation des entreprises agricoles et des PME.
             </p>
             <div className="flex gap-4">
-              <a href="#" className="text-background/80 hover:text-background transition-colors">
+              <a href="https://github.com/yvesdsr" target="_blank" rel="noopener noreferrer" className="text-background/80 hover:text-background transition-colors">
                 <Github size={20} />
               </a>
-              <a href="#" className="text-background/80 hover:text-background transition-colors">
+              <a href="https://www.linkedin.com/in/yves-desire-goabi-357ba5353" target="_blank" rel="noopener noreferrer" className="text-background/80 hover:text-background transition-colors">
                 <Linkedin size={20} />
               </a>
-              <a href="mailto:snowden.yves@gmail.com" className="text-background/80 hover:text-background transition-colors">
+              <a href="mailto:snowdenyves@gmail.com" className="text-background/80 hover:text-background transition-colors">
                 <Mail size={20} />
               </a>
             </div>
@@ -40,7 +40,8 @@ const Footer = () => {
               <li>Développement Web</li>
               <li>Gestion de Projets</li>
               <li>Agriculture Digitale</li>
-              <li>Solutions Coopératives</li>
+              <li>Design Graphique</li>
+              <li>Montage Vidéo</li>
             </ul>
           </div>
         </div>

@@ -37,11 +37,21 @@ const Header = () => {
               </div>
             </div>
             <div className="flex gap-4 justify-center lg:justify-start">
-              <Button variant="outline" size="lg" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+                onClick={() => window.open('https://github.com/yvesdsr', '_blank')}
+              >
                 <Github className="mr-2" size={20} />
                 GitHub
               </Button>
-              <Button variant="outline" size="lg" className="bg-white/10 border-white/20 text-white hover:bg-white/20">
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+                onClick={() => window.open('https://www.linkedin.com/in/yves-desire-goabi-357ba5353', '_blank')}
+              >
                 <Linkedin className="mr-2" size={20} />
                 LinkedIn
               </Button>

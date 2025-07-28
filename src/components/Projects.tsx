@@ -11,7 +11,7 @@ const Projects = () => {
       icon: <Leaf className="text-success" />,
       technologies: ["React", "Node.js", "MongoDB", "Express"],
       github: "https://github.com/yvesdsr/GCAC-Coop",
-      live: "#",
+      live: "https://gcac-coop.vercel.app/",
       category: "Agriculture"
     },
     {
@@ -20,7 +20,7 @@ const Projects = () => {
       icon: <PawPrint className="text-primary" />,
       technologies: ["React", "TypeScript", "Tailwind CSS"],
       github: "https://github.com/yvesdsr/canine-pawfect-palace",
-      live: "#",
+      live: "https://canine-pawfect-palace.vercel.app/",
       category: "Services"
     },
     {
@@ -29,44 +29,8 @@ const Projects = () => {
       icon: <Building className="text-professional" />,
       technologies: ["React", "CSS3", "JavaScript"],
       github: "https://github.com/yvesdsr/sidii-ingenieurs-web",
-      live: "#",
+      live: "https://sidii-ingenieurs-webb.vercel.app/",
       category: "Corporate"
-    },
-    {
-      title: "TradingPro",
-      description: "Plateforme de trading avec analyses de marché, graphiques en temps réel et outils d'aide à la décision.",
-      icon: <TrendingUp className="text-success" />,
-      technologies: ["React", "Chart.js", "WebSocket"],
-      github: "https://github.com/yvesdsr/TradingPro",
-      live: "#",
-      category: "Finance"
-    },
-    {
-      title: "Jetroc CI Mobile Exchange",
-      description: "Application mobile d'échange et de transfert d'argent avec sécurité renforcée et interface intuitive.",
-      icon: <Smartphone className="text-primary" />,
-      technologies: ["React Native", "Redux", "Firebase"],
-      github: "https://github.com/yvesdsr/jetroc-ci-mobile-exchange",
-      live: "#",
-      category: "Mobile"
-    },
-    {
-      title: "Agri Alliance CI Platform",
-      description: "Plateforme collaborative pour les agriculteurs ivoiriens. Mise en relation, partage d'informations et marketplace.",
-      icon: <TreePine className="text-success" />,
-      technologies: ["React", "Node.js", "PostgreSQL"],
-      github: "https://github.com/yvesdsr/agri-alliance-ci-platform",
-      live: "#",
-      category: "Agriculture"
-    },
-    {
-      title: "ABKR Store",
-      description: "E-commerce moderne avec gestion des produits, commandes, paiements sécurisés et tableau de bord administrateur.",
-      icon: <ShoppingBag className="text-professional" />,
-      technologies: ["React", "Stripe", "Express", "MongoDB"],
-      github: "https://github.com/yvesdsr/abkr-store",
-      live: "#",
-      category: "E-commerce"
     }
   ];
 
@@ -107,11 +71,20 @@ const Projects = () => {
                 </div>
 
                 <div className="flex gap-2">
-                  <Button size="sm" variant="outline" className="flex-1">
+                  <Button 
+                    size="sm" 
+                    variant="outline" 
+                    className="flex-1"
+                    onClick={() => window.open(project.github, '_blank')}
+                  >
                     <Github size={16} className="mr-2" />
                     Code
                   </Button>
-                  <Button size="sm" className="flex-1">
+                  <Button 
+                    size="sm" 
+                    className="flex-1"
+                    onClick={() => window.open(project.live, '_blank')}
+                  >
                     <ExternalLink size={16} className="mr-2" />
                     Demo
                   </Button>
@@ -122,7 +95,11 @@ const Projects = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button size="lg" variant="outline">
+          <Button 
+            size="lg" 
+            variant="outline"
+            onClick={() => window.open('https://github.com/yvesdsr', '_blank')}
+          >
             <Github className="mr-2" />
             Voir tous mes projets sur GitHub
           </Button>
