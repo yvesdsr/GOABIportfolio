@@ -44,19 +44,19 @@ const About = () => {
   const certifications = [
     {
       nom: "Google - Project Management",
-      image: null // L'utilisateur ajoutera manuellement
+      image: "/lovable-uploads/22b08926-ef5d-4e42-ba4c-b78cedf8f1f6.png"
     },
     {
       nom: "Google - Intelligence artificielle", 
-      image: null
+      image: "/lovable-uploads/547c9dfb-edd7-49a1-a1bb-42114c5954cd.png"
     },
     {
       nom: "Google - Prompting Essentials",
-      image: null
+      image: "/lovable-uploads/433a5c0c-0e9d-4f2c-a2ed-a2ba2000aa18.png"
     },
     {
       nom: "Rainforest Alliance - Human Rights, Agriculture & Environment",
-      image: null
+      image: "/lovable-uploads/4428c0fa-9981-4fe9-a974-a63ee116f4f8.png"
     }
   ];
 
@@ -112,9 +112,19 @@ const About = () => {
                       <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                       <div className="flex-1">
                         <span className="text-sm font-medium">{certification.nom}</span>
-                        <div className="mt-2 p-3 bg-secondary/30 border-2 border-dashed border-secondary rounded-lg text-center text-xs text-muted-foreground">
-                          Espace pour ajouter l'image de certification
-                        </div>
+                        {certification.image ? (
+                          <div className="mt-3">
+                            <img 
+                              src={certification.image} 
+                              alt={`Certificat ${certification.nom}`}
+                              className="w-full max-w-md h-auto rounded-lg shadow-sm border"
+                            />
+                          </div>
+                        ) : (
+                          <div className="mt-2 p-3 bg-secondary/30 border-2 border-dashed border-secondary rounded-lg text-center text-xs text-muted-foreground">
+                            Espace pour ajouter l'image de certification
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
