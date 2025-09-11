@@ -4,14 +4,37 @@ import { Code, Users, Briefcase, GraduationCap } from "lucide-react";
 
 const About = () => {
   const competences = [
-    "Gestion de projets",
-    "Intelligence Artificielle",
-    "HTML, CSS, JavaScript, Python",
-    "Organisation et planification",
-    "Leadership",
-    "Coaching",
+    // Informatique & Développement web
+    "HTML", "CSS", "JavaScript", "Python",
+    "Bases de frameworks : Github, IA",
+    "Maîtrise des logiciels : Canva, Copilot",
+    "Excel, Word, Outlook, Copywriting",
+    "Meta Ads", "Google Ads", "TikTok Ads", "LinkedIn Ads", "Google Analytics", "Looker Studio",
+    "Maintenance et conception de sites web",
+    "Gestion et administration de bases de données",
+    
+    // Gestion de projet
+    "Planification stratégique, budgétisation et contrôle des coûts",
+    "Coordination d'équipes pluridisciplinaires", 
+    "Suivi, évaluation et amélioration continue",
+    
+    // Communication & Marketing digital
+    "Stratégie de contenu et branding",
+    "Animation des réseaux sociaux et gestion d'e-réputation",
+    "Outils de design et multimédia : Canva, Photoshop (base), montage vidéo simple",
+    
+    // Outils & Analyse
+    "Trello, Asana, Notion, Google Workspace, Microsoft 365",
+    "Excel avancé, Google Data Studio, Power BI (débutant)",
+    
+    // Soft compétences
+    "Leadership & esprit d'équipe",
+    "Communication (Français & Anglais)",
+    "Organisation rigoureuse & polyvalence",
+    
+    // Design graphique et montage vidéo
     "Design graphique",
-    "Montage vidéo",
+    "Montage vidéo", 
     "Canva",
     "Adobe Illustrator",
     "Adobe Photoshop",
@@ -19,9 +42,22 @@ const About = () => {
   ];
 
   const certifications = [
-    "GOOGLE : PROJECTS MANAGEMENT",
-    "GOOGLE : INTELLIGENCE ARTIFICIELLE",
-    "Rainforest Alliance : Management, Traçabilité, Prime, Agriculture, Social, Environnement"
+    {
+      nom: "Google - Project Management",
+      image: null // L'utilisateur ajoutera manuellement
+    },
+    {
+      nom: "Google - Intelligence artificielle", 
+      image: null
+    },
+    {
+      nom: "Google - Prompting Essentials",
+      image: null
+    },
+    {
+      nom: "Rainforest Alliance - Human Rights, Agriculture & Environment",
+      image: null
+    }
   ];
 
   const langues = [
@@ -35,10 +71,10 @@ const About = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Profil Professionnel</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Développeur web et gestionnaire de projets certifié, avec une vision 
-            orientée vers la digitalisation des entreprises agricoles et des PME. 
-            Mon objectif : créer des solutions technologiques efficaces et 
-            accessibles, en conjuguant savoir-faire technique et sens de l'organisation.
+            J'ai dirigé des projets dans le secteur agricole et technologique, conçu des stratégies 
+            marketing et accompagné des organisations dans leur transformation digitale. 
+            Polyvalent, orienté résultats et doté d'un bon sens de l'organisation, je sais allier 
+            rigueur technique et créativité pour atteindre les objectifs fixés.
           </p>
         </div>
 
@@ -69,14 +105,21 @@ const About = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <ul className="space-y-3">
+              <div className="space-y-4">
                 {certifications.map((certification, index) => (
-                  <li key={index} className="flex items-start gap-2">
-                    <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-sm">{certification}</span>
-                  </li>
+                  <div key={index} className="p-4 border border-border rounded-lg">
+                    <div className="flex items-start gap-3">
+                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                      <div className="flex-1">
+                        <span className="text-sm font-medium">{certification.nom}</span>
+                        <div className="mt-2 p-3 bg-secondary/30 border-2 border-dashed border-secondary rounded-lg text-center text-xs text-muted-foreground">
+                          Espace pour ajouter l'image de certification
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </CardContent>
           </Card>
         </div>

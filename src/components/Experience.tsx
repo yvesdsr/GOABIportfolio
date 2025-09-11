@@ -5,38 +5,62 @@ import { CalendarDays, MapPin, Building } from "lucide-react";
 const Experience = () => {
   const experiences = [
     {
-      titre: "Administrateur de groupe",
-      entreprise: "SOCAPBLO COOP CA",
+      titre: "CEO & Fondateur",
+      entreprise: "GOA-Learn",
       periode: "2024 - Present",
       lieu: "Abidjan, Côte d'Ivoire",
       description: [
-        "Responsable de la coordination, du suivi et de l'organisation des activités du groupe de producteurs au sein de la société coopérative",
-        "Gestion des membres, traçabilité des productions, support administratif et technique",
-        "Digitalisation des processus internes via des outils informatiques et digitaux"
+        "Structure de formation des métiers de la tech disponible sur nos différents réseaux sociaux",
+        "Création et animation de formations en développement web et technologies",
+        "Développement de contenu pédagogique et accompagnement des apprenants"
+      ]
+    },
+    {
+      titre: "Administrateur de groupe",
+      entreprise: "SOCAPBLO COOP CA",
+      periode: "2023 - 2025",
+      lieu: "Abidjan, Côte d'Ivoire",
+      description: [
+        "Supervision de +600 producteurs et mise en conformité avec les normes internationales",
+        "Formation et sensibilisation des membres du SGI et des producteurs aux droits sociaux et aux exigences environnementales",
+        "Conception d'un site web professionnel et animation des réseaux sociaux",
+        "Élaboration de supports de communication (affiches, newsletters, contenus digitaux)",
+        "Coordination des équipes et mise en place d'actions correctives pour améliorer la durabilité de la production"
+      ]
+    },
+    {
+      titre: "Chargé de communication",
+      entreprise: "IVORY TECH ENGINEERING",
+      periode: "2025",
+      lieu: "Mission ponctuelle",
+      description: [
+        "Gestion de la communication interne et externe autour d'un projet innovant de transformation du cacao",
+        "Création de contenus digitaux et animation des réseaux sociaux → augmentation de l'engagement en ligne",
+        "Développement et gestion d'un site Internet professionnel, améliorant la crédibilité de l'entreprise"
       ]
     },
     {
       titre: "Enseignant",
-      entreprise: "École supérieure des technologies avancées et de management (ESTAM)",
+      entreprise: "ESTAM",
       periode: "2022 - 2023",
       lieu: "Abidjan, Côte d'Ivoire",
       description: [
-        "Enseignant en architecture des ordinateurs et informatique appliquée",
-        "Formation des étudiants aux technologies avancées et de management"
+        "Enseignement de l'architecture des ordinateurs et des bases de l'informatique appliquée",
+        "Formation d'étudiants aux outils numériques collaboratifs et au développement web"
       ]
     }
   ];
 
   const education = [
     {
-      diplome: "LICENCE EN INFORMATIQUE",
-      etablissement: "UNIVERSITÉ NANGUI ABROGOUA, Abidjan, Cv",
-      periode: "2022",
+      diplome: "Licence en informatique",
+      etablissement: "Université Nangui Abrogoua",
+      periode: "2019 - 2022",
       mention: "Mention Assez-bien"
     },
     {
       diplome: "Baccalauréat scientifique",
-      etablissement: "LYCEE CLASSIQUE D'ABIDJAN",
+      etablissement: "Lycée Classique d'Abidjan",
       periode: "2018",
       mention: ""
     }
