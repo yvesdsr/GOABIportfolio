@@ -1,44 +1,41 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Code, Users, Briefcase, GraduationCap } from "lucide-react";
+import { Code, Users, GraduationCap } from "lucide-react";
 
 const About = () => {
   const competences = [
-    // Informatique & Développement web
-    "HTML", "CSS", "JavaScript", "Python",
-    "Bases de frameworks : Github, IA",
-    "Maîtrise des logiciels : Canva, Copilot",
-    "Excel, Word, Outlook, Copywriting",
-    "Meta Ads", "Google Ads", "TikTok Ads", "LinkedIn Ads", "Google Analytics", "Looker Studio",
-    "Maintenance et conception de sites web",
-    "Gestion et administration de bases de données",
+    // Développement & IA
+    "HTML", "CSS", "JavaScript", "Python", "React",
+    "GitHub", "Intelligence Artificielle", "Prompting IA",
+    "Canva", "Copilot", "Excel", "Word", "Outlook",
     
-    // Gestion de projet
-    "Planification stratégique, budgétisation et contrôle des coûts",
-    "Coordination d'équipes pluridisciplinaires", 
-    "Suivi, évaluation et amélioration continue",
+    // Design & Création
+    "Design Graphique", "Création d'Affiches", "Flyers",
+    "Adobe Illustrator", "Adobe Photoshop", "Figma",
+    "Charte Graphique", "Identité Visuelle",
     
-    // Communication & Marketing digital
-    "Stratégie de contenu et branding",
-    "Animation des réseaux sociaux et gestion d'e-réputation",
-    "Outils de design et multimédia : Canva, Photoshop (base), montage vidéo simple",
+    // Vidéo & Montage
+    "Montage Vidéo", "Adobe Premiere Pro", "Final Cut Pro",
+    "CapCut", "Production Vidéo", "Storytelling Visuel",
     
-    // Outils & Analyse
-    "Trello, Asana, Notion, Google Workspace, Microsoft 365",
-    "Excel avancé, Google Data Studio, Power BI (débutant)",
+    // Marketing & Communication
+    "Community Management", "Stratégie de Communication",
+    "Content Marketing", "Copywriting", "Branding",
+    "Meta Ads", "Google Ads", "TikTok Ads", "LinkedIn Ads",
+    "Google Analytics", "Looker Studio",
     
-    // Soft compétences
-    "Leadership & esprit d'équipe",
-    "Communication (Français & Anglais)",
-    "Organisation rigoureuse & polyvalence",
+    // Web & Digital
+    "Création de Sites Web", "WordPress", "Webflow",
+    "UX/UI Design", "SEO", "E-réputation",
     
-    // Design graphique et montage vidéo
-    "Design graphique",
-    "Montage vidéo", 
-    "Canva",
-    "Adobe Illustrator",
-    "Adobe Photoshop",
-    "Adobe Premiere Pro"
+    // Gestion de Projet
+    "Gestion de Projet Agile", "Planification Stratégique",
+    "Budgétisation", "Coordination d'Équipes",
+    "Trello", "Asana", "Notion", "Microsoft 365",
+    
+    // Soft Skills
+    "Leadership", "Esprit d'Équipe", "Communication",
+    "Organisation", "Polyvalence", "Créativité"
   ];
 
   const certifications = [
@@ -47,7 +44,7 @@ const About = () => {
       image: "/lovable-uploads/22b08926-ef5d-4e42-ba4c-b78cedf8f1f6.png"
     },
     {
-      nom: "Google - Intelligence artificielle", 
+      nom: "Google - Intelligence Artificielle", 
       image: "/lovable-uploads/547c9dfb-edd7-49a1-a1bb-42114c5954cd.png"
     },
     {
@@ -69,17 +66,17 @@ const About = () => {
     <section className="py-20 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Profil Professionnel</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            J'ai dirigé des projets dans le secteur agricole et technologique, conçu des stratégies 
-            marketing et accompagné des organisations dans leur transformation digitale. 
-            Polyvalent, orienté résultats et doté d'un bon sens de l'organisation, je sais allier 
-            rigueur technique et créativité pour atteindre les objectifs fixés.
+          <h2 className="text-4xl font-bold mb-4 tracking-tight">Profil Professionnel</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Expert en création digitale : conception de sites internet, design graphique, montage vidéo et community management. 
+            Spécialisé dans l'élaboration de stratégies de communication complètes et la création de chartes graphiques. 
+            J'ai dirigé des projets dans les secteurs agricole et technologique, accompagnant les organisations dans leur transformation digitale 
+            avec une approche alliant créativité, rigueur technique et orientation résultats.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          <Card className="shadow-card">
+          <Card className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Code className="text-primary" />
@@ -89,7 +86,7 @@ const About = () => {
             <CardContent>
               <div className="flex flex-wrap gap-2">
                 {competences.map((competence, index) => (
-                  <Badge key={index} variant="secondary">
+                  <Badge key={index} variant="secondary" className="hover:bg-primary hover:text-primary-foreground transition-colors">
                     {competence}
                   </Badge>
                 ))}
@@ -97,7 +94,7 @@ const About = () => {
             </CardContent>
           </Card>
 
-          <Card className="shadow-card">
+          <Card className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <GraduationCap className="text-primary" />
@@ -105,28 +102,17 @@ const About = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="space-y-4">
-                {certifications.map((certification, index) => (
-                  <div key={index} className="p-4 border border-border rounded-lg">
-                    <div className="flex items-start gap-3">
-                      <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
-                      <div className="flex-1">
-                        <span className="text-sm font-medium">{certification.nom}</span>
-                        {certification.image ? (
-                          <div className="mt-3">
-                            <img 
-                              src={certification.image} 
-                              alt={`Certificat ${certification.nom}`}
-                              className="w-full max-w-md h-auto rounded-lg shadow-sm border"
-                            />
-                          </div>
-                        ) : (
-                          <div className="mt-2 p-3 bg-secondary/30 border-2 border-dashed border-secondary rounded-lg text-center text-xs text-muted-foreground">
-                            Espace pour ajouter l'image de certification
-                          </div>
-                        )}
-                      </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {certifications.map((cert, index) => (
+                  <div key={index} className="group">
+                    <div className="relative overflow-hidden rounded-lg border border-border hover:border-primary transition-colors">
+                      <img 
+                        src={cert.image} 
+                        alt={cert.nom}
+                        className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
                     </div>
+                    <p className="text-sm text-muted-foreground mt-2 text-center">{cert.nom}</p>
                   </div>
                 ))}
               </div>
@@ -134,7 +120,7 @@ const About = () => {
           </Card>
         </div>
 
-        <Card className="shadow-card">
+        <Card className="shadow-elegant border-border/50">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Users className="text-primary" />
@@ -143,10 +129,10 @@ const About = () => {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {langues.map((item, index) => (
-                <div key={index} className="flex justify-between items-center p-3 bg-secondary rounded-lg">
-                  <span className="font-medium">{item.langue}</span>
-                  <Badge variant="outline">{item.niveau}</Badge>
+              {langues.map((langue, index) => (
+                <div key={index} className="flex items-center justify-between p-4 bg-muted rounded-lg">
+                  <span className="font-medium">{langue.langue}</span>
+                  <Badge variant="outline">{langue.niveau}</Badge>
                 </div>
               ))}
             </div>

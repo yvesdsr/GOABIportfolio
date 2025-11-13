@@ -14,14 +14,14 @@ const Header = () => {
             />
           </div>
           <div className="text-center lg:text-left text-white flex-1">
-            <h1 className="text-5xl font-bold mb-4">YVES DESIRE GOABI</h1>
-            <p className="text-xl mb-6 opacity-90">
-              CHEF DE PROJET DIGITAL & COMMUNICATION | DÉVELOPPEUR WEB | CERTIFIÉ GOOGLE (IA & PROJECT MANAGEMENT)
+            <h1 className="text-5xl font-bold mb-4 tracking-tight">YVES DESIRE GOABI</h1>
+            <p className="text-xl mb-6 opacity-90 font-medium">
+              IA DIGITAL PRODUCER | DÉVELOPPEUR WEB | GRAPHISTE | MONTEUR VIDÉO | MARKETING & COMMUNICATION | CERTIFIÉ GOOGLE (IA & PROJECT MANAGEMENT)
             </p>
-            <p className="text-lg mb-8 opacity-80 max-w-2xl">
-              CEO de "GOA-Learn", structure de formation des métiers de la tech. Informaticien de formation, 
-              titulaire d'une licence en informatique, certifié Google en gestion de projet et intelligence artificielle, 
-              avec une expérience en développement web, communication digitale et coordination de projets.
+            <p className="text-lg mb-8 opacity-80 max-w-2xl leading-relaxed">
+              CEO de "GOA-Learn" - IA Digital Creator. Spécialisé dans la création de sites web, design graphique, 
+              montage vidéo, community management, stratégies de communication et chartes graphiques. 
+              Informaticien de formation avec une licence en informatique, certifié Google en gestion de projet et intelligence artificielle.
             </p>
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
               <div className="flex items-center gap-2">
