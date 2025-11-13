@@ -10,9 +10,22 @@ const Experience = () => {
       periode: "2024 - Present",
       lieu: "Abidjan, Côte d'Ivoire",
       description: [
-        "Structure de formation des métiers de la tech disponible sur nos différents réseaux sociaux",
-        "Création et animation de formations en développement web et technologies",
-        "Développement de contenu pédagogique et accompagnement des apprenants"
+        "IA Digital Creator - Structure de formation des métiers de la tech",
+        "Création et animation de formations en développement web et technologies IA",
+        "Production de contenu pédagogique vidéo et design graphique",
+        "Développement de stratégies de communication digitale pour l'apprentissage tech"
+      ]
+    },
+    {
+      titre: "Community Manager Assistant",
+      entreprise: "Power Agency",
+      periode: "Septembre - Novembre 2025",
+      lieu: "Abidjan, Côte d'Ivoire",
+      description: [
+        "Gestion et animation des réseaux sociaux",
+        "Création de contenu visuel et rédactionnel",
+        "Suivi des performances et analytics",
+        "Support dans l'élaboration de stratégies de communication digitale"
       ]
     },
     {
@@ -22,10 +35,10 @@ const Experience = () => {
       lieu: "Abidjan, Côte d'Ivoire",
       description: [
         "Supervision de +600 producteurs et mise en conformité avec les normes internationales",
-        "Formation et sensibilisation des membres du SGI et des producteurs aux droits sociaux et aux exigences environnementales",
+        "Formation et sensibilisation des membres du SGI et des producteurs",
         "Conception d'un site web professionnel et animation des réseaux sociaux",
-        "Élaboration de supports de communication (affiches, newsletters, contenus digitaux)",
-        "Coordination des équipes et mise en place d'actions correctives pour améliorer la durabilité de la production"
+        "Élaboration de supports de communication : affiches, newsletters, contenus digitaux",
+        "Coordination des équipes et mise en place d'actions correctives"
       ]
     },
     {
@@ -34,9 +47,10 @@ const Experience = () => {
       periode: "2025",
       lieu: "Mission ponctuelle",
       description: [
-        "Gestion de la communication interne et externe autour d'un projet innovant de transformation du cacao",
-        "Création de contenus digitaux et animation des réseaux sociaux → augmentation de l'engagement en ligne",
-        "Développement et gestion d'un site Internet professionnel, améliorant la crédibilité de l'entreprise"
+        "Gestion de la communication interne et externe d'un projet de transformation du cacao",
+        "Création de contenus digitaux et animation des réseaux sociaux",
+        "Développement et gestion d'un site Internet professionnel",
+        "Amélioration de la crédibilité et de l'engagement en ligne"
       ]
     },
     {
@@ -45,13 +59,20 @@ const Experience = () => {
       periode: "2022 - 2023",
       lieu: "Abidjan, Côte d'Ivoire",
       description: [
-        "Enseignement de l'architecture des ordinateurs et des bases de l'informatique appliquée",
-        "Formation d'étudiants aux outils numériques collaboratifs et au développement web"
+        "Enseignement de l'architecture des ordinateurs",
+        "Formation aux bases de l'informatique appliquée",
+        "Initiation aux outils numériques collaboratifs et au développement web"
       ]
     }
   ];
 
   const education = [
+    {
+      diplome: "IA Product Creator",
+      etablissement: "Simplon CI",
+      periode: "Octobre 2024 - En cours",
+      mention: ""
+    },
     {
       diplome: "Licence en informatique",
       etablissement: "Université Nangui Abrogoua",
@@ -70,7 +91,7 @@ const Experience = () => {
     <section className="py-20 bg-secondary/30">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Expérience & Formation</h2>
+          <h2 className="text-4xl font-bold mb-4 tracking-tight">Expérience & Formation</h2>
           <p className="text-lg text-muted-foreground">
             Mon parcours professionnel et académique
           </p>
@@ -85,7 +106,7 @@ const Experience = () => {
             </h3>
             <div className="space-y-6">
               {experiences.map((exp, index) => (
-                <Card key={index} className="shadow-card">
+                <Card key={index} className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300">
                   <CardHeader>
                     <CardTitle className="text-lg">{exp.titre}</CardTitle>
                     <div className="space-y-2">
@@ -105,9 +126,9 @@ const Experience = () => {
                   </CardHeader>
                   <CardContent>
                     <ul className="space-y-2">
-                      {exp.description.map((desc, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm">
-                          <div className="w-2 h-2 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                      {exp.description.map((desc, idx) => (
+                        <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
+                          <span className="text-primary mt-1">•</span>
                           <span>{desc}</span>
                         </li>
                       ))}
@@ -126,7 +147,7 @@ const Experience = () => {
             </h3>
             <div className="space-y-6">
               {education.map((edu, index) => (
-                <Card key={index} className="shadow-card">
+                <Card key={index} className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300">
                   <CardHeader>
                     <CardTitle className="text-lg">{edu.diplome}</CardTitle>
                     <div className="space-y-2">
@@ -138,11 +159,13 @@ const Experience = () => {
                         <CalendarDays size={16} />
                         <span>{edu.periode}</span>
                       </div>
-                      {edu.mention && (
-                        <Badge variant="secondary">{edu.mention}</Badge>
-                      )}
                     </div>
                   </CardHeader>
+                  {edu.mention && (
+                    <CardContent>
+                      <Badge variant="secondary">{edu.mention}</Badge>
+                    </CardContent>
+                  )}
                 </Card>
               ))}
             </div>
