@@ -12,8 +12,66 @@ const AdminLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [initializing, setInitializing] = useState(false);
   const navigate = useNavigate();
   const { toast } = useToast();
+
+  const initializeAdmin = async () => {
+    setInitializing(true);
+    try {
+      // Create admin account
+      const { data, error } = await supabase.auth.signUp({
+        email: 'yvesdsr@admin.com',
+        password: 'Celestinviviane2001',
+        options: {
+          data: {
+            full_name: 'Yves Désiré Goabi'
+          }
+        }
+      });
+
+      if (error) throw error;
+
+      if (data.user) {
+        // Add admin role
+        const { error: roleError } = await supabase
+          .from('user_roles')
+          .insert({
+            user_id: data.user.id,
+            role: 'admin'
+          });
+
+        if (roleError) throw roleError;
+
+        toast({
+          title: "Compte admin créé !",
+          description: "Email: yvesdsr@admin.com",
+        });
+
+        // Auto-fill credentials
+        setEmail('yvesdsr@admin.com');
+        setPassword('Celestinviviane2001');
+      }
+    } catch (error: any) {
+      // If user already exists, it's ok
+      if (error.message.includes('already registered')) {
+        setEmail('yvesdsr@admin.com');
+        setPassword('Celestinviviane2001');
+        toast({
+          title: "Compte déjà créé",
+          description: "Utilisez les identifiants pré-remplis",
+        });
+      } else {
+        toast({
+          title: "Erreur",
+          description: error.message,
+          variant: "destructive",
+        });
+      }
+    } finally {
+      setInitializing(false);
+    }
+  };
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -95,6 +153,15 @@ const AdminLogin = () => {
               disabled={loading}
             >
               {loading ? "Connexion..." : "Se connecter"}
+            </Button>
+            <Button
+              type="button"
+              variant="outline"
+              className="w-full"
+              onClick={initializeAdmin}
+              disabled={initializing}
+            >
+              {initializing ? "Initialisation..." : "Créer le compte admin"}
             </Button>
           </form>
         </CardContent>
