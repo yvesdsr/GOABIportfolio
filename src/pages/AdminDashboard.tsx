@@ -47,6 +47,25 @@ const AdminDashboard = () => {
       return;
     }
 
+    // Check if user has admin role
+    const { data: roleData, error: roleError } = await supabase
+      .from('user_roles')
+      .select('role')
+      .eq('user_id', session.user.id)
+      .eq('role', 'admin')
+      .single();
+
+    if (roleError || !roleData) {
+      toast({
+        title: "Accès refusé",
+        description: "Vous n'avez pas les permissions d'administrateur",
+        variant: "destructive",
+      });
+      await supabase.auth.signOut();
+      navigate("/");
+      return;
+    }
+
     setUser(session.user);
     loadContents();
     setLoading(false);
