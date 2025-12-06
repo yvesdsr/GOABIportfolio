@@ -4,38 +4,20 @@ import { Code, Users, GraduationCap } from "lucide-react";
 
 const About = () => {
   const competences = [
-    // Développement & IA
-    "HTML", "CSS", "JavaScript", "Python", "React",
-    "GitHub", "Intelligence Artificielle", "Prompting IA",
-    "Canva", "Copilot", "Excel", "Word", "Outlook",
+    // Développement Web
+    "HTML/CSS", "JavaScript", "React", "GitHub",
     
     // Design & Création
-    "Design Graphique", "Création d'Affiches", "Flyers",
-    "Adobe Illustrator", "Adobe Photoshop", "Figma",
-    "Charte Graphique", "Identité Visuelle",
+    "Photoshop", "Illustrator", "Canva", "Figma",
     
-    // Vidéo & Montage
-    "Montage Vidéo", "Adobe Premiere Pro", "Final Cut Pro",
-    "CapCut", "Production Vidéo", "Storytelling Visuel",
+    // Vidéo
+    "Premiere Pro", "CapCut",
     
-    // Marketing & Communication
-    "Community Management", "Stratégie de Communication",
-    "Content Marketing", "Copywriting", "Branding",
-    "Meta Ads", "Google Ads", "TikTok Ads", "LinkedIn Ads",
-    "Google Analytics", "Looker Studio",
+    // Marketing Digital
+    "Community Management", "Meta Ads", "Google Ads",
     
-    // Web & Digital
-    "Création de Sites Web", "WordPress", "Webflow",
-    "UX/UI Design", "SEO", "E-réputation",
-    
-    // Gestion de Projet
-    "Gestion de Projet Agile", "Planification Stratégique",
-    "Budgétisation", "Coordination d'Équipes",
-    "Trello", "Asana", "Notion", "Microsoft 365",
-    
-    // Soft Skills
-    "Leadership", "Esprit d'Équipe", "Communication",
-    "Organisation", "Polyvalence", "Créativité"
+    // IA & Outils
+    "IA & Prompting", "Notion", "Microsoft 365"
   ];
 
   const certifications = [
@@ -68,10 +50,10 @@ const About = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 tracking-tight">Profil Professionnel</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Expert en création digitale : conception de sites internet, design graphique, montage vidéo et community management. 
-            Spécialisé dans l'élaboration de stratégies de communication complètes et la création de chartes graphiques. 
-            J'ai dirigé des projets dans les secteurs agricole et technologique, accompagnant les organisations dans leur transformation digitale 
-            avec une approche alliant créativité, rigueur technique et orientation résultats.
+            Créateur digital passionné : je conçois des sites web modernes, des visuels percutants et du contenu vidéo engageant. 
+            J'accompagne les entreprises et organisations dans leur communication digitale, de la stratégie à la réalisation. 
+            Mon parcours m'a permis de travailler avec des coopératives agricoles et des entreprises tech, 
+            toujours avec le souci du résultat et de la qualité.
           </p>
         </div>
 

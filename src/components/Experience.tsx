@@ -70,7 +70,7 @@ const Experience = () => {
     {
       diplome: "IA Product Creator",
       etablissement: "Simplon CI",
-      periode: "Octobre 2024 - En cours",
+      periode: "Octobre 2025 - En cours",
       mention: ""
     },
     {
@@ -140,7 +140,7 @@ const Experience = () => {
           </div>
 
           {/* Formation */}
-          <div>
+          <div className="lg:self-start">
             <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
               <Building className="text-primary" />
               Formation
@@ -148,7 +148,7 @@ const Experience = () => {
             <div className="space-y-6">
               {education.map((edu, index) => (
                 <Card key={index} className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300">
-                  <CardHeader>
+                  <CardHeader className="pb-3">
                     <CardTitle className="text-lg">{edu.diplome}</CardTitle>
                     <div className="space-y-2">
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -162,7 +162,7 @@ const Experience = () => {
                     </div>
                   </CardHeader>
                   {edu.mention && (
-                    <CardContent>
+                    <CardContent className="pt-0">
                       <Badge variant="secondary">{edu.mention}</Badge>
                     </CardContent>
                   )}
