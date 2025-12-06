@@ -28,6 +28,7 @@ const Projects = () => {
       description: "Conception d'une charte graphique et d'une stratégie de communication pour une structure digitale de formation des enfants de 4 à 14 ans au numérique.",
       icon: <GraduationCap className="text-primary" />,
       technologies: ["Charte Graphique", "Stratégie Communication", "Branding"],
+      behance: "https://www.behance.net/gallery/239974941/MINI-CHARTE-GRAPHIQUE-DIGIKIDS",
       category: "Communication"
     }
   ];
@@ -90,7 +91,17 @@ const Projects = () => {
                       Demo
                     </Button>
                   )}
-                  {!project.github && !project.live && (
+                  {project.behance && (
+                    <Button 
+                      size="sm" 
+                      className="flex-1"
+                      onClick={() => window.open(project.behance, '_blank')}
+                    >
+                      <ExternalLink size={16} className="mr-2" />
+                      Behance
+                    </Button>
+                  )}
+                  {!project.github && !project.live && !project.behance && (
                     <Badge variant="secondary" className="w-full justify-center py-2">
                       Projet Stratégique
                     </Badge>
