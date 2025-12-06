@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Leaf, PawPrint, Building, TrendingUp, Smartphone, TreePine, ShoppingBag } from "lucide-react";
+import { Github, ExternalLink, Leaf, Building, GraduationCap } from "lucide-react";
 
 const Projects = () => {
   const projects = [
@@ -22,6 +22,13 @@ const Projects = () => {
       github: "https://github.com/yvesdsr/sidii-ingenieurs-web",
       live: "https://sidii-ingenieurs-webb.vercel.app/",
       category: "Corporate"
+    },
+    {
+      title: "DIGIKIDS",
+      description: "Conception d'une charte graphique et d'une stratégie de communication pour une structure digitale de formation des enfants de 4 à 14 ans au numérique.",
+      icon: <GraduationCap className="text-primary" />,
+      technologies: ["Charte Graphique", "Stratégie Communication", "Branding"],
+      category: "Communication"
     }
   ];
 
@@ -62,23 +69,32 @@ const Projects = () => {
                 </div>
 
                 <div className="flex gap-2">
-                  <Button 
-                    size="sm" 
-                    variant="outline" 
-                    className="flex-1"
-                    onClick={() => window.open(project.github, '_blank')}
-                  >
-                    <Github size={16} className="mr-2" />
-                    Code
-                  </Button>
-                  <Button 
-                    size="sm" 
-                    className="flex-1"
-                    onClick={() => window.open(project.live, '_blank')}
-                  >
-                    <ExternalLink size={16} className="mr-2" />
-                    Demo
-                  </Button>
+                  {project.github && (
+                    <Button 
+                      size="sm" 
+                      variant="outline" 
+                      className="flex-1"
+                      onClick={() => window.open(project.github, '_blank')}
+                    >
+                      <Github size={16} className="mr-2" />
+                      Code
+                    </Button>
+                  )}
+                  {project.live && (
+                    <Button 
+                      size="sm" 
+                      className="flex-1"
+                      onClick={() => window.open(project.live, '_blank')}
+                    >
+                      <ExternalLink size={16} className="mr-2" />
+                      Demo
+                    </Button>
+                  )}
+                  {!project.github && !project.live && (
+                    <Badge variant="secondary" className="w-full justify-center py-2">
+                      Projet Stratégique
+                    </Badge>
+                  )}
                 </div>
               </CardContent>
             </Card>

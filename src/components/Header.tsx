@@ -16,7 +16,7 @@ const Header = () => {
           <div className="text-center lg:text-left text-white flex-1">
             <h1 className="text-5xl font-bold mb-4 tracking-tight">YVES DESIRE GOABI</h1>
             <p className="text-xl mb-6 opacity-90 font-medium">
-              Développeur Web | Graphiste | Monteur Vidéo | Community Manager | Certifié Google
+              IA Digital Creator | Développeur Web | Graphiste | Monteur Vidéo | Community Manager | Certifié Google
             </p>
             <p className="text-lg mb-8 opacity-80 max-w-2xl leading-relaxed">
               Fondateur de GOA-Learn, je conçois des sites web, crée des visuels percutants et produis du contenu vidéo engageant. 
