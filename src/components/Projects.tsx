@@ -15,15 +15,6 @@ const Projects = () => {
       category: "Agriculture"
     },
     {
-      title: "Canine Pawfect Palace",
-      description: "Application de gestion pour un palace canin avec système de réservation, suivi des animaux et gestion des services.",
-      icon: <PawPrint className="text-primary" />,
-      technologies: ["React", "TypeScript", "Tailwind CSS"],
-      github: "https://github.com/yvesdsr/canine-pawfect-palace",
-      live: "https://canine-pawfect-palace.vercel.app/",
-      category: "Services"
-    },
-    {
       title: "Sidii Ingénieurs Web",
       description: "Site web professionnel pour une agence d'ingénierie web. Présentation des services, portfolio et contact.",
       icon: <Building className="text-professional" />,
