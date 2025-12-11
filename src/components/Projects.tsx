@@ -30,6 +30,14 @@ const Projects = () => {
       technologies: ["Charte Graphique", "Stratégie Communication", "Branding"],
       behance: "https://www.behance.net/gallery/239974941/MINI-CHARTE-GRAPHIQUE-DIGIKIDS",
       category: "Communication"
+    },
+    {
+      title: "LI-KAH",
+      description: "Campagne publicitaire complète pour une entreprise de miel naturel pur : charte graphique, stratégie de communication, logo, affiche et montage vidéo.",
+      icon: <Leaf className="text-success" />,
+      technologies: ["Charte Graphique", "Logo", "Affiche", "Montage Vidéo", "Stratégie Communication"],
+      behance: "#li-kah",
+      category: "Communication"
     }
   ];
 

@@ -14,6 +14,18 @@ interface Content {
   thumbnail_url: string | null;
 }
 
+// Vidéo statique du projet LI-KAH
+const staticVideos = [
+  {
+    id: "li-kah-video",
+    title: "Vidéo du projet LI-KAH",
+    description: "Montage vidéo pour la campagne publicitaire LI-KAH",
+    file_url: "/videos/li-kah-project.mp4",
+    thumbnail_url: null,
+    link: "#li-kah" // Sera remplacé par le lien PDF plus tard
+  }
+];
+
 const GoaLearn = () => {
   const [flyers, setFlyers] = useState<Content[]>([]);
   const [videos, setVideos] = useState<Content[]>([]);
@@ -145,45 +157,52 @@ const GoaLearn = () => {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {videos.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {videos.map((video) => (
-                      <div key={video.id} className="relative group">
+                {/* Vidéos statiques + vidéos de la base de données */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Vidéo LI-KAH statique */}
+                  {staticVideos.map((video) => (
+                    <div key={video.id} className="relative group">
+                      <a 
+                        href={video.link} 
+                        className="block cursor-pointer"
+                        title="Voir le projet LI-KAH"
+                      >
                         <div className="aspect-video bg-secondary/50 rounded-lg overflow-hidden">
-                          {video.thumbnail_url ? (
-                            <img 
-                              src={video.thumbnail_url} 
-                              alt={video.title}
-                              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                            />
-                          ) : (
-                            <video 
-                              src={video.file_url}
-                              className="w-full h-full object-cover"
-                              controls
-                            />
-                          )}
+                          <video 
+                            src={video.file_url}
+                            className="w-full h-full object-cover"
+                            controls
+                          />
                         </div>
-                        <p className="text-sm text-muted-foreground mt-2">{video.title}</p>
+                        <p className="text-sm text-primary mt-2 hover:underline font-medium">
+                          {video.title}
+                        </p>
+                      </a>
+                    </div>
+                  ))}
+                  
+                  {/* Vidéos dynamiques de la DB */}
+                  {videos.map((video) => (
+                    <div key={video.id} className="relative group">
+                      <div className="aspect-video bg-secondary/50 rounded-lg overflow-hidden">
+                        {video.thumbnail_url ? (
+                          <img 
+                            src={video.thumbnail_url} 
+                            alt={video.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        ) : (
+                          <video 
+                            src={video.file_url}
+                            className="w-full h-full object-cover"
+                            controls
+                          />
+                        )}
                       </div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {[1, 2, 3, 4].map((index) => (
-                      <div key={index} className="relative">
-                        <div className="aspect-video bg-secondary/50 border-2 border-dashed border-border rounded-lg flex items-center justify-center">
-                          <div className="text-center">
-                            <Video className="mx-auto mb-2 text-primary" size={32} />
-                            <p className="text-sm text-muted-foreground">
-                              Montage vidéo #{index}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
+                      <p className="text-sm text-muted-foreground mt-2">{video.title}</p>
+                    </div>
+                  ))}
+                </div>
                 <div className="text-center">
                   <Badge variant="outline" className="mt-4">
                     Productions vidéo et montages
