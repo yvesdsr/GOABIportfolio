@@ -37,6 +37,7 @@ const Projects = () => {
       description: "Campagne publicitaire complète pour une entreprise de miel naturel pur : charte graphique, stratégie de communication, logo, affiche et montage vidéo.",
       icon: <Leaf className="text-success" />,
       technologies: ["Charte Graphique", "Logo", "Affiche", "Montage Vidéo", "Stratégie Communication"],
+      canva: "https://www.canva.com/design/DAG7OpacWdE/QhF9oggwgvHXUlf6dMryaw/view?utm_content=DAG7OpacWdE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h444987595d",
       videoLink: "#li-kah-video",
       category: "Communication"
     },
@@ -118,9 +119,20 @@ const Projects = () => {
                       Behance
                     </Button>
                   )}
+                  {project.canva && (
+                    <Button 
+                      size="sm" 
+                      className="flex-1"
+                      onClick={() => window.open(project.canva, '_blank')}
+                    >
+                      <ExternalLink size={16} className="mr-2" />
+                      Voir le projet
+                    </Button>
+                  )}
                   {project.videoLink && (
                     <Button 
                       size="sm" 
+                      variant="outline"
                       className="flex-1"
                       onClick={() => {
                         const element = document.querySelector(project.videoLink);
@@ -128,7 +140,7 @@ const Projects = () => {
                       }}
                     >
                       <ExternalLink size={16} className="mr-2" />
-                      Regarder vidéo publicitaire
+                      Voir vidéo
                     </Button>
                   )}
                 </div>

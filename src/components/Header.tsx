@@ -19,8 +19,8 @@ const Header = () => {
               IA Digital Creator | Développeur Web | Graphiste | Monteur Vidéo | Community Manager | Certifié Google
             </p>
             <p className="text-lg mb-8 opacity-80 max-w-2xl leading-relaxed">
-              Fondateur de GOA-Learn, je conçois des sites web, crée des visuels percutants et produis du contenu vidéo engageant. 
-              Passionné par le digital et l'innovation, j'accompagne les entreprises dans leur communication et leur présence en ligne.
+              Fondateur de GOA-Learn, je conçois des sites web, crée des identités visuelles complètes (chartes graphiques, logos, stratégies de communication), 
+              produis des visuels percutants et du contenu vidéo engageant. Passionné par le digital et l'innovation, j'accompagne les entreprises dans leur communication et leur présence en ligne.
             </p>
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
               <div className="flex items-center gap-2">
