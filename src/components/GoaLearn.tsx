@@ -26,6 +26,16 @@ const staticVideos = [
   }
 ];
 
+// Affiches statiques
+const staticAffiches = [
+  {
+    id: "li-kah-affiche",
+    title: "Affiche LI-KAH",
+    file_url: "/lovable-uploads/li-kah-affiche.jpeg",
+    link: "https://www.canva.com/design/DAG7OpacWdE/QhF9oggwgvHXUlf6dMryaw/view?utm_content=DAG7OpacWdE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h444987595d"
+  }
+];
+
 const GoaLearn = () => {
   const [flyers, setFlyers] = useState<Content[]>([]);
   const [videos, setVideos] = useState<Content[]>([]);
@@ -107,37 +117,41 @@ const GoaLearn = () => {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {flyers.length > 0 ? (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {flyers.map((flyer) => (
-                      <div key={flyer.id} className="relative group">
-                        <div className="aspect-[3/4] bg-secondary/50 rounded-lg overflow-hidden">
-                          <img 
-                            src={flyer.thumbnail_url || flyer.file_url} 
-                            alt={flyer.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
-                        </div>
-                        <p className="text-sm text-muted-foreground mt-2">{flyer.title}</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Affiches statiques */}
+                  {staticAffiches.map((affiche) => (
+                    <a 
+                      key={affiche.id} 
+                      href={affiche.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="relative group block"
+                    >
+                      <div className="aspect-[3/4] bg-secondary/50 rounded-lg overflow-hidden">
+                        <img 
+                          src={affiche.file_url} 
+                          alt={affiche.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
                       </div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {[1, 2, 3, 4].map((index) => (
-                      <div key={index} className="relative">
-                        <div className="aspect-[3/4] bg-secondary/50 border-2 border-dashed border-border rounded-lg flex items-center justify-center">
-                          <div className="text-center">
-                            <Image className="mx-auto mb-2 text-primary" size={32} />
-                            <p className="text-sm text-muted-foreground">
-                              Création #{index}
-                            </p>
-                          </div>
-                        </div>
+                      <p className="text-sm text-primary mt-2 hover:underline font-medium">{affiche.title}</p>
+                    </a>
+                  ))}
+                  
+                  {/* Affiches dynamiques de la DB */}
+                  {flyers.map((flyer) => (
+                    <div key={flyer.id} className="relative group">
+                      <div className="aspect-[3/4] bg-secondary/50 rounded-lg overflow-hidden">
+                        <img 
+                          src={flyer.thumbnail_url || flyer.file_url} 
+                          alt={flyer.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
                       </div>
-                    ))}
-                  </div>
-                )}
+                      <p className="text-sm text-muted-foreground mt-2">{flyer.title}</p>
+                    </div>
+                  ))}
+                </div>
                 <div className="text-center">
                   <Badge variant="outline" className="mt-4">
                     Designs et créations graphiques
