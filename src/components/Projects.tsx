@@ -36,8 +36,16 @@ const Projects = () => {
       description: "Campagne publicitaire complète pour une entreprise de miel naturel pur : charte graphique, stratégie de communication, logo, affiche et montage vidéo.",
       icon: <Leaf className="text-success" />,
       technologies: ["Charte Graphique", "Logo", "Affiche", "Montage Vidéo", "Stratégie Communication"],
-      behance: "https://www.canva.com/design/DAG7OpacWdE/QhF9oggwgvHXUlf6dMryaw/view?utm_content=DAG7OpacWdE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h444987595d",
+      canva: "https://www.canva.com/design/DAG7OpacWdE/QhF9oggwgvHXUlf6dMryaw/view?utm_content=DAG7OpacWdE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h444987595d",
       category: "Communication"
+    },
+    {
+      title: "TradingPro",
+      description: "Site de formation au trading avec annonces économiques et tendances du marché en temps réel.",
+      icon: <Building className="text-professional" />,
+      technologies: ["HTML", "CSS", "JavaScript"],
+      live: "https://trading-pro-blue.vercel.app",
+      category: "Finance"
     }
   ];
 
@@ -107,6 +115,16 @@ const Projects = () => {
                     >
                       <ExternalLink size={16} className="mr-2" />
                       Behance
+                    </Button>
+                  )}
+                  {project.canva && (
+                    <Button 
+                      size="sm" 
+                      className="flex-1"
+                      onClick={() => window.open(project.canva, '_blank')}
+                    >
+                      <ExternalLink size={16} className="mr-2" />
+                      Voir le projet
                     </Button>
                   )}
                   {!project.github && !project.live && !project.behance && (
