@@ -32,11 +32,12 @@ const Projects = () => {
       category: "Communication"
     },
     {
+      id: "li-kah-project",
       title: "LI-KAH",
       description: "Campagne publicitaire complète pour une entreprise de miel naturel pur : charte graphique, stratégie de communication, logo, affiche et montage vidéo.",
       icon: <Leaf className="text-success" />,
       technologies: ["Charte Graphique", "Logo", "Affiche", "Montage Vidéo", "Stratégie Communication"],
-      canva: "https://www.canva.com/design/DAG7OpacWdE/QhF9oggwgvHXUlf6dMryaw/view?utm_content=DAG7OpacWdE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h444987595d",
+      videoLink: "#li-kah-video",
       category: "Communication"
     },
     {
@@ -64,7 +65,7 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="shadow-card hover:shadow-glow transition-all duration-300 group">
+            <Card key={index} id={project.id} className="shadow-card hover:shadow-glow transition-all duration-300 group">
               <CardHeader>
                 <div className="flex items-center gap-3 mb-3">
                   {project.icon}
@@ -117,20 +118,18 @@ const Projects = () => {
                       Behance
                     </Button>
                   )}
-                  {project.canva && (
+                  {project.videoLink && (
                     <Button 
                       size="sm" 
                       className="flex-1"
-                      onClick={() => window.open(project.canva, '_blank')}
+                      onClick={() => {
+                        const element = document.querySelector(project.videoLink);
+                        element?.scrollIntoView({ behavior: 'smooth' });
+                      }}
                     >
                       <ExternalLink size={16} className="mr-2" />
-                      Voir le projet
+                      Regarder vidéo publicitaire
                     </Button>
-                  )}
-                  {!project.github && !project.live && !project.behance && (
-                    <Badge variant="secondary" className="w-full justify-center py-2">
-                      Projet Stratégique
-                    </Badge>
                   )}
                 </div>
               </CardContent>

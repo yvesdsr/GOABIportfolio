@@ -175,23 +175,23 @@ const GoaLearn = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Vidéo LI-KAH statique */}
                   {staticVideos.map((video) => (
-                    <div key={video.id} className="relative group">
-                      <a 
-                        href={video.link} 
-                        className="block cursor-pointer"
-                        title="Voir le projet LI-KAH"
-                      >
-                        <div className="aspect-video bg-secondary/50 rounded-lg overflow-hidden">
-                          <video 
-                            src={video.file_url}
-                            className="w-full h-full object-cover"
-                            controls
-                          />
-                        </div>
-                        <p className="text-sm text-primary mt-2 hover:underline font-medium">
-                          {video.title}
-                        </p>
-                      </a>
+                    <div key={video.id} id="li-kah-video" className="relative group">
+                      <div className="aspect-video bg-secondary/50 rounded-lg overflow-hidden">
+                        <video 
+                          src={video.file_url}
+                          className="w-full h-full object-cover"
+                          controls
+                        />
+                      </div>
+                      <p className="text-sm mt-2">
+                        Vidéo du projet{" "}
+                        <a 
+                          href="#li-kah-project" 
+                          className="text-primary hover:underline font-medium"
+                        >
+                          LI-KAH
+                        </a>
+                      </p>
                     </div>
                   ))}
                   
