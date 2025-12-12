@@ -22,7 +22,7 @@ const staticVideos = [
     description: "Montage vidéo pour la campagne publicitaire LI-KAH",
     file_url: "/videos/li-kah-project.mp4",
     thumbnail_url: null,
-    link: "#li-kah" // Sera remplacé par le lien PDF plus tard
+    link: "https://www.canva.com/design/DAG7OpacWdE/QhF9oggwgvHXUlf6dMryaw/view?utm_content=DAG7OpacWdE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h444987595d"
   }
 ];
 
