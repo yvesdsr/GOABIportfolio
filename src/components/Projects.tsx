@@ -6,6 +6,14 @@ import { Github, ExternalLink, Leaf, Building, GraduationCap } from "lucide-reac
 const Projects = () => {
   const projects = [
     {
+      title: "ARIVO",
+      description: "Création d'une mini charte graphique (logo + identité visuelle) pour ARIVO, une plateforme de mobilité qui simplifie la location de voitures dans un environnement entièrement digital.",
+      icon: <Building className="text-professional" />,
+      technologies: ["Logo", "Identité Visuelle", "Charte Graphique"],
+      canva: "https://www.canva.com/design/DAG7Sf0HFpA/O4MA_5oPOfwI9gHqSYmXoA/watch?utm_content=DAG7Sf0HFpA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h27d02155c9",
+      category: "Communication"
+    },
+    {
       title: "GCAC-Coop",
       description: "Plateforme de gestion coopérative pour le séchage de cacao destinée aux coopératives agricoles. Système complet de traçabilité et de gestion des productions.",
       icon: <Leaf className="text-success" />,
