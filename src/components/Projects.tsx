@@ -67,6 +67,7 @@ const Projects = () => {
       category: "Finance"
     },
     {
+      id: "iisan-project",
       title: "Présentation IISAN - L'IA",
       description: "Présentation à l'Institut IISAN sur l'évolution de l'Intelligence Artificielle : de l'IA symbolique à l'IA générative. PowerPoint et vidéo de présentation.",
       icon: <GraduationCap className="text-primary" />,

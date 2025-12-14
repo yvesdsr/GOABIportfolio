@@ -14,7 +14,7 @@ interface Content {
   thumbnail_url: string | null;
 }
 
-// Vidéo statique du projet LI-KAH
+// Vidéos statiques des projets
 const staticVideos = [
   {
     id: "li-kah-video",
@@ -22,7 +22,17 @@ const staticVideos = [
     description: "Montage vidéo pour la campagne publicitaire LI-KAH",
     file_url: "/videos/li-kah-project.mp4",
     thumbnail_url: null,
-    link: "https://www.canva.com/design/DAG7OpacWdE/QhF9oggwgvHXUlf6dMryaw/view?utm_content=DAG7OpacWdE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h444987595d"
+    projectLink: "#li-kah-project",
+    projectName: "LI-KAH"
+  },
+  {
+    id: "iisan-video",
+    title: "Présentation IISAN - L'IA",
+    description: "Présentation sur l'évolution de l'IA : de l'IA symbolique à l'IA générative",
+    file_url: "/videos/iisan-ia-presentation.mp4",
+    thumbnail_url: null,
+    projectLink: "#iisan-project",
+    projectName: "IISAN"
   }
 ];
 
@@ -173,9 +183,9 @@ const GoaLearn = () => {
               <div className="space-y-4">
                 {/* Vidéos statiques + vidéos de la base de données */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {/* Vidéo LI-KAH statique */}
+                  {/* Vidéos statiques */}
                   {staticVideos.map((video) => (
-                    <div key={video.id} id="li-kah-video" className="relative group">
+                    <div key={video.id} id={video.id} className="relative group">
                       <div className="aspect-video bg-secondary/50 rounded-lg overflow-hidden">
                         <video 
                           src={video.file_url}
@@ -184,13 +194,7 @@ const GoaLearn = () => {
                         />
                       </div>
                       <p className="text-sm mt-2">
-                        Vidéo du projet{" "}
-                        <a 
-                          href="#li-kah-project" 
-                          className="text-primary hover:underline font-medium"
-                        >
-                          LI-KAH
-                        </a>
+                        {video.title}
                       </p>
                     </div>
                   ))}
