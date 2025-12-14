@@ -33,6 +33,15 @@ const staticVideos = [
     thumbnail_url: null,
     projectLink: "#iisan-project",
     projectName: "IISAN"
+  },
+  {
+    id: "octobre-rose-video",
+    title: "Octobre Rose - Sensibilisation",
+    description: "Montage vidéo de sensibilisation au cancer du sein pour Octobre Rose",
+    file_url: "/videos/octobre-rose.mp4",
+    thumbnail_url: null,
+    projectLink: "#octobre-rose-project",
+    projectName: "Octobre Rose"
   }
 ];
 
@@ -43,6 +52,12 @@ const staticAffiches = [
     title: "Affiche LI-KAH",
     file_url: "/lovable-uploads/li-kah-affiche.jpeg",
     link: "https://www.canva.com/design/DAG7OpacWdE/QhF9oggwgvHXUlf6dMryaw/view?utm_content=DAG7OpacWdE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h444987595d"
+  },
+  {
+    id: "octobre-rose-affiche",
+    title: "Affiche Octobre Rose",
+    file_url: "/projects/octobre-rose-affiche.jpeg",
+    link: null
   }
 ];
 
@@ -130,22 +145,35 @@ const GoaLearn = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {/* Affiches statiques */}
                   {staticAffiches.map((affiche) => (
-                    <a 
-                      key={affiche.id} 
-                      href={affiche.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="relative group block"
-                    >
-                      <div className="aspect-[3/4] bg-secondary/50 rounded-lg overflow-hidden">
-                        <img 
-                          src={affiche.file_url} 
-                          alt={affiche.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
+                    affiche.link ? (
+                      <a 
+                        key={affiche.id} 
+                        href={affiche.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative group block"
+                      >
+                        <div className="aspect-[3/4] bg-secondary/50 rounded-lg overflow-hidden">
+                          <img 
+                            src={affiche.file_url} 
+                            alt={affiche.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                        <p className="text-sm text-primary mt-2 hover:underline font-medium">{affiche.title}</p>
+                      </a>
+                    ) : (
+                      <div key={affiche.id} className="relative group block">
+                        <div className="aspect-[3/4] bg-secondary/50 rounded-lg overflow-hidden">
+                          <img 
+                            src={affiche.file_url} 
+                            alt={affiche.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                        <p className="text-sm text-primary mt-2 font-medium">{affiche.title}</p>
                       </div>
-                      <p className="text-sm text-primary mt-2 hover:underline font-medium">{affiche.title}</p>
-                    </a>
+                    )
                   ))}
                   
                   {/* Affiches dynamiques de la DB */}
