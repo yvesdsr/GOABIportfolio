@@ -65,6 +65,15 @@ const Projects = () => {
       technologies: ["HTML", "CSS", "JavaScript"],
       live: "https://trading-pro-blue.vercel.app",
       category: "Finance"
+    },
+    {
+      title: "Présentation IISAN - L'IA",
+      description: "Présentation à l'Institut IISAN sur l'évolution de l'Intelligence Artificielle : de l'IA symbolique à l'IA générative. PowerPoint et vidéo de présentation.",
+      icon: <GraduationCap className="text-primary" />,
+      technologies: ["PowerPoint", "Présentation", "Vidéo", "IA"],
+      canva: "https://www.canva.com/design/DAG6PqZ7kQY/c3ZanhObt6AYSVdwrpKkyw/view?utm_content=DAG6PqZ7kQY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h38ae497240",
+      videoLink: "#iisan-video",
+      category: "Formation"
     }
   ];
 
