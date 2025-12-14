@@ -6,6 +6,15 @@ import { Github, ExternalLink, Leaf, Building, GraduationCap } from "lucide-reac
 const Projects = () => {
   const projects = [
     {
+      title: "Babi Beer",
+      description: "Conception d'une campagne publicitaire complète pour la marque de bière ivoirienne Babi Beer : logo, affiche pour réseaux sociaux, mockups et design publicitaire.",
+      icon: <Building className="text-professional" />,
+      technologies: ["Logo", "Affiche", "Mockups", "Design Publicitaire", "Réseaux Sociaux"],
+      canva: "https://www.canva.com/design/DAG7gspkwfQ/-irg1kTSQqzAyBMMAhYFlw/view?utm_content=DAG7gspkwfQ&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc1aa31fc8f",
+      image: "/projects/babi-beer.png",
+      category: "Communication"
+    },
+    {
       title: "ARIVO",
       description: "Création d'une mini charte graphique (logo + identité visuelle) pour ARIVO, une plateforme de mobilité qui simplifie la location de voitures dans un environnement entièrement digital.",
       icon: <Building className="text-professional" />,
