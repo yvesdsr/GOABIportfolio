@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Leaf, Building, GraduationCap } from "lucide-react";
+import { Github, ExternalLink, Leaf, Building, GraduationCap, Heart } from "lucide-react";
 
 const Projects = () => {
   const projects = [
@@ -75,6 +75,15 @@ const Projects = () => {
       canva: "https://www.canva.com/design/DAG6PqZ7kQY/c3ZanhObt6AYSVdwrpKkyw/view?utm_content=DAG6PqZ7kQY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h38ae497240",
       videoLink: "#iisan-video",
       category: "Formation"
+    },
+    {
+      id: "octobre-rose-project",
+      title: "Octobre Rose - Sensibilisation",
+      description: "Projet de sensibilisation au cancer du sein pour Octobre Rose : création d'affiche et montage vidéo pour la campagne de prévention.",
+      icon: <Heart className="text-pink-500" />,
+      technologies: ["Affiche", "Montage Vidéo", "Sensibilisation", "Communication"],
+      videoLink: "#octobre-rose-video",
+      category: "Sensibilisation"
     }
   ];
 
