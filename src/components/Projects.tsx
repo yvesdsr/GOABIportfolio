@@ -6,23 +6,6 @@ import { Github, ExternalLink, Leaf, Building, GraduationCap } from "lucide-reac
 const Projects = () => {
   const projects = [
     {
-      title: "Babi Beer",
-      description: "Conception d'une campagne publicitaire complète pour la marque de bière ivoirienne Babi Beer : logo, affiche pour réseaux sociaux, mockups et design publicitaire.",
-      icon: <Building className="text-professional" />,
-      technologies: ["Logo", "Affiche", "Mockups", "Design Publicitaire", "Réseaux Sociaux"],
-      canva: "https://www.canva.com/design/DAG7gspkwfQ/-irg1kTSQqzAyBMMAhYFlw/view?utm_content=DAG7gspkwfQ&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc1aa31fc8f",
-      image: "/projects/babi-beer.png",
-      category: "Communication"
-    },
-    {
-      title: "ARIVO",
-      description: "Création d'une mini charte graphique (logo + identité visuelle) pour ARIVO, une plateforme de mobilité qui simplifie la location de voitures dans un environnement entièrement digital.",
-      icon: <Building className="text-professional" />,
-      technologies: ["Logo", "Identité Visuelle", "Charte Graphique"],
-      canva: "https://www.canva.com/design/DAG7Sf0HFpA/O4MA_5oPOfwI9gHqSYmXoA/watch?utm_content=DAG7Sf0HFpA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h27d02155c9",
-      category: "Communication"
-    },
-    {
       title: "GCAC-Coop",
       description: "Plateforme de gestion coopérative pour le séchage de cacao destinée aux coopératives agricoles. Système complet de traçabilité et de gestion des productions.",
       icon: <Leaf className="text-success" />,
@@ -32,20 +15,11 @@ const Projects = () => {
       category: "Agriculture"
     },
     {
-      title: "Sidii Ingénieurs Web",
-      description: "Site web professionnel pour une agence d'ingénierie web. Présentation des services, portfolio et contact.",
-      icon: <Building className="text-professional" />,
-      technologies: ["React", "CSS3", "JavaScript"],
-      github: "https://github.com/yvesdsr/sidii-ingenieurs-web",
-      live: "https://sidii-ingenieurs-webb.vercel.app/",
-      category: "Corporate"
-    },
-    {
       title: "DIGIKIDS",
       description: "Conception d'une charte graphique et d'une stratégie de communication pour une structure digitale de formation des enfants de 4 à 14 ans au numérique.",
       icon: <GraduationCap className="text-primary" />,
       technologies: ["Charte Graphique", "Stratégie Communication", "Branding"],
-      behance: "https://www.behance.net/gallery/239974941/MINI-CHARTE-GRAPHIQUE-DIGIKIDS",
+      canva: "https://www.canva.com/design/DAG6FNS3Wio/h0X9YOiF9f5vkv3YFkKwEA/view?utm_content=DAG6FNS3Wio&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hab4e50ff15",
       category: "Communication"
     },
     {
@@ -57,6 +31,32 @@ const Projects = () => {
       canva: "https://www.canva.com/design/DAG7OpacWdE/QhF9oggwgvHXUlf6dMryaw/view?utm_content=DAG7OpacWdE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h444987595d",
       videoLink: "#li-kah-video",
       category: "Communication"
+    },
+    {
+      title: "ARIVO",
+      description: "Création d'une mini charte graphique (logo + identité visuelle) pour ARIVO, une plateforme de mobilité qui simplifie la location de voitures dans un environnement entièrement digital.",
+      icon: <Building className="text-professional" />,
+      technologies: ["Logo", "Identité Visuelle", "Charte Graphique"],
+      canva: "https://www.canva.com/design/DAG7Sf0HFpA/O4MA_5oPOfwI9gHqSYmXoA/watch?utm_content=DAG7Sf0HFpA&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h27d02155c9",
+      category: "Communication"
+    },
+    {
+      title: "Babi Beer",
+      description: "Conception d'une campagne publicitaire complète pour la marque de bière ivoirienne Babi Beer : logo, affiche pour réseaux sociaux, mockups et design publicitaire.",
+      icon: <Building className="text-professional" />,
+      technologies: ["Logo", "Affiche", "Mockups", "Design Publicitaire", "Réseaux Sociaux"],
+      canva: "https://www.canva.com/design/DAG7gspkwfQ/-irg1kTSQqzAyBMMAhYFlw/view?utm_content=DAG7gspkwfQ&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hc1aa31fc8f",
+      image: "/projects/babi-beer.png",
+      category: "Communication"
+    },
+    {
+      title: "Sidii Ingénieurs Web",
+      description: "Site web professionnel pour une agence d'ingénierie web. Présentation des services, portfolio et contact.",
+      icon: <Building className="text-professional" />,
+      technologies: ["React", "CSS3", "JavaScript"],
+      github: "https://github.com/yvesdsr/sidii-ingenieurs-web",
+      live: "https://sidii-ingenieurs-webb.vercel.app/",
+      category: "Corporate"
     },
     {
       title: "TradingPro",
@@ -124,16 +124,6 @@ const Projects = () => {
                     >
                       <ExternalLink size={16} className="mr-2" />
                       Demo
-                    </Button>
-                  )}
-                  {project.behance && (
-                    <Button 
-                      size="sm" 
-                      className="flex-1"
-                      onClick={() => window.open(project.behance, '_blank')}
-                    >
-                      <ExternalLink size={16} className="mr-2" />
-                      Behance
                     </Button>
                   )}
                   {project.canva && (
