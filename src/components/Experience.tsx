@@ -29,7 +29,7 @@ const Experience = () => {
       ]
     },
     {
-      titre: "Administrateur de groupe",
+      titre: "Chargé de communication et administrateur de groupe",
       entreprise: "SOCAPBLO COOP CA",
       periode: "2023 - 2025",
       lieu: "Abidjan, Côte d'Ivoire",
