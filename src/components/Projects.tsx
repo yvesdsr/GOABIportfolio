@@ -7,7 +7,7 @@ const Projects = () => {
   const projects = [
     {
       title: "GCAC-Coop",
-      description: "Plateforme de gestion coopérative pour le séchage de cacao destinée aux coopératives agricoles. Système complet de traçabilité et de gestion des productions.",
+      description: "Site internet professionnel de vente de cacao et de ses dérivés. Permet de passer des commandes et de devenir membre de la coopérative agricole.",
       icon: <Leaf className="text-success" />,
       technologies: ["React", "Node.js", "MongoDB", "Express"],
       github: "https://github.com/yvesdsr/GCAC-Coop",
