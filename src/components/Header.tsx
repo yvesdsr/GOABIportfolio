@@ -8,8 +8,8 @@ const Header = () => {
         <div className="flex flex-col lg:flex-row items-center gap-12">
           <div className="flex-shrink-0">
             <img 
-              src="/lovable-uploads/profile-photo.png" 
-              alt="Yves Desire GOA BI" 
+              src="/lovable-uploads/profile-photo-new.jpeg" 
+              alt="Yves Desire GOA BI"
               className="w-64 h-64 rounded-full object-cover border-4 border-white shadow-card"
             />
           </div>
