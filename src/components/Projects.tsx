@@ -19,7 +19,7 @@ const Projects = () => {
       description: "Conception d'une charte graphique et d'une stratégie de communication pour une structure digitale de formation des enfants de 4 à 14 ans au numérique.",
       icon: <GraduationCap className="text-primary" />,
       technologies: ["Charte Graphique", "Stratégie Communication", "Branding"],
-      canva: "https://www.canva.com/design/DAG6FNS3Wio/h0X9YOiF9f5vkv3YFkKwEA/view?utm_content=DAG6FNS3Wio&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hab4e50ff15",
+      behance: "https://www.behance.net/gallery/241745727/CHARTE-GRAPHIQUE-DIGIKIDS",
       category: "Communication"
     },
     {
@@ -153,6 +153,16 @@ const Projects = () => {
                     >
                       <ExternalLink size={16} className="mr-2" />
                       Voir le projet
+                    </Button>
+                  )}
+                  {project.behance && (
+                    <Button 
+                      size="sm" 
+                      className="flex-1"
+                      onClick={() => window.open(project.behance, '_blank')}
+                    >
+                      <ExternalLink size={16} className="mr-2" />
+                      Voir sur Behance
                     </Button>
                   )}
                   {project.videoLink && (
