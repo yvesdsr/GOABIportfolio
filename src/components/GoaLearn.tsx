@@ -103,17 +103,17 @@ const GoaLearn = () => {
           <div className="flex flex-wrap justify-center gap-6 mb-6">
             <div className="flex items-center gap-2 bg-muted/50 px-4 py-2 rounded-full">
               <Eye className="text-primary" size={20} />
-              <span className="font-semibold">200K+</span>
+              <span className="font-semibold">250K+</span>
               <span className="text-muted-foreground text-sm">vues</span>
             </div>
             <div className="flex items-center gap-2 bg-muted/50 px-4 py-2 rounded-full">
               <UserPlus className="text-primary" size={20} />
-              <span className="font-semibold">800+</span>
+              <span className="font-semibold">1000+</span>
               <span className="text-muted-foreground text-sm">abonnés</span>
             </div>
             <div className="flex items-center gap-2 bg-muted/50 px-4 py-2 rounded-full">
               <Heart className="text-primary" size={20} />
-              <span className="font-semibold">10K</span>
+              <span className="font-semibold">6K+</span>
               <span className="text-muted-foreground text-sm">likes</span>
             </div>
           </div>

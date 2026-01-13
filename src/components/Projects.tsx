@@ -1,10 +1,25 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Leaf, Building, GraduationCap, Heart } from "lucide-react";
+import { Github, ExternalLink, Leaf, Building, GraduationCap, Heart, Users } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Projects = () => {
   const projects = [
+    {
+      title: "ONG AEJF - Campagne 360°",
+      description: "Campagne de communication complète pour l'Alliance pour l'Éducation des Jeunes Filles : site web, stratégie de communication, charte graphique, court métrage de sensibilisation 'Au-delà des Barrières'.",
+      icon: <Users className="text-primary" />,
+      technologies: ["Site Web", "Stratégie Communication", "Charte Graphique", "Court Métrage", "Branding"],
+      images: ["/projects/aejf-film.png", "/projects/aejf-visuel.png"],
+      links: {
+        website: "https://www.behance.net/gallery/241745727/ONG-AEF-Alliance-pour-lEducation-des-Filles",
+        strategy: "https://www.behance.net/gallery/241745727/STRATEGIE-DE-COMMUNICATION-ONG-AEJF",
+        charte: "https://www.behance.net/gallery/241745727/CHARTE-GRAPHIQUE-AEJF",
+        film: "https://drive.google.com/drive/folders/1example"
+      },
+      category: "ONG"
+    },
     {
       title: "GCAC-Coop",
       description: "Site internet professionnel de vente de cacao et de ses dérivés. Permet de passer des commandes et de devenir membre de la coopérative agricole.",
@@ -102,86 +117,111 @@ const Projects = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} id={project.id} className="shadow-card hover:shadow-glow transition-all duration-300 group">
-              <CardHeader>
-                <div className="flex items-center gap-3 mb-3">
-                  {project.icon}
-                  <Badge variant="outline">{project.category}</Badge>
-                </div>
-                <CardTitle className="text-xl">{project.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-                  {project.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech, i) => (
-                    <Badge key={i} variant="secondary" className="text-xs">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <Card id={project.id} className="shadow-card hover:shadow-glow transition-all duration-300 group h-full">
+                <CardHeader>
+                  <div className="flex items-center gap-3 mb-3">
+                    {project.icon}
+                    <Badge variant="outline">{project.category}</Badge>
+                  </div>
+                  <CardTitle className="text-xl">{project.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  {project.images && (
+                    <div className="grid grid-cols-2 gap-2 mb-4">
+                      {project.images.map((img, i) => (
+                        <img key={i} src={img} alt={`${project.title} - ${i + 1}`} className="rounded-lg w-full h-24 object-cover" />
+                      ))}
+                    </div>
+                  )}
+                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                    {project.description}
+                  </p>
+                  
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.technologies.map((tech, i) => (
+                      <Badge key={i} variant="secondary" className="text-xs">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
 
-                <div className="flex gap-2">
-                  {project.github && (
-                    <Button 
-                      size="sm" 
-                      variant="outline" 
-                      className="flex-1"
-                      onClick={() => window.open(project.github, '_blank')}
-                    >
-                      <Github size={16} className="mr-2" />
-                      Code
-                    </Button>
-                  )}
-                  {project.live && (
-                    <Button 
-                      size="sm" 
-                      className="flex-1"
-                      onClick={() => window.open(project.live, '_blank')}
-                    >
-                      <ExternalLink size={16} className="mr-2" />
-                      Demo
-                    </Button>
-                  )}
-                  {project.canva && (
-                    <Button 
-                      size="sm" 
-                      className="flex-1"
-                      onClick={() => window.open(project.canva, '_blank')}
-                    >
-                      <ExternalLink size={16} className="mr-2" />
-                      Voir le projet
-                    </Button>
-                  )}
-                  {project.behance && (
-                    <Button 
-                      size="sm" 
-                      className="flex-1"
-                      onClick={() => window.open(project.behance, '_blank')}
-                    >
-                      <ExternalLink size={16} className="mr-2" />
-                      Voir sur Behance
-                    </Button>
-                  )}
-                  {project.videoLink && (
-                    <Button 
-                      size="sm" 
-                      variant="outline"
-                      className="flex-1"
-                      onClick={() => {
-                        const element = document.querySelector(project.videoLink);
-                        element?.scrollIntoView({ behavior: 'smooth' });
-                      }}
-                    >
-                      <ExternalLink size={16} className="mr-2" />
-                      Voir vidéo
-                    </Button>
-                  )}
-                </div>
-              </CardContent>
-            </Card>
+                  <div className="flex flex-wrap gap-2">
+                    {project.github && (
+                      <Button 
+                        size="sm" 
+                        variant="outline" 
+                        className="flex-1"
+                        onClick={() => window.open(project.github, '_blank')}
+                      >
+                        <Github size={16} className="mr-2" />
+                        Code
+                      </Button>
+                    )}
+                    {project.live && (
+                      <Button 
+                        size="sm" 
+                        className="flex-1"
+                        onClick={() => window.open(project.live, '_blank')}
+                      >
+                        <ExternalLink size={16} className="mr-2" />
+                        Demo
+                      </Button>
+                    )}
+                    {project.canva && (
+                      <Button 
+                        size="sm" 
+                        className="flex-1"
+                        onClick={() => window.open(project.canva, '_blank')}
+                      >
+                        <ExternalLink size={16} className="mr-2" />
+                        Voir le projet
+                      </Button>
+                    )}
+                    {project.behance && (
+                      <Button 
+                        size="sm" 
+                        className="flex-1"
+                        onClick={() => window.open(project.behance, '_blank')}
+                      >
+                        <ExternalLink size={16} className="mr-2" />
+                        Voir sur Behance
+                      </Button>
+                    )}
+                    {project.links && (
+                      <Button 
+                        size="sm" 
+                        className="flex-1"
+                        onClick={() => window.open(project.links.website, '_blank')}
+                      >
+                        <ExternalLink size={16} className="mr-2" />
+                        Voir le projet
+                      </Button>
+                    )}
+                    {project.videoLink && (
+                      <Button 
+                        size="sm" 
+                        variant="outline"
+                        className="flex-1"
+                        onClick={() => {
+                          const element = document.querySelector(project.videoLink);
+                          element?.scrollIntoView({ behavior: 'smooth' });
+                        }}
+                      >
+                        <ExternalLink size={16} className="mr-2" />
+                        Voir vidéo
+                      </Button>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           ))}
         </div>
 
