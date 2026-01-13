@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CalendarDays, MapPin, Building } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Experience = () => {
   const experiences = [
@@ -90,83 +91,117 @@ const Experience = () => {
   return (
     <section className="py-20 bg-secondary/30">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-4xl font-bold mb-4 tracking-tight">Expérience & Formation</h2>
           <p className="text-lg text-muted-foreground">
             Mon parcours professionnel et académique
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Expérience */}
           <div>
-            <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
+            <motion.h3 
+              className="text-2xl font-semibold mb-6 flex items-center gap-2"
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
               <Building className="text-primary" />
               Expérience Professionnelle
-            </h3>
+            </motion.h3>
             <div className="space-y-6">
               {experiences.map((exp, index) => (
-                <Card key={index} className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300">
-                  <CardHeader>
-                    <CardTitle className="text-lg">{exp.titre}</CardTitle>
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Building size={16} />
-                        <span>{exp.entreprise}</span>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Card className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300">
+                    <CardHeader>
+                      <CardTitle className="text-lg">{exp.titre}</CardTitle>
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <Building size={16} />
+                          <span>{exp.entreprise}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <CalendarDays size={16} />
+                          <span>{exp.periode}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <MapPin size={16} />
+                          <span>{exp.lieu}</span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <CalendarDays size={16} />
-                        <span>{exp.periode}</span>
-                      </div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <MapPin size={16} />
-                        <span>{exp.lieu}</span>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-2">
-                      {exp.description.map((desc, idx) => (
-                        <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
-                          <span className="text-primary mt-1">•</span>
-                          <span>{desc}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
+                    </CardHeader>
+                    <CardContent>
+                      <ul className="space-y-2">
+                        {exp.description.map((desc, idx) => (
+                          <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
+                            <span className="text-primary mt-1">•</span>
+                            <span>{desc}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                </motion.div>
               ))}
             </div>
           </div>
 
           {/* Formation */}
           <div className="lg:self-start">
-            <h3 className="text-2xl font-semibold mb-6 flex items-center gap-2">
+            <motion.h3 
+              className="text-2xl font-semibold mb-6 flex items-center gap-2"
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
               <Building className="text-primary" />
               Formation
-            </h3>
+            </motion.h3>
             <div className="space-y-6">
               {education.map((edu, index) => (
-                <Card key={index} className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300">
-                  <CardHeader className="pb-3">
-                    <CardTitle className="text-lg">{edu.diplome}</CardTitle>
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <Building size={16} />
-                        <span>{edu.etablissement}</span>
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <Card className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-lg">{edu.diplome}</CardTitle>
+                      <div className="space-y-2">
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <Building size={16} />
+                          <span>{edu.etablissement}</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                          <CalendarDays size={16} />
+                          <span>{edu.periode}</span>
+                        </div>
                       </div>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                        <CalendarDays size={16} />
-                        <span>{edu.periode}</span>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  {edu.mention && (
-                    <CardContent className="pt-0">
-                      <Badge variant="secondary">{edu.mention}</Badge>
-                    </CardContent>
-                  )}
-                </Card>
+                    </CardHeader>
+                    {edu.mention && (
+                      <CardContent className="pt-0">
+                        <Badge variant="secondary">{edu.mention}</Badge>
+                      </CardContent>
+                    )}
+                  </Card>
+                </motion.div>
               ))}
             </div>
           </div>

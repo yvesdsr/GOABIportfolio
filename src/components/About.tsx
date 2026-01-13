@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Code, Users, GraduationCap } from "lucide-react";
+import { motion } from "framer-motion";
 
 const About = () => {
   const competences = [
@@ -44,10 +45,31 @@ const About = () => {
     { langue: "Anglais", niveau: "Niveau moyen" }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-4xl font-bold mb-4 tracking-tight">Profil Professionnel</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Créateur digital passionné : je conçois des sites web modernes, des visuels percutants et du contenu vidéo engageant. 
@@ -55,71 +77,110 @@ const About = () => {
             Mon parcours m'a permis de travailler avec des coopératives agricoles et des entreprises tech, 
             toujours avec le souci du résultat et de la qualité.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
-          <Card className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300">
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          <motion.div variants={itemVariants}>
+            <Card className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300 h-full">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Code className="text-primary" />
+                  Compétences
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {competences.map((competence, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.03 }}
+                    >
+                      <Badge variant="secondary" className="hover:bg-primary hover:text-primary-foreground transition-colors">
+                        {competence}
+                      </Badge>
+                    </motion.div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+
+          <motion.div variants={itemVariants}>
+            <Card className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300 h-full">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <GraduationCap className="text-primary" />
+                  Certifications
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {certifications.map((cert, index) => (
+                    <motion.div 
+                      key={index} 
+                      className="group"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <div className="relative overflow-hidden rounded-lg border border-border hover:border-primary transition-colors">
+                        <img 
+                          src={cert.image} 
+                          alt={cert.nom}
+                          className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      <p className="text-sm text-muted-foreground mt-2 text-center">{cert.nom}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <Card className="shadow-elegant border-border/50">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Code className="text-primary" />
-                Compétences
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap gap-2">
-                {competences.map((competence, index) => (
-                  <Badge key={index} variant="secondary" className="hover:bg-primary hover:text-primary-foreground transition-colors">
-                    {competence}
-                  </Badge>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <GraduationCap className="text-primary" />
-                Certifications
+                <Users className="text-primary" />
+                Langues
               </CardTitle>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {certifications.map((cert, index) => (
-                  <div key={index} className="group">
-                    <div className="relative overflow-hidden rounded-lg border border-border hover:border-primary transition-colors">
-                      <img 
-                        src={cert.image} 
-                        alt={cert.nom}
-                        className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <p className="text-sm text-muted-foreground mt-2 text-center">{cert.nom}</p>
-                  </div>
+                {langues.map((langue, index) => (
+                  <motion.div 
+                    key={index} 
+                    className="flex items-center justify-between p-4 bg-muted rounded-lg"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <span className="font-medium">{langue.langue}</span>
+                    <Badge variant="outline">{langue.niveau}</Badge>
+                  </motion.div>
                 ))}
               </div>
             </CardContent>
           </Card>
-        </div>
-
-        <Card className="shadow-elegant border-border/50">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Users className="text-primary" />
-              Langues
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {langues.map((langue, index) => (
-                <div key={index} className="flex items-center justify-between p-4 bg-muted rounded-lg">
-                  <span className="font-medium">{langue.langue}</span>
-                  <Badge variant="outline">{langue.niveau}</Badge>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+        </motion.div>
       </div>
     </section>
   );
