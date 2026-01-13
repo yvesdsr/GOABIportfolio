@@ -1,25 +1,61 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, Leaf, Building, GraduationCap, Heart, Users } from "lucide-react";
+import { Github, ExternalLink, Leaf, Building, GraduationCap, Heart, Users, Globe, FileText, Palette, Film } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Projects = () => {
-  const projects = [
-    {
-      title: "ONG AEJF - Campagne 360°",
-      description: "Campagne de communication complète pour l'Alliance pour l'Éducation des Jeunes Filles : site web, stratégie de communication, charte graphique, court métrage de sensibilisation 'Au-delà des Barrières'.",
-      icon: <Users className="text-primary" />,
-      technologies: ["Site Web", "Stratégie Communication", "Charte Graphique", "Court Métrage", "Branding"],
-      images: ["/projects/aejf-film.png", "/projects/aejf-visuel.png"],
-      links: {
-        website: "https://www.behance.net/gallery/241745727/ONG-AEF-Alliance-pour-lEducation-des-Filles",
-        strategy: "https://www.behance.net/gallery/241745727/STRATEGIE-DE-COMMUNICATION-ONG-AEJF",
-        charte: "https://www.behance.net/gallery/241745727/CHARTE-GRAPHIQUE-AEJF",
-        film: "https://drive.google.com/drive/folders/1example"
+  // Projet AEJF séparé avec ses éléments individuels
+  const aejfProject = {
+    title: "ONG AEJF - Campagne 360°",
+    description: "Campagne de communication complète pour l'Alliance pour l'Éducation des Jeunes Filles",
+    elements: [
+      {
+        title: "Site Internet",
+        icon: <Globe className="text-primary" size={24} />,
+        image: null,
+        link: "https://girls-future-forward.vercel.app",
+        description: "Site web professionnel présentant l'ONG et ses actions"
       },
-      category: "ONG"
-    },
+      {
+        title: "Stratégie de Communication",
+        icon: <FileText className="text-primary" size={24} />,
+        image: null,
+        link: "https://www.behance.net/gallery/242088385/STRATEGIE-DE-COMMUNICATION-ONG-AEJF",
+        description: "Plan stratégique de communication digitale"
+      },
+      {
+        title: "Charte Graphique",
+        icon: <Palette className="text-primary" size={24} />,
+        image: null,
+        link: "https://www.canva.com/design/DAG7fVWFZeo/13kJN_c4sDBOyttIZJq8kg/view?utm_content=DAG7fVWFZeo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hecdf1ccd13",
+        description: "Identité visuelle complète de l'ONG"
+      },
+      {
+        title: "Court Métrage de Sensibilisation",
+        icon: <Film className="text-primary" size={24} />,
+        image: "/projects/aejf-film.png",
+        link: "https://drive.google.com/file/d/1FK6a40O_MaSQ65BvQRIrtVk1W9f3Z8kR/view",
+        description: "Film 'Au-delà des Barrières'"
+      },
+      {
+        title: "Logo",
+        icon: <Palette className="text-primary" size={24} />,
+        image: "/projects/aejf-logo.png",
+        link: null,
+        description: "Logo officiel de l'Alliance pour l'Éducation des Filles"
+      },
+      {
+        title: "Visuel Principal",
+        icon: <Users className="text-primary" size={24} />,
+        image: "/projects/aejf-visuel.png",
+        link: null,
+        description: "Visuel de communication principal de la campagne"
+      }
+    ]
+  };
+
+  const projects = [
     {
       title: "GCAC-Coop",
       description: "Site internet professionnel de vente de cacao et de ses dérivés. Permet de passer des commandes et de devenir membre de la coopérative agricole.",
@@ -102,19 +138,91 @@ const Projects = () => {
     }
   ];
 
-  const categories = ["Tous", "Agriculture", "Services", "Corporate", "Finance", "Mobile", "E-commerce"];
-
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
           <h2 className="text-4xl font-bold mb-4">Mes Projets</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Une sélection de mes réalisations en développement web, 
             de la gestion coopérative aux plateformes e-commerce
           </p>
-        </div>
+        </motion.div>
 
+        {/* Section AEJF - Campagne 360° */}
+        <motion.div
+          className="mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <Card className="shadow-elegant border-border/50 overflow-hidden">
+            <CardHeader className="bg-gradient-to-r from-primary/10 to-primary/5">
+              <div className="flex items-center gap-3 mb-2">
+                <Users className="text-primary" size={28} />
+                <Badge variant="default" className="bg-primary">Projet Phare</Badge>
+                <Badge variant="outline">ONG</Badge>
+              </div>
+              <CardTitle className="text-2xl">{aejfProject.title}</CardTitle>
+              <p className="text-muted-foreground">{aejfProject.description}</p>
+            </CardHeader>
+            <CardContent className="pt-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {aejfProject.elements.map((element, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.1 }}
+                    className="group"
+                  >
+                    <div className="border border-border rounded-lg p-4 hover:border-primary hover:shadow-glow transition-all duration-300 h-full flex flex-col">
+                      <div className="flex items-center gap-3 mb-3">
+                        {element.icon}
+                        <h4 className="font-semibold text-lg">{element.title}</h4>
+                      </div>
+                      
+                      {element.image && (
+                        <div className="relative overflow-hidden rounded-lg mb-3 aspect-video">
+                          <img 
+                            src={element.image} 
+                            alt={element.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                          />
+                        </div>
+                      )}
+                      
+                      <p className="text-sm text-muted-foreground mb-4 flex-grow">
+                        {element.description}
+                      </p>
+                      
+                      {element.link && (
+                        <Button 
+                          size="sm" 
+                          className="w-full"
+                          onClick={() => window.open(element.link, '_blank')}
+                        >
+                          <ExternalLink size={16} className="mr-2" />
+                          Voir
+                        </Button>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+
+        {/* Autres projets */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
@@ -133,13 +241,6 @@ const Projects = () => {
                   <CardTitle className="text-xl">{project.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  {project.images && (
-                    <div className="grid grid-cols-2 gap-2 mb-4">
-                      {project.images.map((img, i) => (
-                        <img key={i} src={img} alt={`${project.title} - ${i + 1}`} className="rounded-lg w-full h-24 object-cover" />
-                      ))}
-                    </div>
-                  )}
                   <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
                     {project.description}
                   </p>
@@ -194,16 +295,6 @@ const Projects = () => {
                         Voir sur Behance
                       </Button>
                     )}
-                    {project.links && (
-                      <Button 
-                        size="sm" 
-                        className="flex-1"
-                        onClick={() => window.open(project.links.website, '_blank')}
-                      >
-                        <ExternalLink size={16} className="mr-2" />
-                        Voir le projet
-                      </Button>
-                    )}
                     {project.videoLink && (
                       <Button 
                         size="sm" 
@@ -225,7 +316,13 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <motion.div 
+          className="text-center mt-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <Button 
             size="lg" 
             variant="outline"
@@ -234,7 +331,7 @@ const Projects = () => {
             <Github className="mr-2" />
             Voir tous mes projets sur GitHub
           </Button>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

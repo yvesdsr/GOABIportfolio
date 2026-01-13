@@ -1,28 +1,61 @@
 import { Button } from "@/components/ui/button";
 import { Mail, Phone, MapPin, Github, Linkedin } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Header = () => {
   return (
     <header className="bg-gradient-hero shadow-glow">
       <div className="container mx-auto px-6 py-16">
         <div className="flex flex-col lg:flex-row items-center gap-12">
-          <div className="flex-shrink-0">
+          <motion.div 
+            className="flex-shrink-0"
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+          >
             <img 
               src="/lovable-uploads/profile-photo-new.jpeg" 
               alt="Yves Desire GOA BI"
               className="w-64 h-64 rounded-full object-cover border-4 border-white shadow-card"
             />
-          </div>
-          <div className="text-center lg:text-left text-white flex-1">
-            <h1 className="text-5xl font-bold mb-4 tracking-tight">YVES DESIRE GOABI</h1>
-            <p className="text-xl mb-6 opacity-90 font-medium">
+          </motion.div>
+          <motion.div 
+            className="text-center lg:text-left text-white flex-1"
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <motion.h1 
+              className="text-5xl font-bold mb-4 tracking-tight"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              YVES DESIRE GOABI
+            </motion.h1>
+            <motion.p 
+              className="text-xl mb-6 opacity-90 font-medium"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
               IA Digital Creator | Développeur Web | Graphiste | Monteur Vidéo | Community Manager | Certifié Google
-            </p>
-            <p className="text-lg mb-8 opacity-80 max-w-2xl leading-relaxed">
+            </motion.p>
+            <motion.p 
+              className="text-lg mb-8 opacity-80 max-w-2xl leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
               Fondateur de GOA-Learn, je conçois des sites web, crée des identités visuelles complètes (chartes graphiques, logos, stratégies de communication), 
               produis des visuels percutants et du contenu vidéo engageant. Passionné par le digital et l'innovation, j'accompagne les entreprises dans leur communication et leur présence en ligne.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8">
+            </motion.p>
+            <motion.div 
+              className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
               <div className="flex items-center gap-2">
                 <Phone size={18} />
                 <span>+225 07 13 62 18 98</span>
@@ -35,8 +68,13 @@ const Header = () => {
                 <MapPin size={18} />
                 <span>Cocody, Deux-plateaux, Abidjan CV</span>
               </div>
-            </div>
-            <div className="flex gap-4 justify-center lg:justify-start flex-wrap">
+            </motion.div>
+            <motion.div 
+              className="flex gap-4 justify-center lg:justify-start flex-wrap"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+            >
               <Button 
                 variant="outline" 
                 size="lg" 
@@ -66,8 +104,8 @@ const Header = () => {
                 </svg>
                 Behance
               </Button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </header>
