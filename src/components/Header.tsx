@@ -62,7 +62,7 @@ const Header = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Mail size={18} />
-                <span>snowden.yves@gmail.com</span>
+                <span>snowdenyves@gmail.com</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin size={18} />
