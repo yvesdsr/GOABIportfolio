@@ -37,6 +37,10 @@ const About = () => {
     {
       nom: "Rainforest Alliance - Human Rights, Agriculture & Environment",
       image: "/lovable-uploads/4428c0fa-9981-4fe9-a974-a63ee116f4f8.png"
+    },
+    {
+      nom: "Google - Les principes fondamentaux du marketing digital",
+      image: "/certifications/google-marketing-digital.png"
     }
   ];
 

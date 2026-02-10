@@ -39,7 +39,7 @@ const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              IA Digital Creator | Développeur Web | Graphiste | Monteur Vidéo | Community Manager | Certifié Google
+              Brand & Graphic Designer | Développeur Web | Monteur Vidéo | Community Manager | Certifié Google en IA, Rédaction de Prompt et Marketing Digital
             </motion.p>
             <motion.p 
               className="text-lg mb-8 opacity-80 max-w-2xl leading-relaxed"
@@ -47,8 +47,8 @@ const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              Fondateur de GOA-Learn, je conçois des sites web, crée des identités visuelles complètes (chartes graphiques, logos, stratégies de communication), 
-              produis des visuels percutants et du contenu vidéo engageant. Passionné par le digital et l'innovation, j'accompagne les entreprises dans leur communication et leur présence en ligne.
+              Je conçois des sites web modernes, crée des identités visuelles complètes (chartes graphiques, logos, stratégies de communication), 
+              produis des visuels percutants et du contenu vidéo engageant. Passionné par le digital et l'innovation, j'accompagne les entreprises et organisations dans leur communication globale et leur présence en ligne.
             </motion.p>
             <motion.div 
               className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8"
@@ -62,7 +62,7 @@ const Header = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Mail size={18} />
-                <span>snowden.yves@gmail.com</span>
+                <span>snowdenyves@gmail.com</span>
               </div>
               <div className="flex items-center gap-2">
                 <MapPin size={18} />

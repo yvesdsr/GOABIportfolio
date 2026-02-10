@@ -41,9 +41,9 @@ const Projects = () => {
       {
         title: "Logo",
         icon: <Palette className="text-primary" size={24} />,
-        image: "/projects/aejf-logo.png",
+        image: "/projects/aejf-logo-2.png",
         link: null,
-        description: "Logo officiel de l'Alliance pour l'Éducation des Filles"
+        description: "Logo officiel de l'Alliance pour l'Éducation des Jeunes Filles"
       },
       {
         title: "Visuel Principal",
