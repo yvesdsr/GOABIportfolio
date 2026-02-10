@@ -47,8 +47,8 @@ const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
-              Fondateur de GOA-Learn, je conçois des sites web, crée des identités visuelles complètes (chartes graphiques, logos, stratégies de communication), 
-              produis des visuels percutants et du contenu vidéo engageant. Passionné par le digital et l'innovation, j'accompagne les entreprises dans leur communication et leur présence en ligne.
+              Je conçois des sites web modernes, crée des identités visuelles complètes (chartes graphiques, logos, stratégies de communication), 
+              produis des visuels percutants et du contenu vidéo engageant. Passionné par le digital et l'innovation, j'accompagne les entreprises et organisations dans leur communication globale et leur présence en ligne.
             </motion.p>
             <motion.div 
               className="flex flex-wrap gap-4 justify-center lg:justify-start mb-8"
