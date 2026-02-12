@@ -57,6 +57,15 @@ const Projects = () => {
 
   const projects = [
     {
+      title: "AKWABA Beer",
+      description: "Conception d'une identité visuelle et d'une campagne publicitaire complète pour une nouvelle marque de bière ivoirienne AKWABA : logo, packaging, mockups, affiches et design publicitaire.",
+      icon: <Building className="text-professional" />,
+      technologies: ["Identité Visuelle", "Logo", "Packaging", "Mockups", "Affiche", "Design Publicitaire"],
+      behance: "https://www.behance.net/gallery/244041351/AKWABA-BEER",
+      image: "/projects/akwaba-beer.png",
+      category: "Communication"
+    },
+    {
       title: "GCAC-Coop",
       description: "Site internet professionnel de vente de cacao et de ses dérivés. Permet de passer des commandes et de devenir membre de la coopérative agricole.",
       icon: <Leaf className="text-success" />,
