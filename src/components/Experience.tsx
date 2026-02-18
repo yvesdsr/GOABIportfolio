@@ -6,6 +6,17 @@ import { motion } from "framer-motion";
 const Experience = () => {
   const experiences = [
     {
+      titre: "Graphic Designer",
+      entreprise: "NexRaiz",
+      periode: "Février 2026 - Présent",
+      lieu: "Abidjan, Côte d'Ivoire",
+      description: [
+        "Création de l'identité visuelle complète de l'entreprise",
+        "Conception du logo et de ses versions monochromes",
+        "Élaboration de la charte graphique et des supports de communication"
+      ]
+    },
+    {
       titre: "CEO & Fondateur",
       entreprise: "GOA-Learn",
       periode: "2024 - Present",
@@ -55,14 +66,14 @@ const Experience = () => {
       ]
     },
     {
-      titre: "Enseignant",
-      entreprise: "ESTAM",
-      periode: "2022 - 2023",
+      titre: "Graphic Designer",
+      entreprise: "NexRaiz",
+      periode: "Février 2026 - Présent",
       lieu: "Abidjan, Côte d'Ivoire",
       description: [
-        "Enseignement de l'architecture des ordinateurs",
-        "Formation aux bases de l'informatique appliquée",
-        "Initiation aux outils numériques collaboratifs et au développement web"
+        "Création de l'identité visuelle complète de l'entreprise",
+        "Conception du logo et de ses versions monochromes",
+        "Élaboration de la charte graphique et des supports de communication"
       ]
     }
   ];
