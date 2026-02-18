@@ -13,7 +13,7 @@ const Projects = () => {
       {
         title: "Site Internet",
         icon: <Globe className="text-primary" size={24} />,
-        image: "/projects/aejf-site.png",
+        image: "/projects/aejf-site.jpeg",
         link: "https://girls-future-forward.vercel.app",
         description: "Site web professionnel présentant l'ONG et ses actions"
       },
