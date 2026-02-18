@@ -20,14 +20,14 @@ const Projects = () => {
       {
         title: "Stratégie de Communication",
         icon: <FileText className="text-primary" size={24} />,
-        image: "/projects/aejf-strategie.jpeg",
+        image: "/projects/aejf-strategie-new.jpeg",
         link: "https://www.behance.net/gallery/242088385/STRATEGIE-DE-COMMUNICATION-ONG-AEJF",
         description: "Plan stratégique de communication digitale"
       },
       {
         title: "Charte Graphique",
         icon: <Palette className="text-primary" size={24} />,
-        image: "/projects/aejf-charte.jpeg",
+        image: "/projects/aejf-charte-new.jpeg",
         link: "https://www.canva.com/design/DAG7fVWFZeo/13kJN_c4sDBOyttIZJq8kg/view?utm_content=DAG7fVWFZeo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hecdf1ccd13",
         description: "Identité visuelle complète de l'ONG"
       },
@@ -41,7 +41,7 @@ const Projects = () => {
       {
         title: "Logo",
         icon: <Palette className="text-primary" size={24} />,
-        image: "/projects/aejf-logo-3.jpeg",
+        image: "/projects/aejf-logo-new.jpeg",
         link: null,
         description: "Logo officiel de l'Alliance pour l'Éducation des Jeunes Filles"
       },
@@ -291,7 +291,7 @@ const Projects = () => {
                         onClick={() => window.open(project.live, '_blank')}
                       >
                         <ExternalLink size={16} className="mr-2" />
-                        Demo
+                        {project.live.includes('drive.google.com') ? 'Logo' : 'Demo'}
                       </Button>
                     )}
                     {project.canva && (
