@@ -13,21 +13,21 @@ const Projects = () => {
       {
         title: "Site Internet",
         icon: <Globe className="text-primary" size={24} />,
-        image: null,
+        image: "/projects/aejf-site.png",
         link: "https://girls-future-forward.vercel.app",
         description: "Site web professionnel présentant l'ONG et ses actions"
       },
       {
         title: "Stratégie de Communication",
         icon: <FileText className="text-primary" size={24} />,
-        image: null,
+        image: "/projects/aejf-strategie.jpeg",
         link: "https://www.behance.net/gallery/242088385/STRATEGIE-DE-COMMUNICATION-ONG-AEJF",
         description: "Plan stratégique de communication digitale"
       },
       {
         title: "Charte Graphique",
         icon: <Palette className="text-primary" size={24} />,
-        image: null,
+        image: "/projects/aejf-charte.jpeg",
         link: "https://www.canva.com/design/DAG7fVWFZeo/13kJN_c4sDBOyttIZJq8kg/view?utm_content=DAG7fVWFZeo&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hecdf1ccd13",
         description: "Identité visuelle complète de l'ONG"
       },
@@ -41,7 +41,7 @@ const Projects = () => {
       {
         title: "Logo",
         icon: <Palette className="text-primary" size={24} />,
-        image: "/projects/aejf-logo-2.png",
+        image: "/projects/aejf-logo-3.jpeg",
         link: null,
         description: "Logo officiel de l'Alliance pour l'Éducation des Jeunes Filles"
       },
@@ -56,6 +56,16 @@ const Projects = () => {
   };
 
   const projects = [
+    {
+      title: "NexRaiz - Identité Visuelle",
+      description: "Création de l'identité visuelle complète pour NexRaiz : logo, versions monochromes et charte graphique de l'entreprise.",
+      icon: <Building className="text-professional" />,
+      technologies: ["Identité Visuelle", "Logo", "Charte Graphique", "Versions Monochromes"],
+      canva: "https://www.canva.com/design/DAHBqFIq5fE/Qc6geyBTqJ9b0qP7RAwLTw/view?utm_content=DAHBqFIq5fE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hf4c33664be",
+      live: "https://drive.google.com/drive/folders/16b3pdPWnXNO4EMIV1Yi_dQTyjprwhsKz?usp=drive_link",
+      image: "/projects/nexraiz-logo.png",
+      category: "Communication"
+    },
     {
       title: "AKWABA Beer",
       description: "Conception d'une identité visuelle et d'une campagne publicitaire complète pour une nouvelle marque de bière ivoirienne AKWABA : logo, packaging, mockups, affiches et design publicitaire.",

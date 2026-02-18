@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <title>ONG AEF - Alliance pour l'Éducation des Filles</title>
+    <meta name="description" content="L'ONG AEF œuvre pour garantir l'accès à l'éducation pour toutes les filles. Rejoignez-nous pour transformer des vies." />
+    <meta name="author" content="ONG AEF" />
+    <meta property="og:title" content="ONG AEF - Alliance pour l'Éducation des Filles" />
+    <meta property="og:description" content="Ensemble, offrons un avenir à chaque fille par l'éducation" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="module" crossorigin src="/assets/index-C9CBPmub.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-CPB12R5N.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
