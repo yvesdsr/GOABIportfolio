@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 const Experience = () => {
   const experiences = [
     {
-      titre: "Graphic Designer",
+      titre: "Graphic & Brand Designer",
       entreprise: "NexRaiz",
       periode: "Février 2026 - Présent",
       lieu: "Abidjan, Côte d'Ivoire",
