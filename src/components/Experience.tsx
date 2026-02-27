@@ -17,9 +17,19 @@ const Experience = () => {
       ]
     },
     {
+      titre: "Graphic Designer Freelance - Réalisation de Brochures",
+      entreprise: "KalouGroup",
+      periode: "2026",
+      lieu: "Abidjan, Côte d'Ivoire",
+      description: [
+        "Conception et réalisation de brochures professionnelles pour l'entreprise",
+        "Mise en page et design graphique des supports de communication print"
+      ]
+    },
+    {
       titre: "CEO & Fondateur",
       entreprise: "RED STUDIO",
-      periode: "2024 - Present",
+      periode: "2024 - Présent",
       lieu: "Abidjan, Côte d'Ivoire",
       description: [
         "IA Digital Creator - Structure de formation des métiers de la tech",
@@ -41,19 +51,6 @@ const Experience = () => {
       ]
     },
     {
-      titre: "Chargé de communication et administrateur de groupe",
-      entreprise: "SOCAPBLO COOP CA",
-      periode: "2023 - 2025",
-      lieu: "Abidjan, Côte d'Ivoire",
-      description: [
-        "Supervision de +600 producteurs et mise en conformité avec les normes internationales",
-        "Formation et sensibilisation des membres du SGI et des producteurs",
-        "Conception d'un site web professionnel et animation des réseaux sociaux",
-        "Élaboration de supports de communication : affiches, newsletters, contenus digitaux",
-        "Coordination des équipes et mise en place d'actions correctives"
-      ]
-    },
-    {
       titre: "Chargé de communication",
       entreprise: "IVORY TECH ENGINEERING",
       periode: "2025",
@@ -66,13 +63,16 @@ const Experience = () => {
       ]
     },
     {
-      titre: "Réalisation de Brochures",
-      entreprise: "KalouGroup",
-      periode: "2025",
+      titre: "Chargé de communication et administrateur de groupe",
+      entreprise: "SOCAPBLO COOP CA",
+      periode: "2023 - 2025",
       lieu: "Abidjan, Côte d'Ivoire",
       description: [
-        "Conception et réalisation de brochures professionnelles pour l'entreprise",
-        "Mise en page et design graphique des supports de communication print"
+        "Supervision de +600 producteurs et mise en conformité avec les normes internationales",
+        "Formation et sensibilisation des membres du SGI et des producteurs",
+        "Conception d'un site web professionnel et animation des réseaux sociaux",
+        "Élaboration de supports de communication : affiches, newsletters, contenus digitaux",
+        "Coordination des équipes et mise en place d'actions correctives"
       ]
     }
   ];
@@ -143,32 +143,35 @@ const Experience = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
                   <Card className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300">
-                    <CardHeader>
-                      <CardTitle className="text-lg">{exp.titre}</CardTitle>
-                      <div className="space-y-2">
+                    <CardHeader className="pb-3">
+                      <CardTitle className="text-lg leading-tight">{exp.titre}</CardTitle>
+                      <div className="space-y-1.5 mt-2">
                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <Building size={16} />
+                          <Building size={16} className="flex-shrink-0" />
                           <span>{exp.entreprise}</span>
                         </div>
                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <CalendarDays size={16} />
+                          <CalendarDays size={16} className="flex-shrink-0" />
                           <span>{exp.periode}</span>
                         </div>
                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <MapPin size={16} />
+                          <MapPin size={16} className="flex-shrink-0" />
                           <span>{exp.lieu}</span>
                         </div>
                       </div>
                     </CardHeader>
-                    <CardContent>
-                      <ul className="space-y-2">
+                    <CardContent className="pt-0">
+                      <ul className="space-y-1.5 mb-4">
                         {exp.description.map((desc, idx) => (
                           <li key={idx} className="text-sm text-muted-foreground flex items-start gap-2">
-                            <span className="text-primary mt-1">•</span>
+                            <span className="text-primary mt-0.5 flex-shrink-0">•</span>
                             <span>{desc}</span>
                           </li>
                         ))}
                       </ul>
+                      <p className="text-sm font-bold text-primary border-t border-border/50 pt-3">
+                        📂 Voir section projet pour toutes réalisations liées à ce poste
+                      </p>
                     </CardContent>
                   </Card>
                 </motion.div>
@@ -200,13 +203,13 @@ const Experience = () => {
                   <Card className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300">
                     <CardHeader className="pb-3">
                       <CardTitle className="text-lg">{edu.diplome}</CardTitle>
-                      <div className="space-y-2">
+                      <div className="space-y-1.5 mt-2">
                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <Building size={16} />
+                          <Building size={16} className="flex-shrink-0" />
                           <span>{edu.etablissement}</span>
                         </div>
                         <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <CalendarDays size={16} />
+                          <CalendarDays size={16} className="flex-shrink-0" />
                           <span>{edu.periode}</span>
                         </div>
                       </div>
