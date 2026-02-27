@@ -39,7 +39,7 @@ const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              Brand & Graphic Designer | Développeur Web | Monteur Vidéo | Community Manager | Certifié Google en IA, Rédaction de Prompt et Marketing Digital
+              Brand & Graphic Designer | UI/UX Designer | Développeur Web | Monteur Vidéo | Community Manager | Certifié Google en IA, Rédaction de Prompt et Marketing Digital
             </motion.p>
             <motion.p 
               className="text-lg mb-8 opacity-80 max-w-2xl leading-relaxed"

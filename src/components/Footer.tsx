@@ -13,7 +13,7 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4">Yves Desire GOA BI</h3>
             <p className="text-background/80 mb-4">
               IA Digital Producer, créateur de contenu et expert en transformation digitale. 
-              Passionné par la tech, le design et l'innovation.
+              Fondateur de RED STUDIO. Passionné par la tech, le design et l'innovation.
             </p>
             <div className="flex gap-4">
               <a href="https://github.com/yvesdsr" target="_blank" rel="noopener noreferrer" className="text-background/80 hover:text-background transition-colors">

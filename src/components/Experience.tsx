@@ -18,7 +18,7 @@ const Experience = () => {
     },
     {
       titre: "CEO & Fondateur",
-      entreprise: "GOA-Learn",
+      entreprise: "RED STUDIO",
       periode: "2024 - Present",
       lieu: "Abidjan, Côte d'Ivoire",
       description: [
@@ -66,14 +66,13 @@ const Experience = () => {
       ]
     },
     {
-      titre: "Graphic Designer",
-      entreprise: "NexRaiz",
-      periode: "Février 2026 - Présent",
+      titre: "Réalisation de Brochures",
+      entreprise: "KalouGroup",
+      periode: "2025",
       lieu: "Abidjan, Côte d'Ivoire",
       description: [
-        "Création de l'identité visuelle complète de l'entreprise",
-        "Conception du logo et de ses versions monochromes",
-        "Élaboration de la charte graphique et des supports de communication"
+        "Conception et réalisation de brochures professionnelles pour l'entreprise",
+        "Mise en page et design graphique des supports de communication print"
       ]
     }
   ];
@@ -90,6 +89,12 @@ const Experience = () => {
       etablissement: "Université Nangui Abrogoua",
       periode: "2019 - 2022",
       mention: "Mention Assez-bien"
+    },
+    {
+      diplome: "Diplôme de Licence",
+      etablissement: "Université Nangui Abrogoua",
+      periode: "2022",
+      mention: "Informatique"
     },
     {
       diplome: "Baccalauréat scientifique",
