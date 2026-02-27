@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Image, Video, Users, BookOpen, Eye, Heart, UserPlus, ExternalLink } from "lucide-react";
+import { Image, Video, Users, BookOpen, Eye, Heart, UserPlus, ExternalLink, Palette } from "lucide-react";
 import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { motion } from "framer-motion";
@@ -62,6 +62,34 @@ const staticAffiches = [
   }
 ];
 
+// Logos réalisés
+const staticLogos = [
+  {
+    id: "red-studio-logo",
+    title: "Logo RED STUDIO",
+    file_url: "/projects/red-studio-logo.png",
+    link: null
+  },
+  {
+    id: "nexraiz-logo",
+    title: "Logo NexRaiz",
+    file_url: "/projects/nexraiz-logo-full.png",
+    link: null
+  },
+  {
+    id: "digikids-logo",
+    title: "Logo DigiKids",
+    file_url: "/projects/digikids-logo.jpeg",
+    link: "https://www.behance.net/gallery/241745727/CHARTE-GRAPHIQUE-DIGIKIDS"
+  },
+  {
+    id: "aejf-logo",
+    title: "Logo AEJF",
+    file_url: "/projects/aejf-logo-final.jpeg",
+    link: null
+  }
+];
+
 const GoaLearn = () => {
   const [flyers, setFlyers] = useState<Content[]>([]);
   const [videos, setVideos] = useState<Content[]>([]);
@@ -99,9 +127,9 @@ const GoaLearn = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold mb-4 tracking-tight">GOA-Learn</h2>
+          <h2 className="text-4xl font-bold mb-4 tracking-tight">RED STUDIO</h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-6">
-            Structure de formation des métiers de la tech que j'ai fondée. 
+            Structure professionnelle de formation des métiers de la tech. 
             Spécialisé dans la création de contenu visuel et vidéo pour accompagner 
             les apprenants dans leur parcours technologique.
           </p>
@@ -151,215 +179,267 @@ const GoaLearn = () => {
           </motion.div>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Section Création Affiches et Flyers */}
+        <div className="space-y-8">
+          {/* Section Logos */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
             <Card className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
-                  <Image className="text-primary" />
-                  Création Affiches et Flyers
+                  <Palette className="text-primary" />
+                  Logos Réalisés
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* Affiches statiques */}
-                    {staticAffiches.map((affiche, index) => (
-                      <motion.div
-                        key={affiche.id}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.1 }}
-                      >
-                        {affiche.link ? (
-                          <a 
-                            href={affiche.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="relative group block"
-                          >
-                            <div className="aspect-[3/4] bg-secondary/50 rounded-lg overflow-hidden">
-                              <img 
-                                src={affiche.file_url} 
-                                alt={affiche.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                              />
-                            </div>
-                            <p className="text-sm text-primary mt-2 hover:underline font-medium">{affiche.title}</p>
-                          </a>
-                        ) : (
-                          <div className="relative group block">
-                            <div className="aspect-[3/4] bg-secondary/50 rounded-lg overflow-hidden">
-                              <img 
-                                src={affiche.file_url} 
-                                alt={affiche.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                              />
-                            </div>
-                            <p className="text-sm text-primary mt-2 font-medium">{affiche.title}</p>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                  {staticLogos.map((logo, index) => (
+                    <motion.div
+                      key={logo.id}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                      className="group"
+                    >
+                      {logo.link ? (
+                        <a href={logo.link} target="_blank" rel="noopener noreferrer" className="block">
+                          <div className="aspect-square bg-secondary/50 rounded-lg overflow-hidden flex items-center justify-center p-4">
+                            <img 
+                              src={logo.file_url} 
+                              alt={logo.title}
+                              className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                            />
                           </div>
-                        )}
-                      </motion.div>
-                    ))}
-                    
-                    {/* Affiches dynamiques de la DB */}
-                    {flyers.map((flyer, index) => (
-                      <motion.div 
-                        key={flyer.id} 
-                        className="relative group"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: (staticAffiches.length + index) * 0.1 }}
-                      >
-                        <div className="aspect-[3/4] bg-secondary/50 rounded-lg overflow-hidden">
-                          <img 
-                            src={flyer.thumbnail_url || flyer.file_url} 
-                            alt={flyer.title}
-                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                          />
+                          <p className="text-sm text-primary mt-2 text-center font-medium hover:underline">{logo.title}</p>
+                        </a>
+                      ) : (
+                        <div>
+                          <div className="aspect-square bg-secondary/50 rounded-lg overflow-hidden flex items-center justify-center p-4">
+                            <img 
+                              src={logo.file_url} 
+                              alt={logo.title}
+                              className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                            />
+                          </div>
+                          <p className="text-sm text-primary mt-2 text-center font-medium">{logo.title}</p>
                         </div>
-                        <p className="text-sm text-muted-foreground mt-2">{flyer.title}</p>
-                      </motion.div>
-                    ))}
-                  </div>
-                  <div className="text-center">
-                    <Badge variant="outline" className="mt-4">
-                      Designs et créations graphiques
-                    </Badge>
-                  </div>
+                      )}
+                    </motion.div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
           </motion.div>
 
-          {/* Section Montages Vidéos */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <Card className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Video className="text-primary" />
-                  Montages Vidéos & Contenus
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {/* Vidéos statiques + vidéos de la base de données */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {/* Vidéos statiques */}
-                    {staticVideos.map((video, index) => (
-                      <motion.div 
-                        key={video.id} 
-                        id={video.id} 
-                        className="relative group"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: index * 0.1 }}
-                      >
-                        <div className="aspect-video bg-secondary/50 rounded-lg overflow-hidden">
-                          <video 
-                            src={video.file_url}
-                            className="w-full h-full object-cover"
-                            controls
-                          />
-                        </div>
-                        <p className="text-sm mt-2">
-                          {video.title}
-                        </p>
-                      </motion.div>
-                    ))}
-                    
-                    {/* Vidéos dynamiques de la DB */}
-                    {videos.map((video, index) => (
-                      <motion.div 
-                        key={video.id} 
-                        className="relative group"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: (staticVideos.length + index) * 0.1 }}
-                      >
-                        <div className="aspect-video bg-secondary/50 rounded-lg overflow-hidden">
-                          {video.thumbnail_url ? (
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Section Création Affiches et Flyers */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <Card className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Image className="text-primary" />
+                    Création Affiches et Flyers
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {staticAffiches.map((affiche, index) => (
+                        <motion.div
+                          key={affiche.id}
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: index * 0.1 }}
+                        >
+                          {affiche.link ? (
+                            <a 
+                              href={affiche.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="relative group block"
+                            >
+                              <div className="aspect-[3/4] bg-secondary/50 rounded-lg overflow-hidden">
+                                <img 
+                                  src={affiche.file_url} 
+                                  alt={affiche.title}
+                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                />
+                              </div>
+                              <p className="text-sm text-primary mt-2 hover:underline font-medium">{affiche.title}</p>
+                            </a>
+                          ) : (
+                            <div className="relative group block">
+                              <div className="aspect-[3/4] bg-secondary/50 rounded-lg overflow-hidden">
+                                <img 
+                                  src={affiche.file_url} 
+                                  alt={affiche.title}
+                                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                                />
+                              </div>
+                              <p className="text-sm text-primary mt-2 font-medium">{affiche.title}</p>
+                            </div>
+                          )}
+                        </motion.div>
+                      ))}
+                      
+                      {flyers.map((flyer, index) => (
+                        <motion.div 
+                          key={flyer.id} 
+                          className="relative group"
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: (staticAffiches.length + index) * 0.1 }}
+                        >
+                          <div className="aspect-[3/4] bg-secondary/50 rounded-lg overflow-hidden">
                             <img 
-                              src={video.thumbnail_url} 
-                              alt={video.title}
+                              src={flyer.thumbnail_url || flyer.file_url} 
+                              alt={flyer.title}
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                             />
-                          ) : (
+                          </div>
+                          <p className="text-sm text-muted-foreground mt-2">{flyer.title}</p>
+                        </motion.div>
+                      ))}
+                    </div>
+                    <div className="text-center">
+                      <Badge variant="outline" className="mt-4">
+                        Designs et créations graphiques
+                      </Badge>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+
+            {/* Section Montages Vidéos */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <Card className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Video className="text-primary" />
+                    Montages Vidéos & Contenus
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {staticVideos.map((video, index) => (
+                        <motion.div 
+                          key={video.id} 
+                          id={video.id} 
+                          className="relative group"
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: index * 0.1 }}
+                        >
+                          <div className="aspect-video bg-secondary/50 rounded-lg overflow-hidden">
                             <video 
                               src={video.file_url}
                               className="w-full h-full object-cover"
                               controls
                             />
-                          )}
-                        </div>
-                        <p className="text-sm text-muted-foreground mt-2">{video.title}</p>
-                      </motion.div>
-                    ))}
+                          </div>
+                          <p className="text-sm mt-2">
+                            {video.title}
+                          </p>
+                        </motion.div>
+                      ))}
+                      
+                      {videos.map((video, index) => (
+                        <motion.div 
+                          key={video.id} 
+                          className="relative group"
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: (staticVideos.length + index) * 0.1 }}
+                        >
+                          <div className="aspect-video bg-secondary/50 rounded-lg overflow-hidden">
+                            {video.thumbnail_url ? (
+                              <img 
+                                src={video.thumbnail_url} 
+                                alt={video.title}
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                              />
+                            ) : (
+                              <video 
+                                src={video.file_url}
+                                className="w-full h-full object-cover"
+                                controls
+                              />
+                            )}
+                          </div>
+                          <p className="text-sm text-muted-foreground mt-2">{video.title}</p>
+                        </motion.div>
+                      ))}
+                    </div>
+                    <div className="text-center">
+                      <Badge variant="outline" className="mt-4">
+                        Productions vidéo et montages
+                      </Badge>
+                    </div>
                   </div>
-                  <div className="text-center">
-                    <Badge variant="outline" className="mt-4">
-                      Productions vidéo et montages
-                    </Badge>
-                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </div>
+
+          {/* Section À propos de RED STUDIO */}
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <Card className="shadow-elegant border-border/50">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                  <Users className="text-primary" />
+                  À propos de RED STUDIO
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  {[
+                    { icon: BookOpen, title: "Formation Tech", desc: "Formations spécialisées dans les métiers du développement web, de l'IA et du design graphique" },
+                    { icon: Users, title: "Accompagnement", desc: "Suivi personnalisé et mentorat pour accompagner chaque apprenant dans sa progression" },
+                    { icon: Video, title: "Contenu Digital", desc: "Production de contenus pédagogiques, tutoriels vidéo et supports visuels de qualité" }
+                  ].map((item, index) => (
+                    <motion.div 
+                      key={index}
+                      className="text-center p-6 bg-muted/50 rounded-lg"
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: index * 0.1 }}
+                    >
+                      <item.icon className="mx-auto mb-4 text-primary" size={40} />
+                      <h4 className="font-semibold mb-2">{item.title}</h4>
+                      <p className="text-sm text-muted-foreground">{item.desc}</p>
+                    </motion.div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
           </motion.div>
         </div>
-
-        {/* Section À propos de GOA-Learn */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <Card className="shadow-elegant border-border/50 mt-8">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Users className="text-primary" />
-                À propos de GOA-Learn
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {[
-                  { icon: BookOpen, title: "Formation Tech", desc: "Formations spécialisées dans les métiers du développement web, de l'IA et du design graphique" },
-                  { icon: Users, title: "Accompagnement", desc: "Suivi personnalisé et mentorat pour accompagner chaque apprenant dans sa progression" },
-                  { icon: Video, title: "Contenu Digital", desc: "Production de contenus pédagogiques, tutoriels vidéo et supports visuels de qualité" }
-                ].map((item, index) => (
-                  <motion.div 
-                    key={index}
-                    className="text-center p-6 bg-muted/50 rounded-lg"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <item.icon className="mx-auto mb-4 text-primary" size={40} />
-                    <h4 className="font-semibold mb-2">{item.title}</h4>
-                    <p className="text-sm text-muted-foreground">{item.desc}</p>
-                  </motion.div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
       </div>
     </section>
   );
