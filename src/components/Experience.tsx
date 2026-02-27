@@ -18,7 +18,7 @@ const Experience = () => {
     },
     {
       titre: "CEO & Fondateur",
-      entreprise: "GOA-Learn",
+      entreprise: "RED STUDIO",
       periode: "2024 - Present",
       lieu: "Abidjan, Côte d'Ivoire",
       description: [
