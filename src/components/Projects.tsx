@@ -160,6 +160,8 @@ const Projects = () => {
       description: "Réalisation de brochures professionnelles pour KalouGroup, entreprise spécialisée dans les solutions de secourisme et défibrillateurs.",
       icon: <Building className="text-professional" />,
       technologies: ["Brochure", "Design Print", "Mise en page", "Communication"],
+      canva: "https://www.canva.com/design/DAHCXduoHOg/_jbXS7UM8IRlJSvca9X7Iw/view?utm_content=DAHCXduoHOg&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hfcf3071e25",
+      image: "/projects/kalougroup-brochure-1.png",
       category: "Communication"
     }
   ];

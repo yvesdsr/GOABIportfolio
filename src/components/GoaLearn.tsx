@@ -195,7 +195,7 @@ const GoaLearn = () => {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
                   {staticLogos.map((logo, index) => (
                     <motion.div
                       key={logo.id}
@@ -207,25 +207,25 @@ const GoaLearn = () => {
                     >
                       {logo.link ? (
                         <a href={logo.link} target="_blank" rel="noopener noreferrer" className="block">
-                          <div className="aspect-square bg-secondary/50 rounded-lg overflow-hidden flex items-center justify-center p-4">
+                          <div className="aspect-square bg-white rounded-xl overflow-hidden flex items-center justify-center p-6 shadow-sm border border-border/30">
                             <img 
                               src={logo.file_url} 
                               alt={logo.title}
-                              className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                              className="max-w-[85%] max-h-[85%] object-contain group-hover:scale-110 transition-transform duration-300"
                             />
                           </div>
-                          <p className="text-sm text-primary mt-2 text-center font-medium hover:underline">{logo.title}</p>
+                          <p className="text-sm text-primary mt-3 text-center font-semibold hover:underline">{logo.title}</p>
                         </a>
                       ) : (
                         <div>
-                          <div className="aspect-square bg-secondary/50 rounded-lg overflow-hidden flex items-center justify-center p-4">
+                          <div className="aspect-square bg-white rounded-xl overflow-hidden flex items-center justify-center p-6 shadow-sm border border-border/30">
                             <img 
                               src={logo.file_url} 
                               alt={logo.title}
-                              className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                              className="max-w-[85%] max-h-[85%] object-contain group-hover:scale-110 transition-transform duration-300"
                             />
                           </div>
-                          <p className="text-sm text-primary mt-2 text-center font-medium">{logo.title}</p>
+                          <p className="text-sm text-primary mt-3 text-center font-semibold">{logo.title}</p>
                         </div>
                       )}
                     </motion.div>
