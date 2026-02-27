@@ -154,6 +154,13 @@ const Projects = () => {
       technologies: ["Affiche", "Montage Vidéo", "Sensibilisation", "Communication"],
       videoLink: "#octobre-rose-video",
       category: "Sensibilisation"
+    },
+    {
+      title: "KalouGroup - Brochures",
+      description: "Réalisation de brochures professionnelles pour KalouGroup, entreprise spécialisée dans les solutions de secourisme et défibrillateurs.",
+      icon: <Building className="text-professional" />,
+      technologies: ["Brochure", "Design Print", "Mise en page", "Communication"],
+      category: "Communication"
     }
   ];
 
