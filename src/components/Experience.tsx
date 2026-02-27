@@ -91,6 +91,12 @@ const Experience = () => {
       mention: "Mention Assez-bien"
     },
     {
+      diplome: "Diplôme de Licence",
+      etablissement: "Université Nangui Abrogoua",
+      periode: "2022",
+      mention: "Informatique"
+    },
+    {
       diplome: "Baccalauréat scientifique",
       etablissement: "Lycée Classique d'Abidjan",
       periode: "2018",
