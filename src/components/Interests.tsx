@@ -1,169 +1,95 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Heart, Dumbbell, Music, BookOpen, PenTool, ExternalLink } from "lucide-react";
+import { BookOpen, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 
+const wattpadBooks = [
+  {
+    title: "Les Opposés S'attirent",
+    stats: { lectures: 496, votes: 21, chapitres: 4 },
+    status: "En cours",
+    link: "https://www.wattpad.com/story/232361663"
+  },
+  {
+    title: "Aimer?",
+    stats: { lectures: 7, votes: 0, chapitres: 1 },
+    status: "Terminée",
+    link: "https://www.wattpad.com/story/393118324"
+  },
+  {
+    title: "Lettre à Dieu, au Monde, à Moi-même",
+    stats: { lectures: 21, votes: 0, chapitres: 1 },
+    status: "Terminée",
+    link: "https://www.wattpad.com/story/393107011"
+  }
+];
+
 const Interests = () => {
-  const interests = [
-    { name: "Sport", icon: Dumbbell },
-    { name: "Musique", icon: Music },
-    { name: "Lecture", icon: BookOpen },
-    { name: "Écriture", icon: PenTool }
-  ];
-
-  const wattpadBooks = [
-    {
-      title: "Les Opposés S'attirent",
-      description: "Une histoire captivante sur les différences qui nous rapprochent.",
-      status: "En cours",
-      stats: { lectures: 496, votes: 21, chapitres: 4 },
-      link: "https://www.wattpad.com/story/232361663"
-    },
-    {
-      title: "Aimer?",
-      description: "C'est quoi l'amour ?",
-      status: "Terminée",
-      stats: { lectures: 7, votes: 0, chapitres: 1 },
-      link: "https://www.wattpad.com/story/393118324"
-    },
-    {
-      title: "Lettre à Dieu, au Monde, à Moi-même",
-      description: "Une réflexion profonde et personnelle.",
-      status: "Terminée",
-      stats: { lectures: 21, votes: 0, chapitres: 1 },
-      link: "https://www.wattpad.com/story/393107011"
-    }
-  ];
-
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-24 bg-section-purple">
       <div className="container mx-auto px-6">
-        {/* Centres d'intérêt */}
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
         >
-          <h2 className="text-4xl font-bold mb-4 tracking-tight flex items-center justify-center gap-3">
-            <Heart className="text-primary" />
-            Centres d'intérêt
+          <span className="text-primary font-semibold text-sm tracking-wider uppercase">— Writing</span>
+          <h2 className="text-4xl md:text-5xl font-bold mt-3">
+            Mes <span className="text-gradient-purple">Œuvres Littéraires</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Ce qui me passionne en dehors du travail
-          </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">
-          {interests.map((interest, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
-            >
-              <Card className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300 text-center">
-                <CardContent className="pt-6 pb-6">
-                  <interest.icon className="w-10 h-10 mx-auto mb-3 text-primary" />
-                  <p className="font-medium">{interest.name}</p>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Section Écriture */}
-        <motion.div 
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl font-bold mb-4 tracking-tight flex items-center justify-center gap-3">
-            <PenTool className="text-primary" />
-            Mes Œuvres Littéraires
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Découvrez mes histoires publiées sur Wattpad
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {wattpadBooks.map((book, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
+              key={book.title}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ delay: index * 0.15 }}
+              className="group cursor-pointer"
+              onClick={() => window.open(book.link, '_blank')}
             >
-              <Card className="shadow-elegant border-border/50 hover:shadow-glow transition-all duration-300 group overflow-hidden h-full">
-                <CardHeader className="pb-2">
-                  <div className="flex items-center justify-between mb-2">
-                    <Badge 
-                      variant={book.status === "En cours" ? "default" : "secondary"}
-                      className={book.status === "En cours" ? "bg-primary" : ""}
-                    >
-                      {book.status}
-                    </Badge>
+              <div className="bg-background rounded-2xl p-6 border border-border hover:border-primary hover-lift h-full">
+                <div className="flex justify-between items-center mb-4">
+                  <span className={`text-xs font-bold px-3 py-1 rounded-full ${book.status === 'En cours' ? 'bg-orange/10 text-orange' : 'bg-muted text-muted-foreground'}`}>
+                    {book.status}
+                  </span>
+                  <ExternalLink size={16} className="text-muted-foreground group-hover:text-primary transition-colors" />
+                </div>
+                <h3 className="text-lg font-bold mb-4 group-hover:text-primary transition-colors">{book.title}</h3>
+                <div className="flex justify-between text-sm text-muted-foreground bg-muted rounded-xl p-3">
+                  <div className="text-center">
+                    <p className="font-bold text-foreground">{book.stats.lectures}</p>
+                    <p className="text-xs">Lectures</p>
                   </div>
-                  <CardTitle className="text-xl group-hover:text-primary transition-colors">
-                    {book.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground mb-4">{book.description}</p>
-                  
-                  <div className="flex justify-between text-sm text-muted-foreground mb-4 bg-muted/50 p-3 rounded-lg">
-                    <div className="text-center">
-                      <p className="font-bold text-foreground">{book.stats.lectures}</p>
-                      <p className="text-xs">Lectures</p>
-                    </div>
-                    <div className="text-center">
-                      <p className="font-bold text-foreground">{book.stats.votes}</p>
-                      <p className="text-xs">Votes</p>
-                    </div>
-                    <div className="text-center">
-                      <p className="font-bold text-foreground">{book.stats.chapitres}</p>
-                      <p className="text-xs">Chapitres</p>
-                    </div>
+                  <div className="text-center">
+                    <p className="font-bold text-foreground">{book.stats.votes}</p>
+                    <p className="text-xs">Votes</p>
                   </div>
-
-                  <Button 
-                    className="w-full"
-                    onClick={() => window.open(book.link, '_blank')}
-                  >
-                    <BookOpen className="mr-2 h-4 w-4" />
-                    Lire sur Wattpad
-                    <ExternalLink className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardContent>
-              </Card>
+                  <div className="text-center">
+                    <p className="font-bold text-foreground">{book.stats.chapitres}</p>
+                    <p className="text-xs">Chap.</p>
+                  </div>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
 
-        <motion.div 
-          className="text-center"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+        <motion.div
+          className="text-center mt-10"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
         >
-          <Button 
-            variant="outline" 
-            size="lg"
+          <Button
+            variant="outline"
+            className="rounded-full gap-2"
             onClick={() => window.open('https://www.wattpad.com/user/Yvesdesiregoa', '_blank')}
           >
-            <svg className="mr-2" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
-            </svg>
+            <BookOpen size={18} />
             Voir mon profil Wattpad
-            <ExternalLink className="ml-2 h-4 w-4" />
           </Button>
         </motion.div>
       </div>
