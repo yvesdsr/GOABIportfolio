@@ -85,7 +85,7 @@ const GoaLearn = () => {
         >
           <span className="text-primary font-semibold text-sm tracking-wider uppercase">— RED STUDIO</span>
           <h2 className="text-4xl md:text-5xl font-bold mt-3">
-            Content <span className="text-gradient-purple">Creation</span>
+            Création de <span className="text-gradient-purple">Contenu</span>
           </h2>
           <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
             Formation tech, création visuelle et production vidéo

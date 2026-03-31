@@ -10,9 +10,9 @@ const Footer = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           <div>
-            <h3 className="text-2xl font-bold mb-4">Yves Desire <span className="text-orange">GOABI</span></h3>
+            <h3 className="text-2xl font-bold mb-4">Yves Désiré <span className="text-orange">GOABI</span></h3>
             <p className="text-background/70 mb-6 leading-relaxed">
-              Creative Designer, Fondateur de RED STUDIO. Passionné par le design, la tech et l'innovation.
+              Designer Créatif, Fondateur de RED STUDIO. Passionné par le design, la tech et l'innovation.
             </p>
             <div className="flex gap-3">
               {[
@@ -36,8 +36,9 @@ const Footer = () => {
           <div>
             <h4 className="font-bold mb-4">Navigation</h4>
             <ul className="space-y-3 text-background/70">
-              <li><a href="#about" className="hover:text-orange transition-colors">About</a></li>
-              <li><a href="#projects" className="hover:text-orange transition-colors">Projects</a></li>
+              <li><a href="#about" className="hover:text-orange transition-colors">À propos</a></li>
+              <li><a href="#projects" className="hover:text-orange transition-colors">Projets</a></li>
+              <li><a href="#services" className="hover:text-orange transition-colors">Services</a></li>
               <li><a href="#contact" className="hover:text-orange transition-colors">Contact</a></li>
             </ul>
           </div>
@@ -55,7 +56,7 @@ const Footer = () => {
 
         <div className="border-t border-background/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-background/50 text-sm">
-            &copy; 2026 Yves Desire GOABI. All rights reserved.
+            &copy; 2026 Yves Désiré GOABI. Tous droits réservés.
           </p>
           <Button
             variant="ghost"

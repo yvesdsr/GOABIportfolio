@@ -6,9 +6,9 @@ import { motion } from "framer-motion";
 
 const Contact = () => {
   const contactInfo = [
-    { icon: Phone, title: "Phone", value: "+225 07 13 62 18 98" },
+    { icon: Phone, title: "Téléphone", value: "+225 07 13 62 18 98" },
     { icon: Mail, title: "Email", value: "snowdenyves@gmail.com" },
-    { icon: MapPin, title: "Location", value: "Cocody, Deux-plateaux, Abidjan" },
+    { icon: MapPin, title: "Localisation", value: "Cocody, Deux-plateaux, Abidjan" },
   ];
 
   return (
@@ -22,10 +22,10 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-orange font-semibold text-sm tracking-wider uppercase">— Contact Us</span>
+            <span className="text-orange font-semibold text-sm tracking-wider uppercase">— Contact</span>
             <h2 className="text-4xl md:text-5xl font-bold mt-3 mb-6">
-              Let's Talk for Your
-              <br /><span className="text-gradient-orange">Next Projects</span>
+              Discutons de votre
+              <br /><span className="text-gradient-orange">prochain projet</span>
             </h2>
             <p className="text-muted-foreground mb-10 max-w-md">
               Discutons de vos projets et de la façon dont je peux transformer vos idées en réalité.
@@ -63,27 +63,27 @@ const Contact = () => {
             <form action="https://formsubmit.co/snowdenyves@gmail.com" method="POST" className="space-y-5">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-sm font-medium mb-2 block">Your Name *</label>
-                  <Input name="name" placeholder="Ex. John Doe" required className="rounded-xl h-12" />
+                  <label className="text-sm font-medium mb-2 block">Votre Nom *</label>
+                  <Input name="name" placeholder="Ex. Jean Dupont" required className="rounded-xl h-12" />
                 </div>
                 <div>
                   <label className="text-sm font-medium mb-2 block">Email *</label>
-                  <Input name="email" type="email" placeholder="example@gmail.com" required className="rounded-xl h-12" />
+                  <Input name="email" type="email" placeholder="exemple@gmail.com" required className="rounded-xl h-12" />
                 </div>
               </div>
               <div>
-                <label className="text-sm font-medium mb-2 block">Phone</label>
-                <Input name="phone" placeholder="Enter Phone Number" className="rounded-xl h-12" />
+                <label className="text-sm font-medium mb-2 block">Téléphone</label>
+                <Input name="phone" placeholder="Numéro de téléphone" className="rounded-xl h-12" />
               </div>
               <div>
-                <label className="text-sm font-medium mb-2 block">Your Message *</label>
-                <Textarea name="message" placeholder="Enter here.." rows={5} required className="rounded-xl" />
+                <label className="text-sm font-medium mb-2 block">Votre Message *</label>
+                <Textarea name="message" placeholder="Écrivez ici..." rows={5} required className="rounded-xl" />
                 <input type="hidden" name="_next" value={typeof window !== 'undefined' ? window.location.href : ''} />
                 <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio" />
               </div>
               <Button type="submit" className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-10 h-12 gap-2">
                 <Send size={18} />
-                Submit
+                Envoyer
                 <span>→</span>
               </Button>
             </form>

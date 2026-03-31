@@ -52,10 +52,10 @@ const Experience = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-orange font-semibold text-sm tracking-wider uppercase">— Education & Work</span>
+          <span className="text-orange font-semibold text-sm tracking-wider uppercase">— Formation & Expérience</span>
           <h2 className="text-4xl md:text-5xl font-bold mt-3">
-            My <span className="text-gradient-orange">Academic and</span>
-            <br /><span className="text-gradient-purple">Professional</span> Journey
+            Mon <span className="text-gradient-orange">Parcours</span>
+            <br /><span className="text-gradient-purple">Académique</span> et Professionnel
           </h2>
         </motion.div>
 
@@ -71,7 +71,7 @@ const Experience = () => {
               <div className="w-12 h-12 rounded-full bg-orange flex items-center justify-center">
                 <GraduationCap className="text-orange-foreground" size={24} />
               </div>
-              <h3 className="text-2xl font-bold">Education</h3>
+              <h3 className="text-2xl font-bold">Formation</h3>
             </div>
 
             <div className="space-y-0 border-l-2 border-border ml-6">
@@ -104,7 +104,7 @@ const Experience = () => {
               <div className="w-12 h-12 rounded-full bg-orange flex items-center justify-center">
                 <Briefcase className="text-orange-foreground" size={24} />
               </div>
-              <h3 className="text-2xl font-bold">Work Experience</h3>
+              <h3 className="text-2xl font-bold">Expérience Professionnelle</h3>
             </div>
 
             <div className="space-y-0 border-l-2 border-border ml-6">

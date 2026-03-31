@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, Film, Image, Layout, Globe, Palette } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Projects = () => {
@@ -11,11 +11,15 @@ const Projects = () => {
       image: "/projects/aejf-strategie-new.jpeg",
       tags: ["Site Web", "Charte Graphique", "Court Métrage", "Maquettes"],
       links: [
-        { label: "Site Internet", url: "https://girls-future-forward.vercel.app" },
-        { label: "Stratégie", url: "https://www.behance.net/gallery/242088385/STRATEGIE-DE-COMMUNICATION-ONG-AEJF" },
-        { label: "Maquette Site", url: "https://www.figma.com/proto/Z6oNX9VvIQaeij2dn5D0EV/ONG-AEJF?node-id=52-150&t=oo6y63hgqLNb0Kpg-1&starting-point-node-id=52%3A150" },
-        { label: "Maquette App", url: "https://www.figma.com/proto/Z6oNX9VvIQaeij2dn5D0EV/ONG-AEJF?node-id=0-1&t=IYgk6STsqoGNXijF-1" },
-        { label: "Film", url: "https://drive.google.com/file/d/1FK6a40O_MaSQ65BvQRIrtVk1W9f3Z8kR/view" },
+        { label: "Site Internet", url: "https://girls-future-forward.vercel.app", icon: Globe },
+        { label: "Stratégie", url: "https://www.behance.net/gallery/242088385/STRATEGIE-DE-COMMUNICATION-ONG-AEJF", icon: ExternalLink },
+        { label: "Maquette Site", url: "https://www.figma.com/proto/Z6oNX9VvIQaeij2dn5D0EV/ONG-AEJF?node-id=52-150&t=oo6y63hgqLNb0Kpg-1&starting-point-node-id=52%3A150", icon: Layout },
+        { label: "Maquette App", url: "https://www.figma.com/proto/Z6oNX9VvIQaeij2dn5D0EV/ONG-AEJF?node-id=0-1&t=IYgk6STsqoGNXijF-1", icon: Layout },
+        { label: "Film", url: "https://drive.google.com/file/d/1ha93DB-s3Jn6oMoC-OT3yvYS8hCjj1ez/view?usp=drive_link", icon: Film },
+        { label: "Charte Graphique", url: "https://www.canva.com/design/DAG7fVWFZeo/13kJN_c4sDBOyttIZJq8kg/view?utm_content=DAG7fVWFZeo&utm_campaign=designshare&utm_medium=link&utm_source=viewer", icon: Palette },
+        { label: "Logo", url: "https://drive.google.com/file/d/1_rW2OYjJVltT1uY2V7aw_r98pNUrIJyx/view?usp=drive_link", icon: Image },
+        { label: "Visuel Film", url: "https://www.canva.com/design/DAG9RQsPGm4/v7NHcQ0dfJIBjzuw3BV4wQ/view?utm_content=DAG9RQsPGm4&utm_campaign=designshare&utm_medium=link&utm_source=viewer", icon: Image },
+        { label: "Visuel Communication", url: "https://www.canva.com/design/DAG8JnJoG90/E03oPL4htE1Vybye9wtW2g/view?utm_content=DAG8JnJoG90&utm_campaign=designshare&utm_medium=link&utm_source=viewer", icon: Image },
       ],
       featured: true,
     },
@@ -25,9 +29,9 @@ const Projects = () => {
       image: "/projects/akwaba-beer.png",
       tags: ["Logo", "Packaging", "Mockups", "Maquette App", "Site Web"],
       links: [
-        { label: "Behance", url: "https://www.behance.net/gallery/244041351/AKWABA-BEER" },
-        { label: "Maquette App", url: "https://www.figma.com/proto/Z6oNX9VvIQaeij2dn5D0EV/ONG-AEJF?node-id=443-6102&t=EYk5ThLayhBFyuLL-1" },
-        { label: "Site Internet", url: "https://akwaba-brand-experience.vercel.app/" },
+        { label: "Behance", url: "https://www.behance.net/gallery/244041351/AKWABA-BEER", icon: ExternalLink },
+        { label: "Maquette App", url: "https://www.figma.com/proto/Z6oNX9VvIQaeij2dn5D0EV/ONG-AEJF?node-id=443-6102&t=EYk5ThLayhBFyuLL-1", icon: Layout },
+        { label: "Site Internet", url: "https://akwaba-brand-experience.vercel.app/", icon: Globe },
       ],
       featured: true,
     },
@@ -55,8 +59,9 @@ const Projects = () => {
       category: "Print Design",
       image: "/projects/kalougroup-brochure-1.png",
       links: [
-        { label: "Voir", url: "https://www.canva.com/design/DAHCXduoHOg/_jbXS7UM8IRlJSvca9X7Iw/view?utm_content=DAHCXduoHOg&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hfcf3071e25" },
+        { label: "Voir les brochures", url: "https://www.canva.com/design/DAHCXduoHOg/_jbXS7UM8IRlJSvca9X7Iw/view?utm_content=DAHCXduoHOg&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hfcf3071e25" },
       ],
+      extraImages: ["/projects/kalougroup-brochure-2.png"],
     },
     {
       title: "LI-KAH",
@@ -88,7 +93,7 @@ const Projects = () => {
       image: null,
       github: "https://github.com/yvesdsr/GCAC-Coop",
       links: [
-        { label: "Demo", url: "https://gcac-coop.vercel.app/" },
+        { label: "Démo", url: "https://gcac-coop.vercel.app/" },
       ],
     },
     {
@@ -97,7 +102,7 @@ const Projects = () => {
       image: null,
       github: "https://github.com/yvesdsr/sidii-ingenieurs-web",
       links: [
-        { label: "Demo", url: "https://sidii-ingenieurs-webb.vercel.app/" },
+        { label: "Démo", url: "https://sidii-ingenieurs-webb.vercel.app/" },
       ],
     },
     {
@@ -105,7 +110,7 @@ const Projects = () => {
       category: "Développement Web",
       image: null,
       links: [
-        { label: "Demo", url: "https://trading-pro-blue.vercel.app" },
+        { label: "Démo", url: "https://trading-pro-blue.vercel.app" },
       ],
     },
   ];
@@ -119,9 +124,9 @@ const Projects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-orange font-semibold text-sm tracking-wider uppercase">— My Portfolio</span>
+          <span className="text-orange font-semibold text-sm tracking-wider uppercase">— Mon Portfolio</span>
           <h2 className="text-4xl md:text-5xl font-bold mt-3">
-            My Latest <span className="text-gradient-orange">Projects</span>
+            Mes Derniers <span className="text-gradient-orange">Projets</span>
           </h2>
         </motion.div>
 
@@ -158,16 +163,16 @@ const Projects = () => {
                         <Badge key={tag} variant="outline" className="text-xs">{tag}</Badge>
                       ))}
                     </div>
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-wrap gap-2">
                       {project.links.map(link => (
                         <Button
                           key={link.label}
                           size="sm"
                           variant="outline"
-                          className="rounded-full gap-2 hover:bg-orange hover:text-orange-foreground hover:border-orange transition-all"
+                          className="rounded-full gap-1.5 text-xs hover:bg-orange hover:text-orange-foreground hover:border-orange transition-all"
                           onClick={() => window.open(link.url, '_blank')}
                         >
-                          <ExternalLink size={14} />
+                          {link.icon && <link.icon size={12} />}
                           {link.label}
                         </Button>
                       ))}

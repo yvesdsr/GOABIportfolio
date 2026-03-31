@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
 
 const tools = [
-  { name: "Figma", level: 95, icon: "🎨" },
-  { name: "Photoshop", level: 90, icon: "📸" },
-  { name: "Illustrator", level: 85, icon: "✏️" },
-  { name: "Premiere Pro", level: 80, icon: "🎬" },
-  { name: "React", level: 85, icon: "⚛️" },
-  { name: "Canva", level: 95, icon: "🖌️" },
+  { name: "Figma", level: 95, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+  { name: "Photoshop", level: 90, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg" },
+  { name: "Illustrator", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" },
+  { name: "Premiere Pro", level: 80, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-original.svg" },
+  { name: "React", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "Canva", level: 95, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" },
 ];
 
 const Tools = () => {
@@ -19,10 +19,10 @@ const Tools = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-orange font-semibold text-sm tracking-wider uppercase">— My Favorite Tools</span>
+          <span className="text-orange font-semibold text-sm tracking-wider uppercase">— Mes Outils Favoris</span>
           <h2 className="text-4xl md:text-5xl font-bold mt-3">
-            <span className="text-gradient-orange">Exploring the Tools</span>
-            <br />Behind My Designs
+            <span className="text-gradient-orange">Les Outils</span>
+            <br />Derrière mes Créations
           </h2>
         </motion.div>
 
@@ -38,7 +38,7 @@ const Tools = () => {
             >
               <div className="flex flex-col items-center">
                 <div className="w-24 h-24 rounded-full bg-muted flex items-center justify-center mb-4 group-hover:bg-orange/10 transition-all duration-300 group-hover:scale-110">
-                  <span className="text-4xl">{tool.icon}</span>
+                  <img src={tool.logo} alt={tool.name} className="w-12 h-12" />
                 </div>
                 <motion.p
                   className="text-2xl font-bold text-foreground mb-1"

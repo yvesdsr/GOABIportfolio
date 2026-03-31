@@ -1,16 +1,9 @@
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
 import { motion } from "framer-motion";
 
 const About = () => {
-  const skills = [
-    { name: "Figma", level: 95 },
-    { name: "Photoshop", level: 90 },
-    { name: "Illustrator", level: 85 },
-    { name: "React", level: 85 },
-    { name: "Premiere Pro", level: 80 },
-    { name: "Canva", level: 95 },
-  ];
-
   const stats = [
     { number: "20+", label: "Projets Réalisés" },
     { number: "10+", label: "Clients Satisfaits" },
@@ -30,15 +23,13 @@ const About = () => {
             transition={{ duration: 0.7 }}
           >
             <div className="relative w-72 h-72 md:w-96 md:h-96">
-              {/* Orange circle background */}
               <div className="absolute inset-0 rounded-full bg-orange/20" />
               <img
                 src="/images/profile-hero.png"
                 alt="Yves Desire GOABI"
                 className="w-full h-full object-contain relative z-10"
               />
-              {/* Floating skill badges */}
-              {["UI/UX Design", "Web Dev", "Branding", "Video"].map((skill, i) => (
+              {["UI/UX Design", "Web Dev", "Branding", "Vidéo"].map((skill, i) => (
                 <motion.div
                   key={skill}
                   className={`absolute z-20 bg-background shadow-card rounded-full px-4 py-2 text-sm font-medium border border-border ${
@@ -64,9 +55,9 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
           >
-            <span className="text-orange font-semibold text-sm tracking-wider uppercase">— About Me</span>
+            <span className="text-orange font-semibold text-sm tracking-wider uppercase">— À propos</span>
             <h2 className="text-4xl md:text-5xl font-bold mt-3 mb-2">
-              Who is <span className="text-gradient-orange">Yves Desire?</span>
+              Qui est <span className="text-gradient-orange">Yves Désiré ?</span>
             </h2>
             <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-xl">
               Créateur digital passionné, je conçois des identités visuelles, des sites web modernes et du contenu vidéo engageant. Certifié Google en IA et Marketing Digital.
@@ -90,9 +81,15 @@ const About = () => {
 
             <Button
               className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-8 gap-2"
-              onClick={() => window.open('/cv-yves-desire.pdf', '_blank')}
+              onClick={() => {
+                const link = document.createElement('a');
+                link.href = '/cv-yves-desire.pdf';
+                link.download = 'CV_Yves_Desire_GOABI.pdf';
+                link.click();
+              }}
             >
-              Download CV →
+              <Download size={18} />
+              Télécharger mon CV
             </Button>
           </motion.div>
         </div>
@@ -100,8 +97,5 @@ const About = () => {
     </section>
   );
 };
-
-// We need Button import
-import { Button } from "@/components/ui/button";
 
 export default About;
