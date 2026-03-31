@@ -1,11 +1,51 @@
 import { motion } from "framer-motion";
-import { Palette, Monitor, Film, Megaphone, Layout, PenTool } from "lucide-react";
+import { Palette, Monitor, Film, Megaphone, Layout, PenTool, Globe, Smartphone, FileText, BookOpen, Image, Video } from "lucide-react";
 
 const services = [
   {
+    icon: Globe,
+    title: "Création de Sites Internet",
+    description: "Sites web modernes, responsive et performants avec les dernières technologies.",
+  },
+  {
+    icon: Monitor,
+    title: "Sites WordPress & Portfolios",
+    description: "Création de sites WordPress professionnels et portfolios personnalisés.",
+  },
+  {
+    icon: FileText,
+    title: "Design de Brochures & Cartes de Visite",
+    description: "Brochures, cartes de visite, dépliants et supports print professionnels.",
+  },
+  {
     icon: Palette,
-    title: "Brand & Graphic Design",
-    description: "Logos, chartes graphiques, identités visuelles complètes et supports de communication.",
+    title: "Identité Visuelle & Logos",
+    description: "Logos, chartes graphiques, identités visuelles complètes et branding.",
+  },
+  {
+    icon: Video,
+    title: "Création de Vidéos avec IA",
+    description: "Production de contenus vidéo innovants assistés par intelligence artificielle.",
+  },
+  {
+    icon: Film,
+    title: "Formation & Montage Vidéo",
+    description: "Montages professionnels, motion design et formation en production vidéo.",
+  },
+  {
+    icon: Image,
+    title: "Flyers & Affiches",
+    description: "Création de flyers, affiches publicitaires et supports visuels percutants.",
+  },
+  {
+    icon: Megaphone,
+    title: "Création de Pages & Community Management",
+    description: "Création de pages professionnelles et gestion de communautés sur les réseaux sociaux.",
+  },
+  {
+    icon: BookOpen,
+    title: "Catalogue & Plaquette Numérique",
+    description: "Conception de catalogues produits et plaquettes commerciales numériques.",
   },
   {
     icon: Layout,
@@ -13,30 +53,20 @@ const services = [
     description: "Maquettes, prototypes, interfaces utilisateur intuitives et expériences digitales.",
   },
   {
-    icon: Monitor,
-    title: "Développement Web",
-    description: "Sites web modernes, responsive et performants avec React et les dernières technologies.",
-  },
-  {
-    icon: Film,
-    title: "Montage Vidéo",
-    description: "Montages professionnels, motion design, contenus vidéo pour réseaux sociaux.",
-  },
-  {
-    icon: Megaphone,
-    title: "Communication Digitale",
-    description: "Stratégies de communication, community management, campagnes publicitaires.",
-  },
-  {
     icon: PenTool,
     title: "Direction Artistique",
     description: "Campagnes 360°, direction créative, storytelling visuel et branding complet.",
+  },
+  {
+    icon: Smartphone,
+    title: "Communication Digitale",
+    description: "Stratégies de communication, campagnes publicitaires et contenus digitaux.",
   },
 ];
 
 const Services = () => {
   return (
-    <section className="py-24 bg-section-purple relative">
+    <section id="services" className="py-24 bg-section-purple relative">
       <div className="container mx-auto px-6">
         <motion.div
           className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-6"
@@ -45,9 +75,9 @@ const Services = () => {
           viewport={{ once: true }}
         >
           <div>
-            <span className="text-orange font-semibold text-sm tracking-wider uppercase">— Services</span>
+            <span className="text-orange font-semibold text-sm tracking-wider uppercase">— Mes Services</span>
             <h2 className="text-4xl md:text-5xl font-bold mt-3">
-              <span className="text-gradient-orange">Services</span> I Provide
+              <span className="text-gradient-orange">Services</span> que je propose
             </h2>
           </div>
         </motion.div>
@@ -59,7 +89,7 @@ const Services = () => {
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
               className="group"
             >
               <div className="bg-background rounded-2xl p-8 border border-border hover:border-orange hover:shadow-lg transition-all duration-500 hover-lift h-full">
@@ -68,9 +98,6 @@ const Services = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-3">{service.title}</h3>
                 <p className="text-muted-foreground leading-relaxed">{service.description}</p>
-                <div className="mt-6 flex items-center gap-2 text-orange font-medium text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Learn more <span>→</span>
-                </div>
               </div>
             </motion.div>
           ))}

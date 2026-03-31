@@ -14,9 +14,9 @@ const ProfessionalActivities = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-primary font-semibold text-sm tracking-wider uppercase">— Events</span>
+          <span className="text-primary font-semibold text-sm tracking-wider uppercase">— Événements</span>
           <h2 className="text-4xl md:text-5xl font-bold mt-3">
-            Professional <span className="text-gradient-purple">Activities</span>
+            Activités <span className="text-gradient-purple">Professionnelles</span>
           </h2>
         </motion.div>
 

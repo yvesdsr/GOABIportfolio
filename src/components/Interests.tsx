@@ -33,7 +33,7 @@ const Interests = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-primary font-semibold text-sm tracking-wider uppercase">— Writing</span>
+          <span className="text-primary font-semibold text-sm tracking-wider uppercase">— Écriture</span>
           <h2 className="text-4xl md:text-5xl font-bold mt-3">
             Mes <span className="text-gradient-purple">Œuvres Littéraires</span>
           </h2>

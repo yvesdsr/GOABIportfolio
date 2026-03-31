@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, ExternalLink, ArrowDown } from "lucide-react";
+import { Github, Linkedin, ArrowDown, Download } from "lucide-react";
 import { motion } from "framer-motion";
 
 const Header = () => {
@@ -21,10 +21,26 @@ const Header = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          {/* Left - Text */}
+          {/* Left - Photo (finger points right) */}
+          <motion.div
+            className="flex-shrink-0 relative"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <div className="relative w-80 h-80 md:w-[420px] md:h-[420px]">
+              <img
+                src="/images/profile-skills.png"
+                alt="Yves Desire GOABI - Creative Designer"
+                className="w-full h-full object-contain relative z-10"
+              />
+            </div>
+          </motion.div>
+
+          {/* Right - Text */}
           <motion.div
             className="flex-1 text-center lg:text-left"
-            initial={{ opacity: 0, x: -60 }}
+            initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
@@ -34,7 +50,7 @@ const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <span className="text-sm font-medium">Hello There! 👋</span>
+              <span className="text-sm font-medium">Salut ! 👋</span>
             </motion.div>
 
             <motion.h1
@@ -43,11 +59,11 @@ const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
-              I'm <span className="text-gradient-orange">Yves Desire,</span>
+              Je suis <span className="text-gradient-orange">Yves Désiré,</span>
               <br />
-              Creative Designer
+              Designer Créatif
               <br />
-              Based in <span className="text-gradient-purple">Abidjan.</span>
+              basé à <span className="text-gradient-purple">Abidjan.</span>
             </motion.h1>
 
             <motion.p
@@ -70,7 +86,7 @@ const Header = () => {
                 className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-8 gap-2 group"
                 onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                View My Portfolio
+                Voir mon Portfolio
                 <motion.span
                   className="inline-block"
                   animate={{ x: [0, 4, 0] }}
@@ -85,7 +101,7 @@ const Header = () => {
                 className="rounded-full px-8 border-2"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Hire Me
+                Me Contacter
               </Button>
             </motion.div>
 
@@ -120,22 +136,6 @@ const Header = () => {
                 </svg>
               </a>
             </motion.div>
-          </motion.div>
-
-          {/* Right - Photo with badges */}
-          <motion.div
-            className="flex-shrink-0 relative"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <div className="relative w-80 h-80 md:w-[420px] md:h-[420px]">
-              <img
-                src="/images/profile-skills.png"
-                alt="Yves Desire GOABI - Creative Designer"
-                className="w-full h-full object-contain relative z-10"
-              />
-            </div>
           </motion.div>
         </div>
       </div>

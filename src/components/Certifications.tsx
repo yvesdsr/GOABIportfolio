@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const certifications = [
-  { nom: "Google - Project Management", image: "/lovable-uploads/22b08926-ef5d-4e42-ba4c-b78cedf8f1f6.png" },
+  { nom: "Google - Gestion de Projet", image: "/lovable-uploads/22b08926-ef5d-4e42-ba4c-b78cedf8f1f6.png" },
   { nom: "Google - Intelligence Artificielle", image: "/lovable-uploads/547c9dfb-edd7-49a1-a1bb-42114c5954cd.png" },
   { nom: "Google - Prompting Essentials", image: "/lovable-uploads/433a5c0c-0e9d-4f2c-a2ed-a2ba2000aa18.png" },
   { nom: "Rainforest Alliance", image: "/lovable-uploads/4428c0fa-9981-4fe9-a974-a63ee116f4f8.png" },
@@ -20,7 +20,7 @@ const Certifications = () => {
         >
           <span className="text-orange font-semibold text-sm tracking-wider uppercase">— Certifications</span>
           <h2 className="text-4xl md:text-5xl font-bold mt-3">
-            Professional <span className="text-gradient-orange">Certifications</span>
+            Mes <span className="text-gradient-orange">Certifications</span>
           </h2>
         </motion.div>
 
