@@ -21,9 +21,9 @@ const Header = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          {/* Left - Photo (finger points right) */}
+          {/* Left - Photo */}
           <motion.div
-            className="flex-shrink-0 relative"
+            className="flex-shrink-0 relative order-2 lg:order-1"
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -31,7 +31,7 @@ const Header = () => {
             <div className="relative w-80 h-80 md:w-[420px] md:h-[420px]">
               <img
                 src="/images/profile-skills.png"
-                alt="Yves Desire GOABI - Creative Designer"
+                alt="Yves Desire GOABI - UI/UX & Brand Designer"
                 className="w-full h-full object-contain relative z-10"
               />
             </div>
@@ -39,7 +39,7 @@ const Header = () => {
 
           {/* Right - Text */}
           <motion.div
-            className="flex-1 text-center lg:text-left"
+            className="flex-1 text-center lg:text-left order-1 lg:order-2"
             initial={{ opacity: 0, x: 60 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
@@ -50,7 +50,7 @@ const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
             >
-              <span className="text-sm font-medium">Salut ! 👋</span>
+              <span className="text-sm font-medium">Disponible pour opportunités 🚀</span>
             </motion.div>
 
             <motion.h1
@@ -59,11 +59,10 @@ const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
             >
-              Je suis <span className="text-gradient-orange">Yves Désiré,</span>
+              <span className="text-gradient-orange">UI/UX</span> &{" "}
+              <span className="text-gradient-purple">Brand</span>
               <br />
-              Designer Créatif
-              <br />
-              basé à <span className="text-gradient-purple">Abidjan.</span>
+              Designer
             </motion.h1>
 
             <motion.p
@@ -72,11 +71,30 @@ const Header = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
             >
-              Brand Designer • UI/UX Designer • Développeur Web • Monteur Vidéo
+              J'aide les marques et entrepreneurs à développer leur visibilité et leur croissance grâce au design, au branding et à la communication digitale.
             </motion.p>
 
+            {/* Quick KPIs */}
             <motion.div
-              className="flex flex-wrap gap-4 justify-center lg:justify-start"
+              className="flex flex-wrap gap-4 mb-8 justify-center lg:justify-start"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7 }}
+            >
+              {[
+                { value: "+100K", label: "vues générées" },
+                { value: "+40K", label: "abonnés développés" },
+                { value: "20+", label: "projets branding & UI/UX" },
+              ].map((kpi) => (
+                <div key={kpi.label} className="bg-muted rounded-full px-4 py-2 flex items-center gap-2">
+                  <span className="text-sm font-bold text-gradient-orange">{kpi.value}</span>
+                  <span className="text-xs text-muted-foreground">{kpi.label}</span>
+                </div>
+              ))}
+            </motion.div>
+
+            <motion.div
+              className="flex flex-wrap gap-3 justify-center lg:justify-start"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 }}
@@ -86,7 +104,7 @@ const Header = () => {
                 className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-8 gap-2 group"
                 onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Voir mon Portfolio
+                Voir mes Projets
                 <motion.span
                   className="inline-block"
                   animate={{ x: [0, 4, 0] }}
@@ -99,14 +117,28 @@ const Header = () => {
                 size="lg"
                 variant="outline"
                 className="rounded-full px-8 border-2"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('cta')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Me Contacter
+              </Button>
+              <Button
+                size="lg"
+                variant="ghost"
+                className="rounded-full px-6 gap-2"
+                onClick={() => {
+                  const link = document.createElement('a');
+                  link.href = '/cv-yves-desire.pdf';
+                  link.download = 'CV_Yves_Desire_GOABI.pdf';
+                  link.click();
+                }}
+              >
+                <Download size={18} />
+                Télécharger mon CV
               </Button>
             </motion.div>
 
             <motion.div
-              className="flex gap-4 mt-8 justify-center lg:justify-start"
+              className="flex gap-3 mt-8 justify-center lg:justify-start"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1 }}
@@ -120,18 +152,18 @@ const Header = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 rounded-full border-2 border-border flex items-center justify-center hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all duration-300 group"
+                  className="w-11 h-11 rounded-full border-2 border-border flex items-center justify-center hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all duration-300 group"
                 >
-                  <social.icon size={20} className="group-hover:scale-110 transition-transform" />
+                  <social.icon size={18} className="group-hover:scale-110 transition-transform" />
                 </a>
               ))}
               <a
                 href="https://www.behance.net/yvesdesiregoabi"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full border-2 border-border flex items-center justify-center hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all duration-300 group"
+                className="w-11 h-11 rounded-full border-2 border-border flex items-center justify-center hover:bg-primary hover:border-primary hover:text-primary-foreground transition-all duration-300 group"
               >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" className="group-hover:scale-110 transition-transform">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" className="group-hover:scale-110 transition-transform">
                   <path d="M22 7h-7V5h7v2zm1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H15.97c.13 1.922 1.32 2.631 2.861 2.631 1.253 0 2.021-.542 2.358-1.602h2.537zm-7.623-4h5.161c-.078-1.305-.732-2.158-2.462-2.158-1.548 0-2.431.883-2.699 2.158zM4.985 3h6.387c2.583 0 4.263 1.166 4.263 3.74 0 1.488-.724 2.653-2.11 3.197v.064c1.712.36 2.686 1.762 2.686 3.578 0 2.883-2.176 4.421-4.978 4.421H4.985V3zm3.397 5.767h2.387c1.146 0 1.878-.505 1.878-1.565 0-1.14-.732-1.502-1.902-1.502H8.382v3.067zm0 6.533h2.632c1.341 0 2.166-.582 2.166-1.85 0-1.216-.883-1.77-2.142-1.77H8.382v3.62z"/>
                 </svg>
               </a>
