@@ -5,51 +5,57 @@ const tools = [
   { name: "Photoshop", level: 90, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-original.svg" },
   { name: "Illustrator", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" },
   { name: "Premiere Pro", level: 80, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/premierepro/premierepro-original.svg" },
-  { name: "React", level: 85, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+  { name: "React", level: null, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
   { name: "Canva", level: 95, logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" },
 ];
 
 const Tools = () => {
   return (
-    <section className="py-24 bg-background">
+    <section id="tools" className="py-32 bg-section-dark">
       <div className="container mx-auto px-6">
         <motion.div
-          className="text-center mb-16"
+          className="max-w-3xl mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-orange font-semibold text-sm tracking-wider uppercase">— Mes Outils Favoris</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-3">
-            <span className="text-gradient-orange">Les Outils</span>
-            <br />Derrière mes Créations
+          <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">— Mes Outils Favoris</span>
+          <h2 className="font-display text-4xl md:text-6xl mt-4 leading-tight">
+            Les outils derrière <span className="italic font-light">mes créations.</span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 max-w-5xl mx-auto">
-          {tools.map((tool, index) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          {tools.map((tool, i) => (
             <motion.div
               key={tool.name}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
+              transition={{ delay: i * 0.08 }}
               className="group"
             >
-              <div className="flex flex-col items-center">
-                <div className="w-24 h-24 rounded-full bg-muted flex items-center justify-center mb-4 group-hover:bg-orange/10 transition-all duration-300 group-hover:scale-110">
-                  <img src={tool.logo} alt={tool.name} className="w-12 h-12" />
+              <div className="bg-card border border-subtle rounded-2xl p-6 hover:border-foreground/30 transition-all duration-500 hover-lift card-shine">
+                <div className="w-14 h-14 rounded-xl bg-background flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <img src={tool.logo} alt={tool.name} className="w-9 h-9" />
                 </div>
-                <motion.p
-                  className="text-2xl font-bold text-foreground mb-1"
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 + 0.3 }}
-                >
-                  {tool.level}%
-                </motion.p>
-                <p className="text-sm text-muted-foreground">{tool.name}</p>
+                <p className="font-medium text-sm mb-2">{tool.name}</p>
+                {tool.level !== null ? (
+                  <>
+                    <div className="h-1 bg-foreground/10 rounded-full overflow-hidden mb-2">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${tool.level}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1, delay: i * 0.08 }}
+                        className="h-full bg-gradient-to-r from-orange to-orange-light"
+                      />
+                    </div>
+                    <p className="text-xs text-muted-foreground">{tool.level}%</p>
+                  </>
+                ) : (
+                  <p className="text-xs text-muted-foreground italic">Écosystème dev</p>
+                )}
               </div>
             </motion.div>
           ))}

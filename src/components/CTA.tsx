@@ -12,94 +12,76 @@ const CTA = () => {
   ];
 
   return (
-    <section id="cta" className="py-24 bg-foreground text-background relative overflow-hidden">
+    <section id="contact" className="py-32 bg-background relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-primary/20 blur-3xl" />
-        <div className="absolute bottom-0 left-0 w-72 h-72 rounded-full bg-orange/20 blur-3xl" />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full bg-foreground/[0.03] blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full bg-orange/[0.05] blur-3xl" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Big CTA headline */}
         <motion.div
-          className="text-center mb-16"
+          className="text-center mb-20 max-w-4xl mx-auto"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-6xl font-bold mb-4">
-            Travaillons <span className="text-gradient-orange">ensemble</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">— Disponible pour opportunités</span>
+          <h2 className="font-display text-5xl md:text-7xl lg:text-8xl mt-6 leading-[0.95]">
+            Travaillons<br />
+            <span className="italic font-light">ensemble.</span>
           </h2>
-          <p className="text-background/60 text-lg max-w-xl mx-auto">
-            Discutons de votre projet et de la façon dont je peux transformer vos idées en réalité.
+          <p className="text-muted-foreground mt-8 text-lg max-w-xl mx-auto">
+            Discutons de votre projet et de la façon dont je peux donner vie à vos idées.
           </p>
-          <div className="flex flex-wrap justify-center gap-3 mt-8">
-            <Badge label="Designer" />
-            <Badge label="Stratège digital" />
-            <Badge label="Créateur de contenu" />
-            <Badge label="Orienté résultats" />
-          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 max-w-6xl mx-auto">
-          {/* Left - Info */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl font-bold mb-8">Disponible pour opportunités</h3>
-
-            <div className="space-y-6">
-              {contactInfo.map((item, index) => (
-                <motion.div
+            <div className="space-y-5">
+              {contactInfo.map((item, i) => (
+                <motion.a
                   key={item.title}
-                  className="flex items-center gap-4"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  href={item.icon === Mail ? `mailto:${item.value}` : item.icon === Phone ? `tel:${item.value.replace(/\s/g, "")}` : "#"}
+                  className="flex items-center gap-5 p-5 rounded-2xl border border-subtle hover:border-foreground/30 hover:bg-card transition-all duration-500 group"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.15 }}
+                  transition={{ delay: i * 0.1 }}
                 >
-                  <div className="w-12 h-12 rounded-full bg-orange flex items-center justify-center flex-shrink-0">
-                    <item.icon className="text-background" size={20} />
+                  <div className="w-12 h-12 rounded-xl border border-subtle bg-foreground/[0.03] flex items-center justify-center flex-shrink-0 group-hover:bg-foreground group-hover:text-background transition-all duration-500">
+                    <item.icon size={18} />
                   </div>
-                  <div>
-                    <p className="text-sm text-background/50">{item.title}</p>
+                  <div className="flex-1">
+                    <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1">{item.title}</p>
                     <p className="font-medium">{item.value}</p>
                   </div>
-                </motion.div>
+                  <ArrowRight size={16} className="text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition-all" />
+                </motion.a>
               ))}
             </div>
           </motion.div>
 
-          {/* Right - Form */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <form action="https://formsubmit.co/snowdenyves@gmail.com" method="POST" className="space-y-5">
+            <form action="https://formsubmit.co/snowdenyves@gmail.com" method="POST" className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium mb-2 block text-background/70">Votre Nom *</label>
-                  <Input name="name" placeholder="Ex. Jean Dupont" required className="rounded-xl h-12 bg-background/10 border-background/20 text-background placeholder:text-background/30" />
-                </div>
-                <div>
-                  <label className="text-sm font-medium mb-2 block text-background/70">Email *</label>
-                  <Input name="email" type="email" placeholder="exemple@gmail.com" required className="rounded-xl h-12 bg-background/10 border-background/20 text-background placeholder:text-background/30" />
-                </div>
+                <Input name="name" placeholder="Votre nom" required className="rounded-xl h-12 bg-card border-subtle" />
+                <Input name="email" type="email" placeholder="Email" required className="rounded-xl h-12 bg-card border-subtle" />
               </div>
-              <div>
-                <label className="text-sm font-medium mb-2 block text-background/70">Votre Message *</label>
-                <Textarea name="message" placeholder="Décrivez votre projet..." rows={5} required className="rounded-xl bg-background/10 border-background/20 text-background placeholder:text-background/30" />
-                <input type="hidden" name="_next" value={typeof window !== 'undefined' ? window.location.href : ''} />
-                <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio" />
-              </div>
-              <Button type="submit" className="bg-orange text-background hover:bg-orange/90 rounded-full px-10 h-12 gap-2 w-full md:w-auto">
-                <Send size={18} />
+              <Textarea name="message" placeholder="Décrivez votre projet..." rows={6} required className="rounded-xl bg-card border-subtle" />
+              <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio" />
+              <Button type="submit" className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-8 h-12 gap-2 w-full md:w-auto">
+                <Send size={16} />
                 Envoyer le message
-                <ArrowRight size={16} />
               </Button>
             </form>
           </motion.div>
@@ -108,11 +90,5 @@ const CTA = () => {
     </section>
   );
 };
-
-const Badge = ({ label }: { label: string }) => (
-  <span className="bg-background/10 border border-background/20 text-background/80 rounded-full px-4 py-1.5 text-sm">
-    {label}
-  </span>
-);
 
 export default CTA;

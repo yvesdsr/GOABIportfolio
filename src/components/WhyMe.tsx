@@ -10,36 +10,36 @@ const reasons = [
 
 const WhyMe = () => {
   return (
-    <section className="py-24 bg-section-purple">
+    <section className="py-32 bg-section-dark">
       <div className="container mx-auto px-6">
         <motion.div
-          className="text-center mb-16"
+          className="max-w-3xl mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-primary font-semibold text-sm tracking-wider uppercase">— Pourquoi moi ?</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-3">
-            Un profil <span className="text-gradient-purple">unique</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">— Pourquoi moi ?</span>
+          <h2 className="font-display text-4xl md:text-6xl mt-4 leading-tight">
+            Un profil <span className="italic font-light">unique.</span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {reasons.map((r, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {reasons.map((r, i) => (
             <motion.div
               key={r.title}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: i * 0.1 }}
               className="group"
             >
-              <div className="bg-background rounded-2xl p-8 border border-border hover:border-primary hover:shadow-lg transition-all duration-500 hover-lift flex gap-5">
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary transition-all duration-300">
-                  <r.icon size={24} className="text-primary group-hover:text-primary-foreground transition-colors" />
+              <div className="bg-card border border-subtle rounded-3xl p-8 hover:border-foreground/30 transition-all duration-500 hover-lift flex gap-5 card-shine">
+                <div className="w-12 h-12 rounded-xl border border-subtle bg-foreground/[0.03] flex items-center justify-center flex-shrink-0 group-hover:bg-foreground group-hover:text-background transition-all duration-500">
+                  <r.icon size={20} />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold mb-1">{r.title}</h3>
+                  <h3 className="font-display text-xl mb-2">{r.title}</h3>
                   <p className="text-sm text-muted-foreground leading-relaxed">{r.description}</p>
                 </div>
               </div>

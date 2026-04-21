@@ -1,159 +1,193 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, Film, Image, Layout, Globe, Palette, Star } from "lucide-react";
+import { ExternalLink, Github, Layout, Palette, FileText, Image as ImageIcon, Star, ArrowUpRight, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
-type Category = "all" | "uiux" | "branding" | "communication" | "webdev";
+type Category = "all" | "branding" | "uiux" | "social" | "print" | "editorial" | "packaging" | "presentations" | "video" | "autres";
 
 const filters: { label: string; value: Category }[] = [
   { label: "Tous", value: "all" },
-  { label: "UI/UX Design", value: "uiux" },
-  { label: "Branding & Graphisme", value: "branding" },
-  { label: "Communication Digitale", value: "communication" },
-  { label: "Développement Web", value: "webdev" },
+  { label: "Branding", value: "branding" },
+  { label: "UI/UX", value: "uiux" },
+  { label: "Réseaux sociaux", value: "social" },
+  { label: "Print", value: "print" },
+  { label: "Éditorial", value: "editorial" },
+  { label: "Packaging", value: "packaging" },
+  { label: "Présentations", value: "presentations" },
+  { label: "Vidéo", value: "video" },
+  { label: "Autres créations", value: "autres" },
 ];
 
-const featuredProjects = [
+type Project = {
+  title: string;
+  category: Category;
+  context?: string;
+  objective?: string;
+  solution?: string;
+  role?: string;
+  tools?: string[];
+  image: string | null;
+  tags?: string[];
+  links: { label: string; url: string; icon?: any }[];
+  featured?: boolean;
+};
+
+const featured: Project[] = [
   {
-    title: "ONG AEJF – Campagne 360°",
-    category: "branding" as Category,
+    title: "ONG AEJF — Campagne 360°",
+    category: "branding",
     context: "L'ONG AEJF avait besoin d'une stratégie de communication complète pour sensibiliser sur l'éducation des jeunes filles.",
     objective: "Créer une identité visuelle forte et une campagne multicanal (site, app, film, print).",
-    solution: "Conception d'une identité visuelle complète, maquettes UI/UX, court-métrage de sensibilisation et supports print.",
-    role: "Brand Designer, UI/UX Designer, Monteur Vidéo, Développeur Web",
-    tools: ["Figma", "Photoshop", "Premiere Pro", "React", "Canva"],
+    solution: "Identité visuelle complète, maquettes UI/UX, court-métrage de sensibilisation et supports print.",
+    role: "Brand Designer, Direction artistique, UI/UX",
+    tools: ["Figma", "Photoshop", "Premiere Pro", "Canva"],
     image: "/projects/aejf-strategie-new.jpeg",
-    tags: ["Site Web", "Charte Graphique", "Court Métrage", "Maquettes"],
+    tags: ["Charte graphique", "Site web", "App", "Film"],
     links: [
-      { label: "Site Internet", url: "https://girls-future-forward.vercel.app", icon: Globe },
+      { label: "Charte graphique", url: "https://www.canva.com/design/DAG7fVWFZeo/13kJN_c4sDBOyttIZJq8kg/view", icon: Palette },
+      { label: "Site web", url: "https://girls-future-forward.vercel.app", icon: ExternalLink },
+      { label: "Maquette site", url: "https://www.figma.com/proto/Z6oNX9VvIQaeij2dn5D0EV/ONG-AEJF?node-id=52-150", icon: Layout },
+      { label: "Maquette app", url: "https://www.figma.com/proto/Z6oNX9VvIQaeij2dn5D0EV/ONG-AEJF?node-id=0-1", icon: Layout },
+      { label: "Logo", url: "https://drive.google.com/file/d/1_rW2OYjJVltT1uY2V7aw_r98pNUrIJyx/view", icon: ImageIcon },
+      { label: "Visuel film", url: "https://www.canva.com/design/DAG9RQsPGm4/v7NHcQ0dfJIBjzuw3BV4wQ/view", icon: ImageIcon },
       { label: "Stratégie", url: "https://www.behance.net/gallery/242088385/STRATEGIE-DE-COMMUNICATION-ONG-AEJF", icon: ExternalLink },
-      { label: "Maquette Site", url: "https://www.figma.com/proto/Z6oNX9VvIQaeij2dn5D0EV/ONG-AEJF?node-id=52-150&t=oo6y63hgqLNb0Kpg-1&starting-point-node-id=52%3A150", icon: Layout },
-      { label: "Maquette App", url: "https://www.figma.com/proto/Z6oNX9VvIQaeij2dn5D0EV/ONG-AEJF?node-id=0-1&t=IYgk6STsqoGNXijF-1", icon: Layout },
-      { label: "Film", url: "https://drive.google.com/file/d/1ha93DB-s3Jn6oMoC-OT3yvYS8hCjj1ez/view?usp=drive_link", icon: Film },
-      { label: "Charte Graphique", url: "https://www.canva.com/design/DAG7fVWFZeo/13kJN_c4sDBOyttIZJq8kg/view?utm_content=DAG7fVWFZeo&utm_campaign=designshare&utm_medium=link&utm_source=viewer", icon: Palette },
-      { label: "Logo", url: "https://drive.google.com/file/d/1_rW2OYjJVltT1uY2V7aw_r98pNUrIJyx/view?usp=drive_link", icon: Image },
-      { label: "Visuel Film", url: "https://www.canva.com/design/DAG9RQsPGm4/v7NHcQ0dfJIBjzuw3BV4wQ/view?utm_content=DAG9RQsPGm4&utm_campaign=designshare&utm_medium=link&utm_source=viewer", icon: Image },
-      { label: "Visuel Communication", url: "https://www.canva.com/design/DAG8JnJoG90/E03oPL4htE1Vybye9wtW2g/view?utm_content=DAG8JnJoG90&utm_campaign=designshare&utm_medium=link&utm_source=viewer", icon: Image },
     ],
     featured: true,
   },
   {
     title: "AKWABA Beer",
-    category: "branding" as Category,
+    category: "branding",
     context: "Création d'une marque de bière africaine premium avec une identité visuelle forte.",
-    objective: "Développer une identité de marque complète : logo, packaging, site web et application mobile.",
-    solution: "Branding complet avec packaging, mockups réalistes, maquette d'application et site vitrine.",
-    role: "Brand Designer, UI/UX Designer, Développeur Web",
-    tools: ["Figma", "Photoshop", "Illustrator", "React"],
+    objective: "Développer un branding complet : logo, packaging, site web et application mobile.",
+    solution: "Identité, packaging, mockups réalistes, maquette d'application et site vitrine.",
+    role: "Brand Designer, UI/UX",
+    tools: ["Figma", "Photoshop", "Illustrator"],
     image: "/projects/akwaba-beer.png",
-    tags: ["Logo", "Packaging", "Mockups", "Maquette App", "Site Web"],
+    tags: ["Logo", "Packaging", "App", "Site web"],
     links: [
       { label: "Behance", url: "https://www.behance.net/gallery/244041351/AKWABA-BEER", icon: ExternalLink },
-      { label: "Maquette App", url: "https://www.figma.com/proto/Z6oNX9VvIQaeij2dn5D0EV/ONG-AEJF?node-id=443-6102&t=EYk5ThLayhBFyuLL-1", icon: Layout },
-      { label: "Site Internet", url: "https://akwaba-brand-experience.vercel.app/", icon: Globe },
+      { label: "Maquette App", url: "https://www.figma.com/proto/Z6oNX9VvIQaeij2dn5D0EV/ONG-AEJF?node-id=443-6102", icon: Layout },
+      { label: "Site Web", url: "https://akwaba-brand-experience.vercel.app/", icon: ExternalLink },
     ],
     featured: true,
   },
   {
-    title: "NexRaiz – Identité Visuelle",
-    category: "branding" as Category,
-    context: "NexRaiz, une startup tech, avait besoin d'une identité visuelle moderne et percutante.",
+    title: "NexRaiz — Identité Visuelle",
+    category: "branding",
+    context: "NexRaiz, startup tech, avait besoin d'une identité visuelle moderne et percutante.",
     objective: "Créer un branding complet reflétant l'innovation et la technologie.",
-    solution: "Logo, charte graphique, déclinaisons et supports de communication.",
-    role: "Brand Designer",
+    solution: "Logo, charte graphique, plaquettes, catalogue et déclinaisons.",
+    role: "Brand Designer, Direction artistique",
     tools: ["Photoshop", "Illustrator", "Canva"],
     image: "/projects/nexraiz-logo.png",
-    tags: ["Logo", "Charte Graphique", "Branding"],
+    tags: ["Logo", "Charte graphique", "Plaquettes", "Catalogue"],
     links: [
-      { label: "Voir", url: "https://www.canva.com/design/DAHBqFIq5fE/Qc6geyBTqJ9b0qP7RAwLTw/view?utm_content=DAHBqFIq5fE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hf4c33664be" },
+      { label: "Présentation", url: "https://www.canva.com/design/DAHBqFIq5fE/Qc6geyBTqJ9b0qP7RAwLTw/view", icon: ExternalLink },
+      { label: "Charte graphique", url: "https://drive.google.com/file/d/1nVGilNA9SKTlWUuJ1kD15bA8yYj-0o5f/view", icon: Palette },
+      { label: "Catalogue", url: "https://drive.google.com/file/d/1lN3i5p7fT0b0kv-3NfBdIVlq-qRvMDtS/view", icon: BookOpen },
+      { label: "Plaquette institutionnelle", url: "https://drive.google.com/file/d/1M4RVApHAdYG4A3HGIPwv4QBdsUgfIP8-/view", icon: FileText },
+      { label: "Plaquette commerciale", url: "https://drive.google.com/file/d/19_igx3SDYN8aEmkJbSc56L0JzBu_QW9t/view", icon: FileText },
     ],
     featured: true,
   },
 ];
 
-const otherProjects = [
+const others: Project[] = [
   {
-    title: "DIGIKIDS",
-    category: "branding" as Category,
+    title: "DIGIKIDS — Charte graphique",
+    category: "branding",
     image: "/projects/digikids-logo.jpeg",
     links: [{ label: "Behance", url: "https://www.behance.net/gallery/241745727/CHARTE-GRAPHIQUE-DIGIKIDS" }],
   },
   {
-    title: "KalouGroup – Brochures",
-    category: "branding" as Category,
+    title: "KalouGroup — Brochures",
+    category: "print",
     image: "/projects/kalougroup-brochure-1.png",
-    links: [{ label: "Voir", url: "https://www.canva.com/design/DAHCXduoHOg/_jbXS7UM8IRlJSvca9X7Iw/view?utm_content=DAHCXduoHOg&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hfcf3071e25" }],
+    links: [
+      { label: "Brochure", url: "https://drive.google.com/file/d/1n89y3vYQJNUtpplkn69rWc1NmCWKATSz/view" },
+      { label: "Aperçu", url: "https://www.canva.com/design/DAHCXduoHOg/_jbXS7UM8IRlJSvca9X7Iw/view" },
+    ],
+  },
+  {
+    title: "GOA-Design — Logo",
+    category: "branding",
+    image: "/projects/goa-design-logo.png",
+    links: [],
+  },
+  {
+    title: "Du Conscientisme à la Dégaoutique",
+    category: "editorial",
+    image: null,
+    links: [{ label: "Cover livre (PDF)", url: "/projects/du-consciencisme-cover.pdf" }],
+  },
+  {
+    title: "RAMA TABITHA NAILS",
+    category: "social",
+    image: "/projects/rama-tabitha-nails.png",
+    links: [],
+  },
+  {
+    title: "Perfect Food — Affiche",
+    category: "print",
+    image: "/projects/challenge-perfect-food.png",
+    links: [],
   },
   {
     title: "LI-KAH",
-    category: "branding" as Category,
+    category: "branding",
     image: null,
     links: [{ label: "Voir", url: "https://www.canva.com/design/DAG7OpacWdE/QhF9oggwgvHXUlf6dMryaw/view" }],
   },
   {
     title: "Babi Beer",
-    category: "communication" as Category,
+    category: "social",
     image: "/projects/babi-beer.png",
     links: [{ label: "Voir", url: "https://www.canva.com/design/DAG7gspkwfQ/-irg1kTSQqzAyBMMAhYFlw/view" }],
   },
   {
     title: "ARIVO",
-    category: "branding" as Category,
+    category: "branding",
     image: null,
     links: [{ label: "Voir", url: "https://www.canva.com/design/DAG7Sf0HFpA/O4MA_5oPOfwI9gHqSYmXoA/watch" }],
   },
-  {
-    title: "GCAC-Coop",
-    category: "webdev" as Category,
-    image: null,
-    github: "https://github.com/yvesdsr/GCAC-Coop",
-    links: [{ label: "Démo", url: "https://gcac-coop.vercel.app/" }],
-  },
-  {
-    title: "Sidii Ingénieurs Web",
-    category: "webdev" as Category,
-    image: null,
-    github: "https://github.com/yvesdsr/sidii-ingenieurs-web",
-    links: [{ label: "Démo", url: "https://sidii-ingenieurs-webb.vercel.app/" }],
-  },
-  {
-    title: "TradingPro",
-    category: "webdev" as Category,
-    image: null,
-    links: [{ label: "Démo", url: "https://trading-pro-blue.vercel.app" }],
-  },
+];
+
+const placeholders: Project[] = [
+  { title: "Cartes de visite", category: "print", image: null, links: [] },
+  { title: "Rapport annuel", category: "editorial", image: null, links: [] },
+  { title: "Pitch deck", category: "presentations", image: null, links: [] },
+  { title: "Packaging produit", category: "packaging", image: null, links: [] },
 ];
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState<Category>("all");
 
-  const filteredOther = activeFilter === "all"
-    ? otherProjects
-    : otherProjects.filter(p => p.category === activeFilter);
-
-  const filteredFeatured = activeFilter === "all"
-    ? featuredProjects
-    : featuredProjects.filter(p => p.category === activeFilter);
+  const filteredFeatured = activeFilter === "all" ? featured : featured.filter((p) => p.category === activeFilter);
+  const allOthers = [...others, ...placeholders];
+  const filteredOthers = activeFilter === "all" ? allOthers : allOthers.filter((p) => p.category === activeFilter);
 
   return (
-    <section id="projects" className="py-24 bg-background">
+    <section id="projects" className="py-32 bg-background relative">
       <div className="container mx-auto px-6">
         <motion.div
-          className="text-center mb-12"
+          className="max-w-3xl mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-orange font-semibold text-sm tracking-wider uppercase">— Mon Portfolio</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-3">
-            Mes Derniers <span className="text-gradient-orange">Projets</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">— Mes Projets</span>
+          <h2 className="font-display text-4xl md:text-6xl mt-4 leading-tight">
+            Une sélection de <span className="italic font-light">créations</span>
           </h2>
+          <p className="text-muted-foreground mt-6 text-lg">
+            Pensées pour l'image, l'impact et la performance.
+          </p>
         </motion.div>
 
         {/* Filters */}
         <motion.div
-          className="flex flex-wrap justify-center gap-3 mb-16"
+          className="flex flex-wrap gap-2 mb-16"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -162,10 +196,10 @@ const Projects = () => {
             <button
               key={f.value}
               onClick={() => setActiveFilter(f.value)}
-              className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-4 py-2 rounded-full text-xs uppercase tracking-wider transition-all duration-300 border ${
                 activeFilter === f.value
-                  ? "bg-foreground text-background shadow-lg"
-                  : "bg-muted text-muted-foreground hover:bg-foreground/10"
+                  ? "bg-foreground text-background border-foreground"
+                  : "border-subtle text-muted-foreground hover:border-foreground/40 hover:text-foreground"
               }`}
             >
               {f.label}
@@ -173,76 +207,68 @@ const Projects = () => {
           ))}
         </motion.div>
 
-        {/* Featured Projects - Case Studies */}
+        {/* Featured */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeFilter + "-featured"}
+            key={activeFilter + "-f"}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.4 }}
-            className="space-y-16 mb-16"
+            className="space-y-12 mb-20"
           >
             {filteredFeatured.map((project, index) => (
-              <motion.div
+              <motion.article
                 key={project.title}
                 initial={{ opacity: 0, y: 60 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.7, delay: index * 0.15 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.7, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="bg-muted rounded-3xl overflow-hidden hover-lift">
-                  <div className="flex flex-col lg:flex-row">
+                <div className="bg-card border border-subtle rounded-3xl overflow-hidden hover-lift">
+                  <div className="grid grid-cols-1 lg:grid-cols-2">
                     {project.image && (
-                      <div className="lg:w-1/2 aspect-video lg:aspect-auto overflow-hidden">
+                      <div className="aspect-[4/3] lg:aspect-auto overflow-hidden bg-muted relative">
                         <img
                           src={project.image}
                           alt={project.title}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
                           loading="lazy"
                         />
                       </div>
                     )}
-                    <div className={`${project.image ? 'lg:w-1/2' : 'w-full'} p-8 lg:p-10 flex flex-col justify-center`}>
-                      <div className="flex items-center gap-2 mb-4">
-                        <Badge className="bg-orange/10 text-orange border-none text-xs uppercase tracking-wider">
-                          <Star size={10} className="mr-1" /> Projet Phare
-                        </Badge>
-                      </div>
-                      <h3 className="text-2xl lg:text-3xl font-bold mb-3">{project.title}</h3>
+                    <div className={`${project.image ? "" : "lg:col-span-2"} p-8 lg:p-12 flex flex-col justify-center`}>
+                      <Badge className="w-fit bg-orange/10 text-orange border-none text-[10px] uppercase tracking-widest mb-4">
+                        <Star size={10} className="mr-1" /> Projet phare
+                      </Badge>
+                      <h3 className="font-display text-3xl lg:text-4xl mb-5">{project.title}</h3>
 
-                      {/* Case study details */}
-                      <div className="space-y-2 mb-4 text-sm">
-                        <p><span className="font-semibold text-foreground">Contexte :</span> <span className="text-muted-foreground">{project.context}</span></p>
-                        <p><span className="font-semibold text-foreground">Objectif :</span> <span className="text-muted-foreground">{project.objective}</span></p>
-                        <p><span className="font-semibold text-foreground">Solution :</span> <span className="text-muted-foreground">{project.solution}</span></p>
-                        <p><span className="font-semibold text-foreground">Mon rôle :</span> <span className="text-muted-foreground">{project.role}</span></p>
+                      <div className="space-y-3 mb-6 text-sm">
+                        {project.context && <p className="text-muted-foreground"><span className="text-foreground/80 uppercase text-[10px] tracking-widest mr-2">Contexte</span>{project.context}</p>}
+                        {project.objective && <p className="text-muted-foreground"><span className="text-foreground/80 uppercase text-[10px] tracking-widest mr-2">Objectif</span>{project.objective}</p>}
+                        {project.solution && <p className="text-muted-foreground"><span className="text-foreground/80 uppercase text-[10px] tracking-widest mr-2">Solution</span>{project.solution}</p>}
+                        {project.role && <p className="text-muted-foreground"><span className="text-foreground/80 uppercase text-[10px] tracking-widest mr-2">Rôle</span>{project.role}</p>}
                       </div>
 
-                      {/* Tools */}
-                      <div className="flex flex-wrap gap-1.5 mb-4">
-                        {project.tools.map(tool => (
-                          <span key={tool} className="text-[10px] bg-foreground/5 text-muted-foreground rounded-full px-2.5 py-1">{tool}</span>
-                        ))}
-                      </div>
+                      {project.tools && (
+                        <div className="flex flex-wrap gap-1.5 mb-5">
+                          {project.tools.map((t) => (
+                            <span key={t} className="text-[10px] uppercase tracking-wider text-muted-foreground border border-subtle rounded-full px-3 py-1">
+                              {t}
+                            </span>
+                          ))}
+                        </div>
+                      )}
 
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-2 mb-5">
-                        {project.tags.map(tag => (
-                          <Badge key={tag} variant="outline" className="text-xs">{tag}</Badge>
-                        ))}
-                      </div>
-
-                      {/* Links */}
                       <div className="flex flex-wrap gap-2">
-                        {project.links.map(link => (
+                        {project.links.map((link) => (
                           <Button
                             key={link.label}
                             size="sm"
                             variant="outline"
-                            className="rounded-full gap-1.5 text-xs hover:bg-orange hover:text-background hover:border-orange transition-all"
-                            onClick={() => window.open(link.url, '_blank')}
+                            className="rounded-full gap-1.5 text-xs border-subtle hover:bg-foreground hover:text-background hover:border-foreground transition-all"
+                            onClick={() => window.open(link.url, "_blank")}
                           >
                             {link.icon && <link.icon size={12} />}
                             {link.label}
@@ -252,66 +278,65 @@ const Projects = () => {
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </motion.article>
             ))}
           </motion.div>
         </AnimatePresence>
 
-        {/* Grid Projects */}
+        {/* Grid */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeFilter + "-grid"}
+            key={activeFilter + "-g"}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
           >
-            {filteredOther.map((project, index) => (
+            {filteredOthers.map((project, index) => (
               <motion.div
                 key={project.title}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.08 }}
+                transition={{ duration: 0.5, delay: index * 0.06 }}
                 className="group"
               >
-                <div className="bg-muted rounded-2xl overflow-hidden hover-lift h-full flex flex-col">
-                  {project.image && (
-                    <div className="aspect-video overflow-hidden">
+                <div className="bg-card border border-subtle rounded-2xl overflow-hidden hover-lift h-full flex flex-col card-shine">
+                  <div className="aspect-[4/3] overflow-hidden bg-muted relative">
+                    {project.image ? (
                       <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000"
                         loading="lazy"
                       />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-muted-foreground/40">
+                        <ImageIcon size={32} />
+                      </div>
+                    )}
+                    <div className="absolute top-3 right-3">
+                      <span className="text-[9px] uppercase tracking-wider bg-background/80 backdrop-blur px-2 py-1 rounded-full border border-subtle">
+                        {filters.find((f) => f.value === project.category)?.label}
+                      </span>
                     </div>
-                  )}
-                  <div className="p-6 flex-1 flex flex-col">
-                    <h3 className="text-lg font-bold mb-4 group-hover:text-primary transition-colors">{project.title}</h3>
+                  </div>
+                  <div className="p-5 flex-1 flex flex-col">
+                    <h3 className="font-display text-lg mb-3 group-hover:text-orange transition-colors">{project.title}</h3>
                     <div className="mt-auto flex flex-wrap gap-2">
-                      {'github' in project && project.github && (
-                        <Button
-                          size="sm"
-                          variant="ghost"
-                          className="rounded-full gap-2 text-xs"
-                          onClick={() => window.open(project.github, '_blank')}
-                        >
-                          <Github size={14} />
-                          Code
-                        </Button>
+                      {project.links.length === 0 && (
+                        <span className="text-[10px] uppercase tracking-widest text-muted-foreground/50">À venir</span>
                       )}
-                      {project.links.map(link => (
-                        <Button
+                      {project.links.map((link) => (
+                        <button
                           key={link.label}
-                          size="sm"
-                          variant="ghost"
-                          className="rounded-full gap-2 text-xs hover:text-orange"
-                          onClick={() => window.open(link.url, '_blank')}
+                          className="text-xs text-muted-foreground hover:text-foreground inline-flex items-center gap-1 transition-colors"
+                          onClick={() => window.open(link.url, "_blank")}
                         >
-                          <ExternalLink size={14} />
                           {link.label}
-                        </Button>
+                          <ArrowUpRight size={12} />
+                        </button>
                       ))}
                     </div>
                   </div>

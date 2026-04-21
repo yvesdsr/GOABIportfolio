@@ -10,21 +10,21 @@ const steps = [
 
 const Process = () => {
   return (
-    <section className="py-24 bg-background">
+    <section id="process" className="py-32 bg-background relative">
       <div className="container mx-auto px-6">
         <motion.div
-          className="text-center mb-16"
+          className="max-w-3xl mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-orange font-semibold text-sm tracking-wider uppercase">— Mon Process</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-3">
-            Comment je <span className="text-gradient-orange">travaille</span>
+          <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">— Mon Process</span>
+          <h2 className="font-display text-4xl md:text-6xl mt-4 leading-tight">
+            Comment je <span className="italic font-light">travaille.</span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-px bg-border/50 border border-subtle rounded-3xl overflow-hidden">
           {steps.map((step, index) => (
             <motion.div
               key={step.title}
@@ -32,17 +32,15 @@ const Process = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.15 }}
-              className="text-center group"
+              className="bg-background p-10 group hover:bg-card transition-all duration-500"
             >
-              <div className="relative">
-                <div className="w-20 h-20 rounded-2xl bg-orange/10 flex items-center justify-center mx-auto mb-6 group-hover:bg-orange group-hover:scale-110 transition-all duration-300">
-                  <step.icon size={32} className="text-orange group-hover:text-background transition-colors" />
-                </div>
-                <span className="absolute -top-2 -right-2 md:right-auto md:-left-2 w-8 h-8 rounded-full bg-foreground text-background text-sm font-bold flex items-center justify-center">
-                  {index + 1}
+              <div className="flex items-center justify-between mb-8">
+                <span className="font-display text-5xl text-muted-foreground/20 group-hover:text-orange/40 transition-colors">
+                  {String(index + 1).padStart(2, "0")}
                 </span>
+                <step.icon size={20} className="text-muted-foreground group-hover:text-foreground transition-colors" />
               </div>
-              <h3 className="text-lg font-bold mb-2">{step.title}</h3>
+              <h3 className="font-display text-xl mb-3">{step.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{step.description}</p>
             </motion.div>
           ))}
