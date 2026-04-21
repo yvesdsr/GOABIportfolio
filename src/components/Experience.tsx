@@ -3,124 +3,97 @@ import { GraduationCap, Briefcase } from "lucide-react";
 
 const Experience = () => {
   const experiences = [
-    {
-      titre: "Graphic & Brand Designer",
-      entreprise: "NexRaiz",
-      periode: "Février 2026 - Présent",
-    },
-    {
-      titre: "CEO & Fondateur",
-      entreprise: "RED STUDIO",
-      periode: "2024 - Présent",
-    },
-    {
-      titre: "Community Manager Assistant",
-      entreprise: "Power Agency",
-      periode: "Sept - Nov 2025",
-    },
-    {
-      titre: "Chargé de communication",
-      entreprise: "SOCAPBLO COOP CA",
-      periode: "2023 - 2025",
-    }
+    { titre: "Graphic & Brand Designer", entreprise: "NexRaiz", periode: "Février 2026 — Présent" },
+    { titre: "CEO & Fondateur", entreprise: "RED STUDIO", periode: "2024 — Présent" },
+    { titre: "Community Manager Assistant", entreprise: "Power Agency", periode: "Sept — Nov 2025" },
+    { titre: "Chargé de communication", entreprise: "SOCAPBLO COOP CA", periode: "2023 — 2025" },
   ];
 
   const education = [
-    {
-      diplome: "IA Product Creator",
-      etablissement: "Simplon CI",
-      periode: "Octobre 2025 - En cours",
-    },
-    {
-      diplome: "Licence en Informatique",
-      etablissement: "Université Nangui Abrogoua",
-      periode: "2019 - 2022",
-    },
-    {
-      diplome: "Baccalauréat Scientifique",
-      etablissement: "Lycée Classique d'Abidjan",
-      periode: "2018",
-    }
+    { diplome: "IA Product Creator", etablissement: "Simplon CI", periode: "Octobre 2025 — En cours" },
+    { diplome: "Licence en Informatique", etablissement: "Université Nangui Abrogoua", periode: "2019 — 2022" },
+    { diplome: "Baccalauréat Scientifique", etablissement: "Lycée Classique d'Abidjan", periode: "2018" },
   ];
 
   return (
-    <section className="py-24 bg-section-orange relative">
+    <section id="parcours" className="py-32 bg-background relative">
       <div className="container mx-auto px-6">
         <motion.div
-          className="text-center mb-16"
+          className="max-w-3xl mb-20"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="text-orange font-semibold text-sm tracking-wider uppercase">— Formation & Expérience</span>
-          <h2 className="text-4xl md:text-5xl font-bold mt-3">
-            Mon <span className="text-gradient-orange">Parcours</span>
-            <br /><span className="text-gradient-purple">Académique</span> et Professionnel
+          <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">— Mon Parcours</span>
+          <h2 className="font-display text-4xl md:text-6xl mt-4 leading-tight">
+            Académique <span className="italic font-light">et</span> Professionnel
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Education */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="bg-card border border-subtle rounded-3xl p-8 md:p-10"
           >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 rounded-full bg-orange flex items-center justify-center">
-                <GraduationCap className="text-orange-foreground" size={24} />
+            <div className="flex items-center gap-3 mb-10">
+              <div className="w-10 h-10 rounded-full border border-subtle flex items-center justify-center">
+                <GraduationCap size={18} />
               </div>
-              <h3 className="text-2xl font-bold">Formation</h3>
+              <h3 className="font-display text-2xl">Formation</h3>
             </div>
 
-            <div className="space-y-0 border-l-2 border-border ml-6">
-              {education.map((edu, index) => (
+            <div className="space-y-0 border-l border-subtle ml-3">
+              {education.map((edu, i) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
+                  key={i}
+                  initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.15 }}
-                  className="relative pl-8 pb-8 group"
+                  transition={{ delay: i * 0.1 }}
+                  className="relative pl-8 pb-8 last:pb-0 group"
                 >
-                  <div className="absolute left-[-9px] top-1 w-4 h-4 rounded-full bg-border group-hover:bg-orange transition-colors duration-300" />
-                  <p className="text-sm text-muted-foreground mb-1">{edu.periode}</p>
-                  <h4 className="text-lg font-bold">{edu.etablissement}</h4>
-                  <p className="text-muted-foreground">{edu.diplome}</p>
+                  <div className="absolute left-[-5px] top-1.5 w-2.5 h-2.5 rounded-full bg-muted-foreground/40 group-hover:bg-orange transition-colors" />
+                  <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1">{edu.periode}</p>
+                  <h4 className="font-display text-lg">{edu.etablissement}</h4>
+                  <p className="text-sm text-muted-foreground">{edu.diplome}</p>
                 </motion.div>
               ))}
             </div>
           </motion.div>
 
-          {/* Work Experience */}
+          {/* Experience */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="bg-card border border-subtle rounded-3xl p-8 md:p-10"
           >
-            <div className="flex items-center gap-3 mb-8">
-              <div className="w-12 h-12 rounded-full bg-orange flex items-center justify-center">
-                <Briefcase className="text-orange-foreground" size={24} />
+            <div className="flex items-center gap-3 mb-10">
+              <div className="w-10 h-10 rounded-full border border-subtle flex items-center justify-center">
+                <Briefcase size={18} />
               </div>
-              <h3 className="text-2xl font-bold">Expérience Professionnelle</h3>
+              <h3 className="font-display text-2xl">Expérience Professionnelle</h3>
             </div>
 
-            <div className="space-y-0 border-l-2 border-border ml-6">
-              {experiences.map((exp, index) => (
+            <div className="space-y-0 border-l border-subtle ml-3">
+              {experiences.map((exp, i) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: 20 }}
+                  key={i}
+                  initial={{ opacity: 0, x: 10 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.15 }}
-                  className="relative pl-8 pb-8 group"
+                  transition={{ delay: i * 0.1 }}
+                  className="relative pl-8 pb-8 last:pb-0 group"
                 >
-                  <div className="absolute left-[-9px] top-1 w-4 h-4 rounded-full bg-border group-hover:bg-orange transition-colors duration-300" />
-                  <p className="text-sm text-muted-foreground mb-1">{exp.periode}</p>
-                  <h4 className="text-lg font-bold">{exp.entreprise}</h4>
-                  <p className="text-muted-foreground">{exp.titre}</p>
+                  <div className="absolute left-[-5px] top-1.5 w-2.5 h-2.5 rounded-full bg-muted-foreground/40 group-hover:bg-orange transition-colors" />
+                  <p className="text-[10px] uppercase tracking-widest text-muted-foreground mb-1">{exp.periode}</p>
+                  <h4 className="font-display text-lg">{exp.entreprise}</h4>
+                  <p className="text-sm text-muted-foreground">{exp.titre}</p>
                 </motion.div>
               ))}
             </div>

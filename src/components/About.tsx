@@ -1,94 +1,77 @@
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
 import { motion } from "framer-motion";
 
 const About = () => {
-  const stats = [
-    { number: "20+", label: "Projets Réalisés" },
-    { number: "10+", label: "Clients Satisfaits" },
-    { number: "3+", label: "Ans d'Expérience" },
-  ];
-
   return (
-    <section id="about" className="py-24 bg-background relative overflow-hidden">
+    <section id="about" className="py-32 bg-background relative overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
-          {/* Left - Photo */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          {/* Left - Image */}
           <motion.div
-            className="flex-shrink-0 relative"
-            initial={{ opacity: 0, x: -60 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="lg:col-span-5 relative"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.8 }}
           >
-            <div className="relative w-72 h-72 md:w-96 md:h-96">
-              <div className="absolute inset-0 rounded-full bg-orange/20" />
+            <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-muted">
               <img
                 src="/images/profile-hero.png"
                 alt="Yves Desire GOABI"
-                className="w-full h-full object-contain relative z-10"
+                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
               />
-              {["UI/UX Design", "Web Dev", "Branding", "Vidéo"].map((skill, i) => (
-                <motion.div
-                  key={skill}
-                  className={`absolute z-20 bg-background shadow-card rounded-full px-4 py-2 text-sm font-medium border border-border ${
-                    i === 0 ? 'top-4 -left-4' :
-                    i === 1 ? 'top-4 -right-4' :
-                    i === 2 ? 'bottom-16 -left-8' :
-                    'bottom-16 -right-8'
-                  }`}
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}
-                >
-                  {skill}
-                </motion.div>
-              ))}
+              <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+              <div className="absolute bottom-6 left-6 right-6">
+                <p className="font-display italic text-2xl text-foreground/90">"Le design n'est pas ce que ça fait — c'est ce que ça fait ressentir."</p>
+              </div>
             </div>
           </motion.div>
 
-          {/* Right - Content */}
+          {/* Right - Text */}
           <motion.div
-            className="flex-1"
-            initial={{ opacity: 0, x: 60 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="lg:col-span-7"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <span className="text-orange font-semibold text-sm tracking-wider uppercase">— À propos</span>
-            <h2 className="text-4xl md:text-5xl font-bold mt-3 mb-2">
-              Qui est <span className="text-gradient-orange">Yves Désiré ?</span>
+            <span className="text-xs uppercase tracking-[0.3em] text-muted-foreground">— À propos</span>
+            <h2 className="font-display text-4xl md:text-6xl mt-4 mb-8 leading-tight">
+              Un profil hybride,<br />
+              <span className="italic font-light">une vision créative</span>
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-8 max-w-xl">
-              Créateur digital passionné, je conçois des identités visuelles, des sites web modernes et du contenu vidéo engageant. Certifié Google en IA et Marketing Digital.
-            </p>
 
-            {/* Stats */}
-            <div className="flex gap-8 mb-8">
-              {stats.map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.15 }}
-                >
-                  <p className="text-3xl font-bold text-gradient-orange">{stat.number}</p>
-                  <p className="text-sm text-muted-foreground">{stat.label}</p>
-                </motion.div>
+            <div className="space-y-5 text-muted-foreground leading-relaxed text-base">
+              <p>
+                Je suis <span className="text-foreground font-medium">Yves Desire GOABI</span>, brand & graphic designer basé à Abidjan. J'aide entrepreneurs, marques et institutions à construire une présence visuelle puissante et cohérente.
+              </p>
+              <p>
+                Mon approche réunit <span className="text-foreground">design, branding, communication digitale, stratégie de contenu</span> et création de produits IA — pour livrer des univers de marque qui ne se contentent pas d'être beaux, mais qui vendent, attirent et durent.
+              </p>
+              <p>
+                Chaque projet est une histoire à raconter avec rigueur, sensibilité et impact.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-3 mt-10">
+              {["Branding", "Direction artistique", "UI/UX", "Communication", "IA Product"].map((s) => (
+                <span key={s} className="px-4 py-1.5 rounded-full border border-subtle text-xs uppercase tracking-wider text-muted-foreground">
+                  {s}
+                </span>
               ))}
             </div>
 
             <Button
-              className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-8 gap-2"
+              className="mt-10 bg-foreground text-background hover:bg-foreground/90 rounded-full px-8 gap-2 h-12"
               onClick={() => {
-                const link = document.createElement('a');
-                link.href = '/cv-yves-desire.pdf';
-                link.download = 'CV_Yves_Desire_GOABI.pdf';
+                const link = document.createElement("a");
+                link.href = "/cv-yves-desire.pdf";
+                link.download = "CV_Yves_Desire_GOABI.pdf";
                 link.click();
               }}
             >
-              <Download size={18} />
+              <Download size={16} />
               Télécharger mon CV
             </Button>
           </motion.div>
