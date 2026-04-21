@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Github, Layout, Palette, FileText, Image as ImageIcon, Star, ArrowUpRight } from "lucide-react";
+import { ExternalLink, Github, Layout, Palette, FileText, Image as ImageIcon, Star, ArrowUpRight, BookOpen } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
@@ -85,18 +85,13 @@ const featured: Project[] = [
     links: [
       { label: "Présentation", url: "https://www.canva.com/design/DAHBqFIq5fE/Qc6geyBTqJ9b0qP7RAwLTw/view", icon: ExternalLink },
       { label: "Charte graphique", url: "https://drive.google.com/file/d/1nVGilNA9SKTlWUuJ1kD15bA8yYj-0o5f/view", icon: Palette },
-      { label: "Catalogue", url: "https://drive.google.com/file/d/1lN3i5p7fT0b0kv-3NfBdIVlq-qRvMDtS/view", icon: BookIcon },
+      { label: "Catalogue", url: "https://drive.google.com/file/d/1lN3i5p7fT0b0kv-3NfBdIVlq-qRvMDtS/view", icon: BookOpen },
       { label: "Plaquette institutionnelle", url: "https://drive.google.com/file/d/1M4RVApHAdYG4A3HGIPwv4QBdsUgfIP8-/view", icon: FileText },
       { label: "Plaquette commerciale", url: "https://drive.google.com/file/d/19_igx3SDYN8aEmkJbSc56L0JzBu_QW9t/view", icon: FileText },
     ],
     featured: true,
   },
 ];
-
-function BookIcon(props: any) {
-  return <BookOpenIcon {...props} />;
-}
-import { BookOpen as BookOpenIcon } from "lucide-react";
 
 const others: Project[] = [
   {

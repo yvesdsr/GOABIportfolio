@@ -32,7 +32,7 @@ const Header = () => {
             transition={{ delay: 0.2 }}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-subtle bg-foreground/5 mb-8"
           >
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-success animate-pulse" />
             <span className="text-xs tracking-wide text-muted-foreground">Disponible pour opportunités</span>
           </motion.div>
 
